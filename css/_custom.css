@@ -1,0 +1,16 @@
+/*
+Custom card
+*/
+body {
+    background: #e2d8c9;
+    background: -webkit-linear-gradient(to right, #eecda3, #efb262);
+    background: linear-gradient(to right, #eecda3, #efc562);
+    min-height: 100vh;
+  }
+
+html, body {
+  scroll-behavior: smooth;
+  }
+  /*
+Custom card
+*/ 
