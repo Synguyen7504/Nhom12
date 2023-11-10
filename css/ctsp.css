@@ -1,0 +1,161 @@
+.box1{
+    grid-area: b1;
+    background: url(../images/ct1.jpg);
+}
+.box2{
+    grid-area: b2;
+    background: url(../images/ct3.jpg);
+}
+.box3{
+    grid-area: b3;
+    background: url(../images/ct4.jpg);
+}
+.box4{
+    grid-area: b4;
+    background: url(../images/ct5.jpg);
+}
+div{
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+.show_phong {
+    width: 100%;
+    height: auto;
+}
+
+.grid_slyde {
+    width: 80%;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        "b1 b2 b2"
+        "b1 b3 b4";
+    gap: 10px;
+    margin: auto;
+    margin-top: 20px;
+}
+
+/*  */
+.box_room{
+    width: 80%;
+    height: 200px;
+    border-bottom: 2px solid gray;
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+}
+/* lèF */
+.loai {
+    display: flex;
+    align-items: center;
+}
+
+.loai .fa-star {
+    color: gold;
+}
+
+.loai span {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-right: 5px;
+}
+.name {
+    font-family: Arial, sans-serif;
+}
+
+.ten {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.DC {
+    font-size: 16px;
+    color: #666;
+}
+/* RIGHT */
+.right {
+    text-align: right;
+    line-height: 40px;
+}
+
+.right p {
+    margin: 0;
+    font-size: 16px;
+    color: #333;
+}
+
+.right strong {
+    font-size: 24px;
+    color: #111111;
+    font-weight: bold;
+    
+}
+.right i{
+    text-decoration: line-through;
+    font-size: 20px;
+}
+.right button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #CC0000;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+/* tiện nghi */
+.tien_nghi {
+    width: 80%;
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: auto;
+}
+.tien_nghi h3 {
+     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+   
+}
+/*  */
+.xem-them-link {
+ color: gray;
+ font-style: italic;
+ font-weight: bold;
+}
+
+/*  */
+.op_sun {
+    display: flex;
+    flex-wrap: wrap;
+   width: 100%;
+   justify-content: center;
+}
+
+.cc {
+    font-size: 16px;
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.1);
+}
+
+.cc i {
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.cc:hover {
+    background-color: #f0f0f0;
+    transition: 0.3s;
+}
