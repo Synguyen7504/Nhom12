@@ -159,3 +159,112 @@ div{
     background-color: #f0f0f0;
     transition: 0.3s;
 }
+/* mota */
+.mota{
+    width: 80%;
+    border: outset;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+.mota h3{
+    color: #333;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px 30px;
+}
+.all{
+    width: 100%;
+    display: flex;
+}
+.all .all_lef img{
+width: 350px;
+height: 180px;
+border-radius: 10px;
+margin: 10px 25px;
+border: outset;
+}
+.tn{
+    margin: 10px 25px;
+    color: #111111;
+    font-weight: bold;
+}
+.tn svg{
+margin-right: 5px;
+}
+.all_right{
+    width: 60%;
+    background-color: #202020;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+}
+.all_right .he{
+    margin: 10px 20px;
+    color: #d9d9d9;
+    font-size: 20px;
+}
+.uu_dai{
+    width: 100%;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    padding-left: 5%;
+}
+.uu_dai h3{
+    color: #d9d9d9;
+    font-size: 20px;
+}
+.uu_dai .ct_ud{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between ;
+    color: #d9d9d9;
+}
+.van_dap{
+    color: #d9d9d9;
+}
+.van_dap svg{
+    margin-right: 5px;
+}
+/* book_ct */
+.book_ct{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 8%;
+    align-items: end;
+    color: #d9d9d9;
+}
+.dat_ngay{
+
+    margin-top: 10px;
+    line-height: 15px;
+}
+.book_ct .dat_ngay p strong{
+    font-size: 20px;
+    font-weight: bold;
+    color: coral;
+}
+.dat_ngay button{
+    width: 180px;
+    height: 40px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #CC0000;
+    font-weight: bold;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+.cac_phon{
+    width: 80%;
+    margin: auto;
+    margin-top: 50px;
+}
+.cac_phon h3{
+    color: #333;
+    font-size: 25px;
+    font-weight: bold;
+    margin: 20px 30px;
+}
