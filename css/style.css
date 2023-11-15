@@ -1269,3 +1269,8 @@ textarea.form-control {
         background: #ffba5a;
         color: #fff;
         border-radius: 50%; }
+
+      .s{
+        max-width: 45%;
+        margin-left: 27%;
+      }
