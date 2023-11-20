@@ -37,7 +37,7 @@
                 <img src="images/slider-1.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
-                <h2>Da Lat room</h2>
+                <h2 style="color: black;"> Da Lat room</h2>
                 <span class="text-uppercase letter-spacing-1">90$ / Đêm</span>
               </div>
             </a>
@@ -49,7 +49,7 @@
                 <img src="images/slider-2.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
-                <h2>Hoi An room</h2>
+                <h2 style="color: black;">Hoi An room</h2>
                 <span class="text-uppercase letter-spacing-1">120$ / Đêm</span>
               </div>
             </a>
@@ -61,12 +61,11 @@
                 <img src="images/slider-3.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
-                <h2>Sapa room</h2>
+                <h2 style="color: black;">Sapa room</h2>
                 <span class="text-uppercase letter-spacing-1">250$ / Đêm</span>
               </div>
             </a>
           </div>
-
 
         </div>
       </div>
