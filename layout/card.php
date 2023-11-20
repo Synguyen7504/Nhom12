@@ -1,16 +1,16 @@
 <div class="px-4 px-lg-0" id="cuon">
     <!-- For demo purpose -->
     <div class="container text-white py-5 text-center"  data-aos="fade-up">
-      <h1 class="display-4" >Thanh Toán</h1>
-      <p class="lead mb-0" >Đặt Phòng</p>
+      <h1 class="display-4" style="color: #23272b;">Thanh Toán</h1>
+      <p class="lead mb-0" style="color: #23272b;">Đặt Phòng</p>
       
     </div>
     <!-- End -->
   
-    <div class="pb-5">
+    <div class="pb-5" >
       <div class="container">
-        <div class="row">
-          <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
+        <div class="row" >
+          <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5" style="border: 1px solid rgba(116, 112, 108, 0.267);">
     
             <!-- Shopping cart table -->
             <div class="table-responsive">
@@ -64,8 +64,8 @@
       </div>
     </div>
     
-  
-        <div class="row py-5 p-4 bg-white rounded shadow-sm">
+  <div class = "row"  style="margin-left: -70%; transform: translateX(50%); margin-bottom: 50px;">
+        <div class="row py-5 p-4 bg-white rounded shadow-sm" style="border: 1px solid rgba(116, 112, 108, 0.267);">
           <div class="col-lg-6"  data-aos="fade-up">
             <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">Coupon code</div>
             <div class="p-4">
@@ -100,4 +100,5 @@
   
       </div>
     </div>
+  </div>
   </div>

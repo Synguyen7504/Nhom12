@@ -9,7 +9,7 @@
   
     <div class="pb-5">
       <div class="container">
-        <div class="row py-5 p-4 bg-white rounded shadow-sm">
+        <div class="row py-5 p-4 bg-white rounded shadow-sm" style="border: 1px solid rgba(116, 112, 108, 0.267);">
           <div class="col-lg-6"  data-aos="fade-up">
             <div class="bg-light rounded-pill px-4 py-3 text-uppercase font-weight-bold">My Information</div>
             <div class="p-4">

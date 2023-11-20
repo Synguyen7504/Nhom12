@@ -18,12 +18,12 @@
     
     <link rel="stylesheet" href="fonts/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
-      <!-- Theme Style -->
+    <link rel="stylesheet" href="css/custom.css">
+    <!-- Theme Style -->
       <link rel="stylesheet" href="css/style.css">
     <!-- Card -->
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/custom.css">
     <style>
         #carda {
         border-radius: 4px;

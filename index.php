@@ -1,5 +1,9 @@
 <?php
-if ($_GET['act'] != "login") {
+$get = "";
+if (isset($_GET['act'])) {
+    $get = $_GET['act'];
+}
+if ($get != "login") {
     include "layout/header.php";
 }
 
@@ -35,7 +39,7 @@ if (isset($_GET['act'])) {
     include "layout/home.php";
 }
 
-if ($_GET['act'] != "login") {
+if ($get != "login") {
     include "layout/footer.php";
 }
 ?>
