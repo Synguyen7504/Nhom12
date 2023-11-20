@@ -64,11 +64,13 @@
     <div class="container">
       <div class="row check-availabilty" id="next">
         <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
-          <a href="" id="carda">Phòng Đơn</a>
-          <a href="" id="carda">Phòng Đơn</a>
-          <a href="" id="carda">Phòng Đơn</a>
-          <a href="" id="carda">Phòng Đơn</a>
-          <a href="" id="carda">Phòng Đơn</a>
+          <a style="margin-left: 5%;" href="" id="carda">Phòng Đơn</a>
+          <a href="" id="carda" style="margin-left: 5%;">Phòng Đơn</a>
+          <a href="" id="carda" style="margin-left: 5%;">Phòng Đơn</a>
+          <a href="" id="carda" style="margin-left: 5%;">Phòng Đơn</a>
+          <a href="" id="carda" style="margin-left: 5%;">Phòng Đơn</a>
+          <a href="" id="carda" style="margin-left: 5%;">Phòng Đơn</a>
+
         </div>
       </div>
     </div>
@@ -194,4 +196,3 @@
       </div>
     </div>
   </section>
-
