@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 13, 2023 lúc 07:29 AM
+-- Thời gian đã tạo: Th10 21, 2023 lúc 02:37 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.1.17
 
@@ -75,7 +75,30 @@ CREATE TABLE `khachsan` (
   `tenKhachSan` varchar(50) NOT NULL,
   `diaDiem` varchar(250) NOT NULL,
   `khoangGia` varchar(50) NOT NULL,
-  `danhGia` int(1) NOT NULL DEFAULT 1
+  `danhGia` int(1) NOT NULL DEFAULT 1,
+  `nhaHang` bit(1) NOT NULL DEFAULT b'0',
+  `hoBoi` bit(1) NOT NULL DEFAULT b'0',
+  `phongGym` bit(1) NOT NULL DEFAULT b'0',
+  `wifi` bit(1) NOT NULL DEFAULT b'0',
+  `mayLanh` bit(1) NOT NULL DEFAULT b'0',
+  `hutThuoc` bit(1) NOT NULL DEFAULT b'0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Cấu trúc bảng cho bảng `loaiphong`
+--
+
+CREATE TABLE `loaiphong` (
+  `maLoai` int(11) NOT NULL,
+  `tenLoai` varchar(50) NOT NULL,
+  `nhaHang` bit(1) NOT NULL DEFAULT b'0',
+  `hoBoi` bit(1) NOT NULL DEFAULT b'0',
+  `phongGym` bit(1) NOT NULL DEFAULT b'0',
+  `wifi` bit(1) NOT NULL DEFAULT b'0',
+  `mayLanh` bit(1) NOT NULL DEFAULT b'0',
+  `hutThuoc` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -89,7 +112,8 @@ CREATE TABLE `phong` (
   `maKhachSan` int(11) NOT NULL,
   `soPhong` int(11) NOT NULL,
   `loaiPhong` varchar(50) NOT NULL,
-  `giaPhong` float NOT NULL
+  `giaPhong` float NOT NULL,
+  `trangThai` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -101,19 +125,6 @@ CREATE TABLE `phong` (
 CREATE TABLE `tiennghi` (
   `maTienNghi` int(11) NOT NULL,
   `tenTienNghi` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Cấu trúc bảng cho bảng `tiennghikhachsan`
---
-
-CREATE TABLE `tiennghikhachsan` (
-  `maTienNghiKhachSan` int(11) NOT NULL,
-  `maKhachSan` int(11) DEFAULT NULL,
-  `maTienNghi` int(11) NOT NULL,
-  `maPhong` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -133,6 +144,12 @@ ALTER TABLE `khachhang`
   ADD PRIMARY KEY (`maKhachHang`);
 
 --
+-- Chỉ mục cho bảng `loaiphong`
+--
+ALTER TABLE `loaiphong`
+  ADD PRIMARY KEY (`maLoai`);
+
+--
 -- Chỉ mục cho bảng `phong`
 --
 ALTER TABLE `phong`
@@ -143,12 +160,6 @@ ALTER TABLE `phong`
 --
 ALTER TABLE `tiennghi`
   ADD PRIMARY KEY (`maTienNghi`);
-
---
--- Chỉ mục cho bảng `tiennghikhachsan`
---
-ALTER TABLE `tiennghikhachsan`
-  ADD PRIMARY KEY (`maTienNghiKhachSan`);
 
 --
 -- AUTO_INCREMENT cho các bảng đã đổ
@@ -167,6 +178,12 @@ ALTER TABLE `khachhang`
   MODIFY `maKhachHang` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT cho bảng `loaiphong`
+--
+ALTER TABLE `loaiphong`
+  MODIFY `maLoai` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT cho bảng `phong`
 --
 ALTER TABLE `phong`
@@ -177,12 +194,6 @@ ALTER TABLE `phong`
 --
 ALTER TABLE `tiennghi`
   MODIFY `maTienNghi` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT cho bảng `tiennghikhachsan`
---
-ALTER TABLE `tiennghikhachsan`
-  MODIFY `maTienNghiKhachSan` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
