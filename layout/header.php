@@ -64,11 +64,11 @@
                     <div class="col-md-6 mx-auto">
                       <ul class="list-unstyled menu">
                         <li class="active"><a href="index.php/?act=0">Trang chủ</a></li>
-                        <li><a href="index.php/?act=rooms">Phòng</a></li>
-                        <li><a href="index.php/?act=history">Về chúng tôi</a></li>
+                        <li><a href="index.php?act=rooms">Phòng</a></li>
+                        <li><a href="index.php?act=history">Về chúng tôi</a></li>
                         <li><a href="index.php">Tin tức</a></li>
-                        <li><a href="index.php/?act=concat">Liên hệ</a></li>
-                        <li><a href="index.php/?act=card">Thanh toán</a></li>
+                        <li><a href="index.php?act=concat">Liên hệ</a></li>
+                        <li><a href="index.php?act=card">Thanh toán</a></li>
                       </ul>
                     </div>
                   </div>
