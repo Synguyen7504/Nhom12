@@ -63,12 +63,12 @@
                   <div class="row full-height align-items-center">
                     <div class="col-md-6 mx-auto">
                       <ul class="list-unstyled menu">
-                        <li class="active"><a href="index.html">Trang chủ</a></li>
-                        <li><a href="rooms.html">Phòng</a></li>
-                        <li><a href="about.html">Về chúng tôi</a></li>
-                        <li><a href="events.html">Tin tức</a></li>
-                        <li><a href="contact.html">Liên hệ</a></li>
-                        <li><a href="card.html">Thanh toán</a></li>
+                        <li class="active"><a href="index.php/?act=0">Trang chủ</a></li>
+                        <li><a href="index.php/?act=rooms">Phòng</a></li>
+                        <li><a href="index.php/?act=history">Về chúng tôi</a></li>
+                        <li><a href="index.php">Tin tức</a></li>
+                        <li><a href="index.php/?act=concat">Liên hệ</a></li>
+                        <li><a href="index.php/?act=card">Thanh toán</a></li>
                       </ul>
                     </div>
                   </div>
