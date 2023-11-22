@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
     <!-- Theme Style -->
     <!-- Card -->
+    <link rel="stylesheet" href="css/ctsp.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   <link rel="stylesheet" href="fonts/fontawesome/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/custom.css">
   <link rel="stylesheet" href="css/style.css">
@@ -64,11 +66,11 @@
                     <div class="col-md-6 mx-auto">
                       <ul class="list-unstyled menu">
                         <li class="active"><a href="index.html">Trang chủ</a></li>
-                        <li><a href="rooms.html">Phòng</a></li>
-                        <li><a href="about.html">Về chúng tôi</a></li>
-                        <li><a href="events.html">Tin tức</a></li>
-                        <li><a href="contact.html">Liên hệ</a></li>
-                        <li><a href="card.html">Thanh toán</a></li>
+                        <li><a href="index.php">Phòng</a></li>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                        <li><a href="index.php?act=card">Thanh toán</a></li>
                       </ul>
                     </div>
                   </div>

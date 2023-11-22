@@ -86,4 +86,50 @@
             unset($conn);
         }
     }
+    // truy vấn 1
+    function pdo_truyVan1($sql){
+        global $conn;
+        try{
+            $stmt=$conn->prepare($sql);
+            $stmt->execute();
+            $row=$stmt->fetch(PDO::FETCH_ASSOC);
+            return $row;
+        }
+        catch(PDOException $e){
+            throw $e;
+        }
+        finally{
+            unset($conn);
+        }
+    }
+    // truy vấn nhiều
+    function pdo_truyVanAll($sql){
+        global $conn;
+        try{
+            $stmt=$conn->prepare($sql);
+            $stmt->execute();
+            $rows=$stmt->fetchAll();
+            return $rows;
+        }
+        catch(PDOException $e){
+            throw $e;
+        }
+        finally{
+            unset($conn);
+        }
+    }
+    // thực thi không trả về
+    function pdo_thucThi($sql){
+        global $conn;
+        try{
+            $stmt=$conn->prepare($sql);
+            $stmt->execute();
+        }
+        catch(PDOException $e){
+            throw $e;
+        }
+        finally{
+            unset($conn);
+        }
+    }
     ?>

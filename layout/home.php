@@ -1,62 +1,7 @@
-<section class="section pb-4">
-    <div class="container">
-
-      <div class="row check-availabilty" id="next">
-        <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
-
-          <form action="#">
-            <div class="row">
-              <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                <label for="checkin_date" class="font-weight-bold text-black">Nhận Phòng</label>
-                <div class="field-icon-wrap">
-                  <div class="icon"><span class="icon-calendar"></span></div>
-                  <input type="text" id="checkin_date" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                <label for="checkout_date" class="font-weight-bold text-black">Trả Phòng</label>
-                <div class="field-icon-wrap">
-                  <div class="icon"><span class="icon-calendar"></span></div>
-                  <input type="text" id="checkout_date" class="form-control">
-                </div>
-              </div>
-              <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
-                <div class="row">
-                  <div class="col-md-6 mb-3 mb-md-0">
-                    <label for="adults" class="font-weight-bold text-black">Người lớn</label>
-                    <div class="field-icon-wrap">
-                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                      <select name="" id="adults" class="form-control">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4+</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-3 mb-md-0">
-                    <label for="children" class="font-weight-bold text-black">Trẻ em</label>
-                    <div class="field-icon-wrap">
-                      <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                      <select name="" id="children" class="form-control">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                        <option value="">4+</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-3 align-self-end">
-                <button class="btn btn-primary btn-block text-white">Tìm phòng</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
+<?php
+$rows = truyVanGioiHan();
+include "search.php";
+?>
 
 
 <section class="py-5 bg-light">
@@ -88,45 +33,28 @@
         <div class="row justify-content-center text-center mb-5">
           <div class="col-md-7">
             <h2 class="heading" data-aos="fade-up">Nổi Bật</h2>
-            <p data-aos="fade-up" data-aos-delay="100">Những căn phòng với lượt đánh giá cao nhất của chúng tôi.</p>
+            <p data-aos="fade-up" data-aos-delay="100">Những khách sạn với lượt đánh giá cao nhất của chúng tôi.</p>
           </div>
         </div>
         <div class="row">
+          <?php 
+          foreach ($rows as $key => $value) {
+            ?>
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="chitietsp.html" class="room">
+            <a href="index.php?act=product&maKhachSan=<?php echo $value['maKhachSan'] ?>" class="room">
               <figure class="img-wrap">
-                <img src="images/slider-1.jpg" alt="Free website template" class="img-fluid mb-3">
+                <img src="<?php echo $value['anh1']?>" class="img-fluid mb-3"  style="border-radius: 15px;">
               </figure>
               <div class="p-3 text-center room-info">
-                <h2 style="color: black;"> Da Lat room</h2>
-                <span class="text-uppercase letter-spacing-1">90$ / Đêm</span>
+                <h2 style="color: black;"><?php echo $value['tenKhachSan'] ?></h2>
+                <span class="text-uppercase letter-spacing-1" style="font-weight: normal;">Trung bình giá: <?php echo $value['khoangGia'] ?>đ / Đêm</span>
               </div>
             </a>
           </div>
+          <?php
+          }
+          ?>
 
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="chitietsp.html" class="room">
-              <figure class="img-wrap">
-                <img src="images/slider-2.jpg" alt="Free website template" class="img-fluid mb-3">
-              </figure>
-              <div class="p-3 text-center room-info">
-                <h2 style="color: black;">Hoi An room</h2>
-                <span class="text-uppercase letter-spacing-1">120$ / Đêm</span>
-              </div>
-            </a>
-          </div>
-
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="chitietsp.html" class="room">
-              <figure class="img-wrap">
-                <img src="images/slider-3.jpg" alt="Free website template" class="img-fluid mb-3">
-              </figure>
-              <div class="p-3 text-center room-info">
-                <h2 style="color: black;">Sapa room</h2>
-                <span class="text-uppercase letter-spacing-1">250$ / Đêm</span>
-              </div>
-            </a>
-          </div>
 
         </div>
       </div>
@@ -175,54 +103,70 @@
       </div>
     </section>
     <!-- END section -->
-    <section class="section">
-      <div class="container">
-        <div class="row justify-content-center text-center mb-5">
-          <div class="col-md-7">
-            <h2 class="heading" data-aos="fade-up">Căn hộ &amp; Phòng</h2>
-            <p data-aos="fade-up" data-aos-delay="100">Một căn phòng tiện nghi, yên tĩnh nằm giữa
+    <section class="section testimonial-section">
+    <div class="container">
+      <div class="row justify-content-center text-center mb-5">
+        <div class="col-md-7">
+          <h2 class="heading" data-aos="fade-up">Loại Phòng</h2>
+          <p data-aos="fade-up" data-aos-delay="100">Một căn phòng tiện nghi, yên tĩnh nằm giữa
                lòng phố cổ sẽ mang đến cho bạn những phút giây thoải mái, thư giãn nhất.
                Rapports – căn phòng đã thể hiện được sự hài hòa khi kết hợp truyền thống với hiện đại.</p>
-          </div>
         </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="rooms.html" class="room">
+      </div>
+      <div class="row">
+        <div class="js-carousel-2 owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+          <div class="testimonial text-center slider-item">
+            <a href="index.html?act=rooms&filter=phongdon" class="room">
               <figure class="img-wrap s">
                 <img src="images/single.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
-                <h2>Single Room</h2>
+                <h2>Phòng Đơn</h2>
               </div>
             </a>
           </div>
-
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="rooms.html" class="room">
+          <div class="testimonial text-center slider-item">
+            <a href="index.html?act=rooms&filter=canho" class="room">
               <figure class="img-wrap s">
                 <img src="images/familly.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
-                <h2>Family Room</h2>
+                <h2>Căn Hộ</h2>
               </div>
             </a>
           </div>
 
-          <div class="col-md-6 col-lg-4" data-aos="fade-up">
-            <a href="rooms.html" class="room">
+          <div class="testimonial text-center slider-item">
+            <a href="index.html?act=rooms&filter=phongdoi" class="room">
               <figure class="img-wrap s">
                 <img src="images/president.jpg" alt="Free website template" class="img-fluid mb-3">
               </figure>
               <div class="p-3 text-center room-info">
-                <h2>Presidential Room</h2>
+                <h2>Phòng Đôi</h2>
               </div>
             </a>
           </div>
 
 
+          <div class="testimonial text-center slider-item">
+            <a href="index.html?act=rooms&filter=dayphong" class="room">
+              <figure class="img-wrap s">
+                <img src="images/familly.jpg" alt="Free website template" class="img-fluid mb-3">
+              </figure>
+              <div class="p-3 text-center room-info">
+                <h2>Dãy Phòng</h2>
+              </div>
+            </a>
+          </div>
+
+
+
         </div>
+        <!-- END slider -->
       </div>
-    </section>
+    </div>
+  </section>
+  
     <!-- Danh mục -->
     <section class="section bg-image overlay" style="background-image: url('images/hero_3.jpg');">
       <div class="container">

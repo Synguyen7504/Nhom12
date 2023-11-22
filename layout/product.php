@@ -1,70 +1,38 @@
-
-      <section class="section bg-light pb-0"  >
-        <div class="container">
-         
-          <div class="row check-availabilty" id="next">
-            <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
-  
-              <form action="#">
-                <div class="row">
-                  <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                    <label for="checkin_date" class="font-weight-bold text-black">Check In</label>
-                    <div class="field-icon-wrap">
-                      <div class="icon"><span class="icon-calendar"></span></div>
-                      <input type="text" id="checkin_date" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
-                    <label for="checkout_date" class="font-weight-bold text-black">Check Out</label>
-                    <div class="field-icon-wrap">
-                      <div class="icon"><span class="icon-calendar"></span></div>
-                      <input type="text" id="checkout_date" class="form-control">
-                    </div>
-                  </div>
-                  <div class="col-md-6 mb-3 mb-md-0 col-lg-3">
-                    <div class="row">
-                      <div class="col-md-6 mb-3 mb-md-0">
-                        <label for="adults" class="font-weight-bold text-black">Adults</label>
-                        <div class="field-icon-wrap">
-                          <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                          <select name="" id="adults" class="form-control">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4+</option>
-                          </select>
-                        </div>
-                      </div>
-                      <div class="col-md-6 mb-3 mb-md-0">
-                        <label for="children" class="font-weight-bold text-black">Children</label>
-                        <div class="field-icon-wrap">
-                          <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                          <select name="" id="children" class="form-control">
-                            <option value="">1</option>
-                            <option value="">2</option>
-                            <option value="">3</option>
-                            <option value="">4+</option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-md-6 col-lg-3 align-self-end">
-                    <button class="btn btn-primary btn-block text-white">Check Availabilty</button>
-                  </div>
-                </div>
-              </form>
+<section class="section slider-section bg-light">
+<div class="container text-white py-5 text-center"  data-aos="fade-up" style ="margin-top: -100px">
+      <h1 class="display-4" >Khách Sạn</h1>
+      <p class="lead mb-0" style = "color: black;">Đặt Phòng</p>
+      
+    </div>   
+<div class="container">
+      <div class="row">
+      <div class="col-md-12">
+          <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
+            <div class="slider-item">
+              <a href="<?php echo $row['anh1'] ?>" data-fancybox="images" data-caption="Caption for this image" "><img src="<?php echo $row['anh1'] ?>
+                " alt="Image placeholder" class="img-fluid"></a>
             </div>
-  
-  
+            <div class="slider-item">
+              <a href="<?php echo $row['anh2'] ?>" data-fancybox="images" data-caption="Caption for this image" "><img src="<?php echo $row['anh2'] ?>
+                " alt="Image placeholder" class="img-fluid"></a>
+            </div>
+            <div class="slider-item">
+              <a href="<?php echo $row['anh3'] ?>" data-fancybox="images" data-caption="Caption for this image" "><img src="<?php echo $row['anh3'] ?>
+                " alt="Image placeholder" class="img-fluid"></a>
+            </div>
+            <div class="slider-item">
+              <a href="<?php echo $row['anh4'] ?>" data-fancybox="images" data-caption="Caption for this image" "><img src="<?php echo $row['anh4'] ?>
+                " alt="Image placeholder" class="img-fluid"></a>
+            </div>
           </div>
+          <!-- END slider -->
         </div>
-      </section>
-     <div class="show_phong">
+
+      </div>
+      
+    </div>
+    <div class="show_phong" style = "margin-top: -30px;">
         <div class="grid_slyde">
-            <div class="box1">
-                <img src="images/ct1.jpg" alt="">
-            </div>
             <div class="box2"></div>
             <div class="box3"></div>
             <div class="box4"></div>
@@ -73,21 +41,24 @@
             <div class="lef">
                 <div class="loai">
                     <span>Khách sạn:</span>
+                    <?php 
+                    for ($i= 0; $i < $row['danhGia']  ; $i++) { 
+                    ?>
                     <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
+                    <?php
+                    }
+                    ?>
+                    
                 </div>
                 <div class="name">
-                    <p class="ten">Khách sạn Grand Vista Hanoi</p>
-                    <p class="DC">146 Giảng Võ, Đống Đa, Hà Nội</p>
+                    <p class="ten"><?php echo $row['tenKhachSan'] ?></p>
+                    <p class="DC"><?php echo $row['diaDiem'] ?></p>
                 </div>
             </div>
             <!--  -->
             <div class="right">
-                <p><strong>Giá Phòng Từ :</strong> <i>11.500.00 VND</i></p>
-                <p><strong>6.000.000/</strong> <em>Đêm</em> </p>
+                <p><strong>Trung Bình Giá Từ :</strong> <i>11.500.00 VND</i></p>
+                <p><strong><?php echo $row['khoangGia'] ?> VNĐ/</strong> <em>Đêm</em> </p>
                 <Button><a href="card.html">Lựa Chọn Phòng</a></Button>
             </div>
           </div>
@@ -96,37 +67,102 @@
                 Tiện Nghi Khách Sạn
             </h3>
             <div class="op_sun">
-                <p class="cc"><i class="fa-solid fa-utensils"></i>Nhà hàng</p>
-                <p class="cc" ><i class="fa-solid fa-person-swimming"></i>Hồ bơi</p>
-                <p class="cc" ><i class="fa-solid fa-dumbbell"></i>Phòng Gym</p>
-                <p class="cc" > <i class="fa-solid fa-wifi"></i>Wifi</p>
-                <p class="cc" > <i class="fa-solid fa-hard-drive"></i>Máy Lạnh</p>
-                <p class="cc" ><i class="fa-solid fa-ban-smoking"></i>Phòng không hút thuốc</p>
-            </div>
-            <a href="#" class="xem-them-link">Xem Thêm Tiện Ích</a>
+              <?php
+              if ($row['nhaHang'] != 0) { ?>
+                              <p class="cc"><i class="fa-solid fa-utensils"></i>Nhà hàng</p>
+                <?php
+              }
+              ?>
+              
+              <?php
+              if ($row['hoBoi'] != 0) { ?>
+                <p class="cc" ><i class="fa-solid fa-person-swimming"></i>Hồ bơi</p>              
+                <?php
+              }
+              ?>
 
+              <?php
+              if ($row['phongGym'] != 0) { ?>
+                <p class="cc" ><i class="fa-solid fa-dumbbell"></i>Phòng Gym</p>              
+                <?php
+              }
+              ?>
+              <?php
+              if ($row['wifi'] != 0) { ?>
+                <p class="cc" > <i class="fa-solid fa-wifi"></i>Wifi</p>
+                <?php
+              }
+              ?>
+
+              <?php
+              if ($row['mayLanh'] != 0) { ?>
+                <p class="cc" > <i class="fa-solid fa-hard-drive"></i>Máy Lạnh</p>
+                <?php
+              }
+              ?>
+              <?php
+              if ($row['hutThuoc'] != 0) { ?>
+                <p class="cc" ><i class="fa-solid fa-ban-smoking"></i>Phòng không hút thuốc</p>
+                <?php
+              }
+              ?>
+            </div>
           </div>
-          <div class="mota">
-            <h3>Khách sạn Grand Vista Hanoi</h3>
+  </section>
+    <?php
+    foreach ($rows as $key => $value) {
+     ?>
+ <div class="mota">
+            <h3><?php echo $value['tenLoai'] ?></h3>
             <div class="all">
               <div class="all_lef">
-                <img src="images/ct2.jpg" alt="">
+                <img src="<?php echo $value['image']?>" alt="">
                 <div class="tn">
-                  <p><i class="fa-solid fa-house"></i> 30m <sup>2</sup></p>
-                  <p><i class="fa-solid fa-bed"></i> 2 giường đơn</p>
-                  <p > <i class="fa-solid fa-wifi"></i>Wifi miễn phí</p>
-                  <p><i class="fa-solid fa-bath"></i> Bồn xông hơi</p>
-                  <p><a href=""><i class="fa-solid fa-circle-plus"></i> Các tiện ích khác</a> </p>
+                  <p><i class="fa-solid fa-house"></i><?php echo $value['dienTich']?>m <sup>2</sup></p>
+                  <p><i class="fa-solid fa-bed"></i><?php echo $value['giuong'] ?></p>
                 </div>
               </div>
               <div class="all_right">
-                <p class="he"><i class="fa-solid fa-person"></i> x2 Người lớn</p>
+                <p class="he"><i class="fa-solid fa-person"></i> <?php echo $value['tenLoai'] ?></p>
                 <div class="uu_dai">
-                  <h3>Ưu đãi phòng</h3>
+                  <h3>Tiện ích phòng  </h3>
                   <div class="ct_ud">
-                    <p><i class="fa-solid fa-check" style="color: #0d5be3;"></i>  Bao gồm ăn sáng buffet</p>
-                    <p><i class="fa-solid fa-check" style="color: #0d5be3;"></i>  Miễn phí trà, café, trái cây tươi và nước suối 355ml</p>
-                    <p><i class="fa-solid fa-check" style="color: #0d5be3;"></i>  Miễn phí sử dụng wifi, internet, khu trẻ em</p>
+                    <?php 
+                    if ($value['nhaHang']) { ?>
+                    <p><i class="fa-solid fa-check" style="color: #0d5be3;"></i>Nhà Hàng</p>
+                    <?php
+                    }
+                    ?>
+                    <?php 
+                    if ($value['hoBoi']) { ?>
+                    <p><i class="fa-solid fa-check" style="color: #0d5be3;"></i>Hồ Bơi</p>
+                    <?php
+                    }
+                    ?>
+                    <?php 
+                    if ($value['phongGym']) { ?>
+                    <p><i class="fa-solid fa-check" style="color: #0d5be3;"></i>Phòng Gym</p>
+                    <?php
+                    }
+                    ?>
+                    <?php 
+                    if ($value['wifi']) { ?>
+                    <p><i class="fa-solid fa-check" style="color: #0d5be3;"></i>Wifi</p>
+                    <?php
+                    }
+                    ?>
+                    <?php 
+                    if ($value['mayLanh']) { ?>
+                    <p><i class="fa-solid fa-check" style="color: #0d5be3;"></i>Máy Lạnh</p>
+                    <?php
+                    }
+                    ?>
+                    <?php 
+                    if ($value['hutThuoc']) { ?>
+                    <p><i class="fa-solid fa-check" style="color: #0d5be3;"></i>Có Hút Thuốc</p>
+                    <?php
+                    }
+                    ?>
                   </div>
                   <div class="van_dap">
                     <a href=""><i class="fa-solid fa-question"></i>Xem chính sách hủy phòng</a>
@@ -137,15 +173,19 @@
                   <p class="ct"><i class="fa-solid fa-circle-exclamation" style="color: #005eff;"></i> Giá đã bao gồm thuế, phí</p>
                   <div class="dat_ngay">
                     <p><del>1,399,667 VND</del></p>
-                    <p><strong>839,800 VND</strong>
+                    <p><strong><?php echo $value['giaPhong'] ?> VNĐ</strong>
                       / đêm
                       </p>
-                      <button>Đặt Ngay</button>
+                      <a href="index.php?act=addtocard&maKhachSan=<?php echo $_SESSION['maKhachSan'] ?>&maPhongAdd=<?php echo $value['maPhong'] ?>"><button>Đặt Ngay</button></a>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+      <?php 
+    }
+    ?>
+         
           <div class="cac_phon">
             <h3>Các Phòng Tương Tự</h3>
             <div class="row">
