@@ -20,7 +20,7 @@ a {
   text-decoration: none;
 }
 body {
-  background-image: url(../images/1.jpg);
+  background-image: url(../images/dn2.jpg);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -39,7 +39,7 @@ body {
   justify-content: space-between;
   border-radius: 20px;
   box-shadow: 4px 4px 5px 5px (0, 0, 0rgba, 0.75);
-  -webkit-box-shadow: 4px 4px 5px 5px #c800ff;
+  -webkit-box-shadow: 4px 4px 5px 5px #000000;
   -moz-box-shadow: 4px 4px 5px 5px rgba(0, 0, 0, 0.75);
 }
 .left,

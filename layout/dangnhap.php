@@ -75,7 +75,7 @@ $loi=[];
             </div>
         </div>
         <div class="right">
-            <img src="../images/3.jpg">
+            <img src="../images/dn3.jpg">
         </div>
     </div>
 </body>

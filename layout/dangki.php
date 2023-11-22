@@ -98,7 +98,7 @@ thoi :
            </form>
         </div>
         <div class="right">
-            <img src="../images/3.jpg">
+            <img src="../images/dn1.jpg">
         </div>
     </div>
 </body>
