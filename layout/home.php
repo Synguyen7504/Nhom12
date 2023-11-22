@@ -77,9 +77,9 @@ include "search.php";
               <div class="slider-item">
                 <a href="images/slider-1.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-1.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
-              <div class="slider-item">
+              <!-- <div class="slider-item">
                 <a href="images/slider-2.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-2.jpg" alt="Image placeholder" class="img-fluid"></a>
-              </div>
+              </div> -->
               <div class="slider-item">
                 <a href="images/slider-3.jpg" data-fancybox="images" data-caption="Caption for this image"><img src="images/slider-3.jpg" alt="Image placeholder" class="img-fluid"></a>
               </div>
