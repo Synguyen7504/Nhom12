@@ -49,33 +49,33 @@ if (isset($_GET['act'])) {
             include "layout/card.php";
             break;
             // order sản phẩm
-        case 'order':
-            $rows = layDateDonHangChiTiet();
-            foreach ($rows as $key => $value) {
-                $value['maPhong'] = $_GET[]
-            }
-            if ($_GET['ngayNhan'] >) {
-                # code...
-            }
-            foreach ($_POST as $key => $value) {
-                $layNgay = preg_replace('/[^a-zA-Z]/', '', $key);
-                $layMa = preg_replace('/[^0-9]/', '', $key);
-                $_SESSION['card'][$layMa][$layNgay] = $value;
-            }
-            $tongTien = 0;
-            foreach ($_SESSION['card'] as $key => $value) {
-                $dateSau =   (strtotime($value['ngayTra']) - strtotime($value['ngayNhan']));
-                $countDay = 0;
-                for ($i = $dateSau; $i >= 86400; $i++) {
-                    $i = $i - 86400;
-                    $countDay++;
-                    $_SESSION['card'][$value['maPhong']]['tongTien'] = $value['giaPhong'] * $countDay;
-                }
-                $tongTien = $tongTien + $_SESSION['card'][$value['maPhong']]['tongTien'];
-            }
-            $phaiTra = $tongTien / 2;
-            include "layout/order.php";
-            break;
+        // case 'order':
+        //     $rows = layDateDonHangChiTiet();
+        //     foreach ($rows as $key => $value) {
+        //         $value['maPhong'] = $_GET[]
+        //     }
+        //     if ($_GET['ngayNhan'] >) {
+        //         # code...
+        //     }
+        //     foreach ($_POST as $key => $value) {
+        //         $layNgay = preg_replace('/[^a-zA-Z]/', '', $key);
+        //         $layMa = preg_replace('/[^0-9]/', '', $key);
+        //         $_SESSION['card'][$layMa][$layNgay] = $value;
+        //     }
+        //     $tongTien = 0;
+        //     foreach ($_SESSION['card'] as $key => $value) {
+        //         $dateSau =   (strtotime($value['ngayTra']) - strtotime($value['ngayNhan']));
+        //         $countDay = 0;
+        //         for ($i = $dateSau; $i >= 86400; $i++) {
+        //             $i = $i - 86400;
+        //             $countDay++;
+        //             $_SESSION['card'][$value['maPhong']]['tongTien'] = $value['giaPhong'] * $countDay;
+        //         }
+        //         $tongTien = $tongTien + $_SESSION['card'][$value['maPhong']]['tongTien'];
+        //     }
+        //     $phaiTra = $tongTien / 2;
+        //     include "layout/order.php";
+        //     break;
 
             // thanh toán đơn hàng
         case 'pay':

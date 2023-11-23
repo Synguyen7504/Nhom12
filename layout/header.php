@@ -1,3 +1,10 @@
+<?php
+if (!$_SESSION['login']) {
+  header("Location: ./layout/dangnhap.php");
+}
+
+?>
+
 <!DOCTYPE HTML>
 <html>
 
@@ -73,6 +80,7 @@
                       <li><a href="#">Tin tức</a></li>
                       <li><a href="#">Liên hệ</a></li>
                       <li><a href="index.php?act=card">Giỏ hàng</a></li>
+                      <li><a href="./layout/dangnhap.php">Đăng Nhập</a></li>
                     </ul>
                   </div>
                 </div>

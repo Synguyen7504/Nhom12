@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../PDO/khachhang.php";
 $loi=[];
     if  (isset($_POST['dangnhap'])) {
@@ -16,10 +17,16 @@ $loi=[];
        print_r($taikhoan);
        if (empty($loi)) {
         if (!empty($taikhoan)) {
+            $_SESSION['login']=$taikhoan['quyen'];
             header("Location: ../index.php");
-        }else{
-            $loi[]="Tài khoản không tồn tại";
+        
+        }elseif ($tk=="admin" && $mk=="121212") {
+            $_SESSION['login']="admin";
+            header("Location: ../admin/index.php");
         }
+            // }else{
+        //     $loi[]="Tài khoản không tồn tại";
+        // }
        }
        thoi2:
     }

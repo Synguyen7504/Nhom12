@@ -1,3 +1,15 @@
+<?php
+session_start();
+if (!$_SESSION['login']) {
+    header("Location: ../layout/dangnhap.php");
+}
+if ($_SESSION['login']&&$_SESSION['login']!="admin") {
+    header("Location: index.php");
+}
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 
