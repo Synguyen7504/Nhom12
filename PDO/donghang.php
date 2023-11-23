@@ -18,3 +18,9 @@ function datDonHangChiTiet($maDonHang, $maPhong, $ngayNhanPhong, $ngayTraPhong)
     ('$maDonHang','$maPhong','$ngayNhanPhong','$ngayTraPhong')";
     pdo_thucThi($sql);
 }
+function layDateDonHangChiTiet()
+{
+    $sql = "SELECT maPhong,ngayNhanPhong,ngayTraPhong FROM `donhangchitiet`;";
+    $rows = pdo_truyVanAll($sql);
+    return $rows;
+}

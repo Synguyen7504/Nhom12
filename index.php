@@ -50,6 +50,13 @@ if (isset($_GET['act'])) {
             break;
             // order sản phẩm
         case 'order':
+            $rows = layDateDonHangChiTiet();
+            foreach ($rows as $key => $value) {
+                $value['maPhong'] = $_GET[]
+            }
+            if ($_GET['ngayNhan'] >) {
+                # code...
+            }
             foreach ($_POST as $key => $value) {
                 $layNgay = preg_replace('/[^a-zA-Z]/', '', $key);
                 $layMa = preg_replace('/[^0-9]/', '', $key);

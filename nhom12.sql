@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 22, 2023 lúc 08:46 AM
+-- Thời gian đã tạo: Th10 23, 2023 lúc 02:56 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.1.17
 
@@ -29,11 +29,26 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `donhang` (
   `maDonHang` int(11) NOT NULL,
-  `maKhachHang` int(11) NOT NULL,
+  `maKhachHang` int(11) DEFAULT NULL,
   `tongDonHang` float NOT NULL,
   `ngayDat` date NOT NULL,
-  `soLuongPhong` int(11) NOT NULL
+  `soLuongPhong` int(11) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `ten` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `soDienThoai` int(11) NOT NULL,
+  `trangThai` bit(1) NOT NULL DEFAULT b'0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `donhang`
+--
+
+INSERT INTO `donhang` (`maDonHang`, `maKhachHang`, `tongDonHang`, `ngayDat`, `soLuongPhong`, `image`, `ten`, `email`, `soDienThoai`, `trangThai`) VALUES
+(1, 0, 0, '2023-11-23', 4, 'images/252_z4841007617531_380f63a2fa10ee81fc6a70964e0f0321.jpg', 'Sỹ 0 suy', 'syvannguyen4747@gmail.com', 971052629, b'0'),
+(2, 0, 0, '2023-11-23', 2, 'images/570_test.jpg', 'synguyen', 'syvannguyen4747@gmail.com', 971052629, b'0'),
+(3, 0, 9000000, '2023-11-23', 1, 'images/151_test.jpg', 'duanmau', 'syvannguyen4747@gmail.com', 971052629, b'0'),
+(4, 0, 1000000, '2023-11-23', 1, 'images/106_test.jpg', 'synguyen', 'syvannguyen4747@gmail.com', 971052629, b'0');
 
 -- --------------------------------------------------------
 
@@ -48,6 +63,20 @@ CREATE TABLE `donhangchitiet` (
   `ngayNhanPhong` date NOT NULL,
   `ngayTraPhong` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `donhangchitiet`
+--
+
+INSERT INTO `donhangchitiet` (`maDonHangChiTiet`, `maDonHang`, `maPhong`, `ngayNhanPhong`, `ngayTraPhong`) VALUES
+(3, 1, 6, '2023-11-23', '2023-11-24'),
+(4, 1, 8, '2023-11-23', '2023-11-24'),
+(5, 1, 2, '2023-11-23', '2023-11-24'),
+(6, 1, 3, '2023-11-23', '2023-11-24'),
+(7, 2, 1, '2023-11-23', '2023-11-24'),
+(8, 2, 3, '2023-11-23', '2023-11-24'),
+(9, 3, 10, '2023-11-23', '2023-12-02'),
+(10, 4, 6, '2023-11-23', '2023-11-24');
 
 -- --------------------------------------------------------
 
@@ -72,7 +101,8 @@ CREATE TABLE `khachhang` (
   `email` varchar(250) NOT NULL,
   `soDienThoai` int(10) NOT NULL,
   `tenDangNhap` varchar(50) NOT NULL,
-  `matKhau` int(11) NOT NULL
+  `matKhau` int(11) NOT NULL,
+  `quyen` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -104,7 +134,7 @@ CREATE TABLE `khachsan` (
 --
 
 INSERT INTO `khachsan` (`maKhachSan`, `tenKhachSan`, `diaDiem`, `khoangGia`, `danhGia`, `anh1`, `anh2`, `anh3`, `anh4`, `nhaHang`, `hoBoi`, `phongGym`, `wifi`, `mayLanh`, `hutThuoc`) VALUES
-(1, 'Khách sạn Hoa Hồng', 'Tây Hồ - Hà Nội', 1000000, 1, 'images/khachsan1a.jpg', '../images/khachsan1b.jpg', '../images/khachsan1c.jpg', '../images/khachsan1d.jpg', b'1', b'1', b'1', b'1', b'1', b'1'),
+(1, 'Khách sạn Hoa Hồng', 'Tây Hồ - Hà Nội', 1000000, 1, 'images/khachsan1a.jpg', 'images/khachsan1b.jpg', 'images/khachsan1c.jpg', 'images/khachsan1d.jpg', b'1', b'1', b'1', b'1', b'1', b'1'),
 (2, 'Khách sạn phượng múa', 'Hà đông - Hà Nội', 1000000, 3, 'images/khachsan2a.jpg', 'images/khachsan2d.jpg', 'images/khachsan2c.jpg', 'images/khachsan2d.jpg', b'1', b'1', b'1', b'0', b'1', b'1'),
 (3, 'Khách sạn Hoa Hồng', 'Hà Đông - Ha Nội', 1000000, 1, './images/khachsan1a.jpg', '../images/khachsan1b.jpg', '../images/khachsan1c.jpg', '../images/khachsan1d.jpg', b'0', b'1', b'1', b'1', b'1', b'1'),
 (4, 'Khách sạn rồng bay', 'Đà lạt - Lâm Đồng', 1000000, 1, './images/khachsan2a.jpg', '../images/khachsan2b.jpg', '../images/khachsan2c.jpg', '../images/khachsan2d.jpg', b'1', b'1', b'0', b'1', b'1', b'1'),
@@ -201,6 +231,12 @@ ALTER TABLE `donhang`
   ADD PRIMARY KEY (`maDonHang`);
 
 --
+-- Chỉ mục cho bảng `donhangchitiet`
+--
+ALTER TABLE `donhangchitiet`
+  ADD PRIMARY KEY (`maDonHangChiTiet`);
+
+--
 -- Chỉ mục cho bảng `giohang`
 --
 ALTER TABLE `giohang`
@@ -244,7 +280,13 @@ ALTER TABLE `tiennghi`
 -- AUTO_INCREMENT cho bảng `donhang`
 --
 ALTER TABLE `donhang`
-  MODIFY `maDonHang` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `maDonHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT cho bảng `donhangchitiet`
+--
+ALTER TABLE `donhangchitiet`
+  MODIFY `maDonHangChiTiet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT cho bảng `giohang`
