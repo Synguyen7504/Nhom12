@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 23, 2023 lúc 02:56 PM
+-- Thời gian đã tạo: Th10 23, 2023 lúc 04:37 PM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
--- Phiên bản PHP: 8.1.17
+-- Phiên bản PHP: 8.0.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -102,8 +102,15 @@ CREATE TABLE `khachhang` (
   `soDienThoai` int(10) NOT NULL,
   `tenDangNhap` varchar(50) NOT NULL,
   `matKhau` int(11) NOT NULL,
-  `quyen` varchar(50) NOT NULL
+  `quyen` varchar(255) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `khachhang`
+--
+
+INSERT INTO `khachhang` (`maKhachHang`, `tenKhachHang`, `email`, `soDienThoai`, `tenDangNhap`, `matKhau`, `quyen`) VALUES
+(1, 'anhquangday', '', 973320198, 'anhquangday', 121212, 'user');
 
 -- --------------------------------------------------------
 
@@ -298,7 +305,7 @@ ALTER TABLE `giohang`
 -- AUTO_INCREMENT cho bảng `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `maKhachHang` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `maKhachHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT cho bảng `khachsan`
