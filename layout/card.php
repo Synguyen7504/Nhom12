@@ -10,7 +10,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5" style="border: 1px solid rgba(116, 112, 108, 0.267);">
-          <form action="index.php?act=order" method="post">
+          <form action="" method="post">
             <!-- Shopping cart table -->
             <div class="table-responsive-md">
               <table class="table">
@@ -77,3 +77,5 @@
 </div>
 </div>
 </div>
+<img src="images/1.jpg" alt="" style="display: none;" <?php if (isset($thongBao) && $thongBao == true) { ?> onload="alert('Ngày bạn đặt đã có người đặt vui lòng đặt ngày khác !')" <?php
+                                                                                                                                                                                  } ?>>

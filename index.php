@@ -46,22 +46,44 @@ if (isset($_GET['act'])) {
             header("Location: index.php?act=card");
             break;
         case 'card':
+            if ($_SERVER['REQUEST_METHOD'] == "POST") {
+                foreach ($_POST as $key => $value) {
+                    $layNgay = preg_replace('/[^a-zA-Z]/', '', $key);
+                    $layMa = preg_replace('/[^0-9]/', '', $key);
+                    $_SESSION['checkDate'][$layMa][$layNgay] = $value;
+                }
+                print_r($_SESSION['checkDate']);
+                $rows = layDateDonHangChiTiet();
+                foreach ($rows as $key => $value) {
+                    foreach ($_SESSION['checkDate'] as $index => $check) {
+                        if ($value['maPhong'] == $index) {
+                            if (($check['ngayNhan'] < $value['ngayNhanPhong'] && $check['ngayTra'] < $value['ngayNhanPhong']) || ($check['ngayNhan'] > $value['ngayNhanPhong'] && $check['ngayTra'] > $value['ngayNhanPhong'])) {
+                                $thanhCong = true;
+                                $thongBao = false;
+                                echo "Đúng";
+                            } else {
+                                echo "Sai";
+                                $thongBao = true;
+                                $thanhCong = false;
+                                goto den;
+                            }
+                        }
+                    }
+                }
+                den:
+                if (isset($thanhCong) && $thanhCong == true) {
+                    foreach ($_POST as $key => $value) {
+                        $layNgay = preg_replace('/[^a-zA-Z]/', '', $key);
+                        $layMa = preg_replace('/[^0-9]/', '', $key);
+                        $_SESSION['card'][$layMa][$layNgay] = $value;
+                    }
+                    header('location: index.php?act=order');
+                }
+            }
             include "layout/card.php";
             break;
             // order sản phẩm
         case 'order':
-            $rows = layDateDonHangChiTiet();
-            foreach ($rows as $key => $value) {
-                $value['maPhong'] = $_GET[]
-            }
-            if ($_GET['ngayNhan'] >) {
-                # code...
-            }
-            foreach ($_POST as $key => $value) {
-                $layNgay = preg_replace('/[^a-zA-Z]/', '', $key);
-                $layMa = preg_replace('/[^0-9]/', '', $key);
-                $_SESSION['card'][$layMa][$layNgay] = $value;
-            }
             $tongTien = 0;
             foreach ($_SESSION['card'] as $key => $value) {
                 $dateSau =   (strtotime($value['ngayTra']) - strtotime($value['ngayNhan']));
