@@ -1,7 +1,7 @@
 <?php
-if (!$_SESSION['login']) {
-  header("Location: ./layout/dangnhap.php");
-}
+// if (!$_SESSION['login']) {
+//   header("Location: ./layout/dangnhap.php");
+// }
 
 ?>
 
@@ -49,6 +49,25 @@ if (!$_SESSION['login']) {
       color: white;
       background-color: #ffaa34;
     }
+
+    .nav-pills .nav-link {
+      font-weight: bold;
+      font-size: 16px;
+      color: #000;
+      background-color: transparent;
+      border-radius: 0;
+      margin: 0 10px;
+      padding: 10px 15px;
+      /* Điều chỉnh padding */
+      transition: all 0.3s ease;
+    }
+
+    .nav-pills .nav-link.active,
+    .nav-pills .nav-link:hover {
+      color: #fff;
+      background-color: #dbc234;
+      border-radius: 5px;
+    }
   </style>
 </head>
 
@@ -80,7 +99,17 @@ if (!$_SESSION['login']) {
                       <li><a href="#">Tin tức</a></li>
                       <li><a href="#">Liên hệ</a></li>
                       <li><a href="index.php?act=card">Giỏ hàng</a></li>
-                      <li><a href="./layout/dangnhap.php">Đăng Nhập</a></li>
+                      <?php
+                      if (isset($_SESSION['login'])) {
+                      ?>
+                        <li><a href="index.php?act=user">Quản lý tài khoản</a></li>
+                        <li><a href="index.php?act=logout">Thoát</a></li>
+                      <?php
+                      } else {
+
+                      ?>
+                        <li><a href="./layout/dangnhap.php">Đăng Nhập</a></li>
+                      <?php } ?>
                     </ul>
                   </div>
                 </div>

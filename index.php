@@ -25,10 +25,15 @@ if (isset($_GET['act'])) {
             break;
             // trang sản phẩm chi tiêts
         case 'product':
+            $layLoai = layLoaiAll();
             $maKhachSan = $_GET['maKhachSan'];
             $_SESSION['maKhachSan'] = $maKhachSan;
+            if (isset($_GET['maLoai'])) {
+                $rows = locTheoLoai($maKhachSan, $_GET['maLoai']);
+            } else {
+                $rows = truyVanPhong($maKhachSan);
+            }
             $row = truyVan1($maKhachSan);
-            $rows = truyVanPhong($maKhachSan);
             include 'layout/product.php';
             break;
         case 'addtocard':
@@ -52,7 +57,7 @@ if (isset($_GET['act'])) {
                     $layMa = preg_replace('/[^0-9]/', '', $key);
                     $_SESSION['checkDate'][$layMa][$layNgay] = $value;
                 }
-                print_r($_SESSION['checkDate']);
+                // print_r($_SESSION['checkDate']);
                 $rows = layDateDonHangChiTiet();
                 foreach ($rows as $key => $value) {
                     foreach ($_SESSION['checkDate'] as $index => $check) {
@@ -60,9 +65,9 @@ if (isset($_GET['act'])) {
                             if (($check['ngayNhan'] < $value['ngayNhanPhong'] && $check['ngayTra'] < $value['ngayNhanPhong']) || ($check['ngayNhan'] > $value['ngayNhanPhong'] && $check['ngayTra'] > $value['ngayNhanPhong'])) {
                                 $thanhCong = true;
                                 $thongBao = false;
-                                echo "Đúng";
+                                // echo "Đúng";
                             } else {
-                                echo "Sai";
+                                // echo "Sai";
                                 $thongBao = true;
                                 $thanhCong = false;
                                 goto den;
@@ -104,7 +109,7 @@ if (isset($_GET['act'])) {
             $layMa = layMaDonHangLonNhat();
             $layMa['maDonHang'] = $layMa['maDonHang'] + 1;
             if (isset($_SESSION['kh']['ma'])) {
-                $maKh = $_SESSION['kh']['ma'];
+                $maKh = $_SESSION['login']['maKhachHang'];
             } else {
                 $maKh = null;
             }
@@ -117,7 +122,17 @@ if (isset($_GET['act'])) {
                 datDonHangChiTiet($layMa['maDonHang'], $value['maPhong'], $value['ngayNhan'], $value['ngayTra']);
             }
             unset($_SESSION['card']);
+            unset($_SESSION['checkDate']);
             include "layout/home.php";
+            break;
+            // quản lý tài khoản
+        case 'user':
+            include 'layout/user.php';
+            break;
+            // thoát
+        case 'logout':
+            unset($_SESSION['login']);
+            header('location: index.php');
             break;
         default:
             include "layout/home.php";

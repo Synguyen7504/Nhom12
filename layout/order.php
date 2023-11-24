@@ -70,16 +70,19 @@
             <div class="p-4">
               <p class="font-italic mb-4">Nếu chưa có tài khoản, bạn hãy tạo tài khoản để việc đặt phòng thuận tiện hơn nhé!</p>
               <div class="input-group mb-4 border rounded-pill p-2">
-                <input type="text" placeholder="Tên" name="name" aria-describedby="button-addon3" class="form-control border-0" required>
+                <input type="text" placeholder="Tên" name="name" <?php if (isset($_SESSION['login'])) {
+                                                                  ?> value="<?php echo $_SESSION['login']['tenKhachHang'] ?>" <?php
+                                                                                                                            } ?> aria-describedby="button-addon3" class="form-control border-0" required>
               </div>
               <div class="input-group mb-4 border rounded-pill p-2">
-                <input type="text" placeholder="Địa chỉ" name="address" aria-describedby="button-addon3" class="form-control border-0" required>
+                <input type="text" placeholder="Số điện thoại" <?php if (isset($_SESSION['login'])) {
+                                                                ?> value="<?php echo $_SESSION['login']['soDienThoai'] ?>" <?php
+                                                                                                                            } ?> name="phoneNumber" aria-describedby="button-addon3" class="form-control border-0" required>
               </div>
               <div class="input-group mb-4 border rounded-pill p-2">
-                <input type="text" placeholder="Số điện thoại" name="phoneNumber" aria-describedby="button-addon3" class="form-control border-0" required>
-              </div>
-              <div class="input-group mb-4 border rounded-pill p-2">
-                <input type="text" placeholder="Email" name="email" aria-describedby="button-addon3" class="form-control border-0" required>
+                <input type="text" placeholder="Email" <?php if (isset($_SESSION['login'])) {
+                                                        ?> value="<?php echo $_SESSION['login']['email'] ?>" <?php
+                                                                                                                      } ?> name="email" aria-describedby="button-addon3" class="form-control border-0" required>
               </div>
               <label for="" style="color: #23272b; font-weight: 300;">Ảnh chụp đã thanh toán:</label>
               <div class="input-group mb-4 border rounded-pill p-2">
