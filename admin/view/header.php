@@ -1,10 +1,11 @@
 <?php
 session_start();
+
 if (!$_SESSION['login']) {
     header("Location: ../layout/dangnhap.php");
 }
 if ($_SESSION['login']&&$_SESSION['login']!="admin") {
-    header("Location: index.php");
+    header("Location: ../index.php");
 }
 
 
@@ -121,7 +122,7 @@ if ($_SESSION['login']&&$_SESSION['login']!="admin") {
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
-                            <a href="#">
+                            <a href="../layout/dx.php">
                                 <p>Log out</p>
                             </a>
                         </li>

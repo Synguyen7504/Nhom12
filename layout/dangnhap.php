@@ -14,18 +14,19 @@ if (isset($_POST['dangnhap'])) {
         goto thoi2;
     }
     $taikhoan = khachhang($tk, $mk);
-    print_r($taikhoan);
+    // print_r($taikhoan);
     if (empty($loi)) {
         if (!empty($taikhoan)) {
-            $_SESSION['login']['quyen'] = $taikhoan['quyen'];
-            $_SESSION['login']['maKhachHang'] = $taikhoan['maKhachHang'];
-            $_SESSION['login']['tenKhachHang'] = $taikhoan['tenKhachHang'];
-            $_SESSION['login']['soDienThoai'] = $taikhoan['soDienThoai'];
-            $_SESSION['login']['email'] = $taikhoan['email'];
-            header("Location: ../index.php");
-        } elseif ($tk == "admin" && $mk == "121212") {
-            $_SESSION['login']['quyen'] = "admin";
+            extract($taikhoan);
+            $_SESSION['login']= $quyen;
+            // echo $_SESSION['login'];
             header("Location: ../admin/index.php");
+        
+        //}  elseif ($tk == "admin" && $mk == "121212") {
+        //     $_SESSION['login'] = "admin";
+        //     $_SESSION['login']['quyen'] = "admin";
+            
+        //     header("Location: ../admin/index.php");
         }
         // }else{
         //     $loi[]="Tài khoản không tồn tại";

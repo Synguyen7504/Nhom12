@@ -131,8 +131,7 @@ if (isset($_GET['act'])) {
             break;
             // thoát
         case 'logout':
-            unset($_SESSION['login']);
-            header('location: index.php');
+        include "layout/dx.php";
             break;
         default:
             include "layout/home.php";

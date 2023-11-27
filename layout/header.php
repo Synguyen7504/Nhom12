@@ -100,7 +100,7 @@
                       <li><a href="#">Liên hệ</a></li>
                       <li><a href="index.php?act=card">Giỏ hàng</a></li>
                       <?php
-                      if (isset($_SESSION['login'])) {
+                      if (!empty($_SESSION['login'])) {
                       ?>
                         <li><a href="index.php?act=user">Quản lý tài khoản</a></li>
                         <li><a href="index.php?act=logout">Thoát</a></li>
