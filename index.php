@@ -129,10 +129,7 @@ if (isset($_GET['act'])) {
         case 'user':
             include 'layout/user.php';
             break;
-            // thoát
-        case 'logout':
-        include "layout/dx.php";
-            break;
+            
         default:
             include "layout/home.php";
             break;

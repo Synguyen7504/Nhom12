@@ -4,7 +4,6 @@
 // }
 
 ?>
-
 <!DOCTYPE HTML>
 <html>
 
@@ -103,7 +102,7 @@
                       if (!empty($_SESSION['login'])) {
                       ?>
                         <li><a href="index.php?act=user">Quản lý tài khoản</a></li>
-                        <li><a href="index.php?act=logout">Thoát</a></li>
+                        <li><a href="./layout/dx.php">Thoát</a></li>
                       <?php
                       } else {
 
