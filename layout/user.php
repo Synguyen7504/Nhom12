@@ -1,6 +1,6 @@
 <div class="container text-white py-5 text-center" data-aos="fade-up">
-    <h1 class="display-4" style="color: white;">Thông tin cá nhân</h1>
-    <p class="lead mb-0">Chỉnh sửa</p>
+    <h1 class="display-4" style="color: black;">Thông tin cá nhân</h1>
+    <p class="lead mb-0" style="color: black;">Chỉnh sửa</p>
 
 </div>
 
@@ -43,7 +43,7 @@
                             </div>
                             <div class="col-md-3" style="text-align: center; display: inline-block; margin-top: 38px; margin-left: -35px;">
                                 <div class="form-group">
-                                    <a href="changepass.html"><button type="button" class="btn btn-info btn-fill pull-right" style="background-color: #23272b; border: 0px; border-radius: 7px;">Đổi
+                                    <a href="index.php?act=changepass"><button type="button" class="btn btn-info btn-fill pull-right" style="background-color: #23272b; border: 0px; border-radius: 7px;">Đổi
                                             mật khẩu</button></a>
                                 </div>
                             </div>
