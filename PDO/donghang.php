@@ -5,11 +5,11 @@ function layMaDonHangLonNhat()
     $row = pdo_truyVan1($sql);
     return $row;
 }
-function datDonHang($maDonHang, $maKhachHang, $tongDonHang, $ngayDat, $soLuong, $image, $ten, $email, $soDienThoai)
+function datDonHang($maDonHang, $maKhachHang, $tongDonHang, $ngayDat,  $image, $ten, $email, $soDienThoai)
 {
     $sql = "INSERT INTO `donhang`
-    ( `maDonHang`,`maKhachHang`, `tongDonHang`, `ngayDat`, `soLuongPhong`, `image`, `ten`, `email`, `soDienThoai`) VALUES 
-    ('$maDonHang','$maKhachHang','$tongDonHang','$ngayDat','$soLuong','$image','$ten','$email','$soDienThoai')";
+    ( `maDonHang`,`maKhachHang`, `tongDonHang`, `ngayDat`, `image`, `ten`, `email`, `soDienThoai`) VALUES 
+    ('$maDonHang','$maKhachHang','$tongDonHang','$ngayDat','$image','$ten','$email','$soDienThoai')";
     pdo_thucThi($sql);
 }
 function datDonHangChiTiet($maDonHang, $maPhong, $ngayNhanPhong, $ngayTraPhong)

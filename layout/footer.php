@@ -1,25 +1,25 @@
 <section class="section bg-image overlay" style="background-image: url('images/hero_4.jpg');">
-    <div class="container" >
-      <div class="row align-items-center">
-        <div class="col-12 col-md-6 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
-          <h2 class="text-white font-weight-bold">Sogo sẽ tạo nên trải nhiệm tuyệt vời cho bạn!</h2>
-        </div>
-        <div class="col-12 col-md-6 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
-          <a href="reservation.html" class="btn btn-outline-white-primary py-3 text-white px-5">Đặt phòng ngay</a>
-        </div>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-6 text-center mb-4 mb-md-0 text-md-left" data-aos="fade-up">
+        <h2 class="text-white font-weight-bold">Sogo sẽ tạo nên trải nhiệm tuyệt vời cho bạn!</h2>
+      </div>
+      <div class="col-12 col-md-6 text-center text-md-right" data-aos="fade-up" data-aos-delay="200">
+        <a href="index.php" class="btn btn-outline-white-primary py-3 text-white px-5">Đặt phòng ngay</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
 <footer class="section footer-section">
   <div class="container">
     <div class="row mb-4">
       <div class="col-md-3 mb-5">
         <ul class="list-unstyled link">
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Terms &amp; Conditions</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-         <li><a href="#">Rooms</a></li>
+          <li><a href="#">Về chúng tôi</a></li>
+          <li><a href="#">Điều khoản &amp; điều kiện</a></li>
+          <li><a href="#">Chính sách bảo mật</a></li>
+          <li><a href="#">Phòng</a></li>
         </ul>
       </div>
       <div class="col-md-3 mb-5">
@@ -49,10 +49,12 @@
     <div class="row pt-5">
       <p class="col-md-6 text-left">
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+        Copyright &copy;<script>
+          document.write(new Date().getFullYear());
+        </script> All rights reserved | This template is made with <i class="icon-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
       </p>
-        
+
       <p class="col-md-6 text-right social">
         <a href="#"><span class="fa fa-tripadvisor"></span></a>
         <a href="#"><span class="fa fa-facebook"></span></a>
@@ -75,8 +77,8 @@
 
 <script src="js/aos.js"></script>
 
-<script src="js/bootstrap-datepicker.js"></script> 
-<script src="js/jquery.timepicker.min.js"></script> 
+<script src="js/bootstrap-datepicker.js"></script>
+<script src="js/jquery.timepicker.min.js"></script>
 
 
 

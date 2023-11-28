@@ -36,75 +36,28 @@ if (isset($_GET['act'])) {
             $row = truyVan1($maKhachSan);
             include 'layout/product.php';
             break;
-        case 'addtocard':
-            $maPhong =  $_GET['maPhongAdd'];
-            $row = addToCard($maPhong);
-            if (empty($_SESSION['card'][$maPhong])) {
-                $_SESSION['card'][$maPhong] = $row;
-            }
-            $maKhachSan = $_SESSION['maKhachSan'];
-            header("Location: index.php?act=product&maKhachSan=$maKhachSan");
-            break;
-        case 'deletecard':
-            $maPhong =  $_GET['maPhongDelete'];
-            unset($_SESSION['card'][$maPhong]);
-            header("Location: index.php?act=card");
-            break;
         case 'card':
-            if ($_SERVER['REQUEST_METHOD'] == "POST") {
-                foreach ($_POST as $key => $value) {
-                    $layNgay = preg_replace('/[^a-zA-Z]/', '', $key);
-                    $layMa = preg_replace('/[^0-9]/', '', $key);
-                    $_SESSION['checkDate'][$layMa][$layNgay] = $value;
-                }
-                // print_r($_SESSION['checkDate']);
-                $rows = layDateDonHangChiTiet();
-                foreach ($rows as $key => $value) {
-                    foreach ($_SESSION['checkDate'] as $index => $check) {
-                        if ($value['maPhong'] == $index) {
-                            if (($check['ngayNhan'] < $value['ngayNhanPhong'] && $check['ngayTra'] < $value['ngayNhanPhong']) || ($check['ngayNhan'] > $value['ngayNhanPhong'] && $check['ngayTra'] > $value['ngayNhanPhong'])) {
-                                $thanhCong = true;
-                                $thongBao = false;
-                                // echo "Đúng";
-                            } else {
-                                // echo "Sai";
-                                $thongBao = true;
-                                $thanhCong = false;
-                                goto den;
-                            }
-                        }
-                    }
-                }
-                den:
-                if (isset($thanhCong) && $thanhCong == true) {
-                    foreach ($_POST as $key => $value) {
-                        $layNgay = preg_replace('/[^a-zA-Z]/', '', $key);
-                        $layMa = preg_replace('/[^0-9]/', '', $key);
-                        $_SESSION['card'][$layMa][$layNgay] = $value;
-                    }
-                    header('location: index.php?act=order');
-                }
-            }
             include "layout/card.php";
             break;
-            // order sản phẩm
         case 'order':
+            $row = addToCard($_SESSION['maPhong']);
             $tongTien = 0;
-            foreach ($_SESSION['card'] as $key => $value) {
-                $dateSau =   (strtotime($value['ngayTra']) - strtotime($value['ngayNhan']));
-                $countDay = 0;
-                for ($i = $dateSau; $i >= 86400; $i++) {
-                    $i = $i - 86400;
-                    $countDay++;
-                    $_SESSION['card'][$value['maPhong']]['tongTien'] = $value['giaPhong'] * $countDay;
-                }
-                $tongTien = $tongTien + $_SESSION['card'][$value['maPhong']]['tongTien'];
+            $ngayTra = $_POST['ngayTra'];
+            $ngayNhan = $_POST['ngayNhan'];
+            $dateSau =   (strtotime($ngayTra) - strtotime($ngayNhan));
+            $countDay = 0;
+            $_SESSION['ngayTra'] = $ngayTra;
+            $_SESSION['ngayNhan'] = $ngayNhan;
+            for ($i = $dateSau; $i >= 86400; $i++) {
+                $i = $i - 86400;
+                $countDay++;
             }
+            $tongTien = $row['giaPhong'] * $countDay;
             $phaiTra = $tongTien / 2;
+            echo $tongTien;
             include "layout/order.php";
             break;
 
-            // thanh toán đơn hàng
         case 'pay':
             $layMa = layMaDonHangLonNhat();
             $layMa['maDonHang'] = $layMa['maDonHang'] + 1;
@@ -116,20 +69,17 @@ if (isset($_GET['act'])) {
             $dir = 'images/' . rand(1, 1000) . '_' . $_FILES['file']['name'];
             move_uploaded_file($_FILES['file']['tmp_name'], $dir);
             $ngayDat = date("Y-m-d H-i-e");
-            $soPhong = count($_SESSION['card']);
-            datDonHang($layMa['maDonHang'], $maKh, $_POST['tongDonHang'], $ngayDat, $soPhong, $dir, $_POST['name'], $_POST['email'], $_POST['phoneNumber']);
-            foreach ($_SESSION['card'] as $key => $value) {
-                datDonHangChiTiet($layMa['maDonHang'], $value['maPhong'], $value['ngayNhan'], $value['ngayTra']);
-            }
-            unset($_SESSION['card']);
-            unset($_SESSION['checkDate']);
+            datDonHang($layMa['maDonHang'], $maKh, $_POST['tongDonHang'], $ngayDat, $dir, $_POST['name'], $_POST['email'], $_POST['phoneNumber']);
+            $row = addToCard($_SESSION['maPhong']);
+            datDonHangChiTiet($layMa['maDonHang'], $row['maPhong'], $_SESSION['ngayNhan'], $_SESSION['ngayTra']);
+            unset($_SESSION['maPhong'], $_SESSION['ngayNhan'], $_SESSION['ngayTra']);
             include "layout/home.php";
             break;
             // quản lý tài khoản
         case 'user':
             include 'layout/user.php';
             break;
-            
+
         default:
             include "layout/home.php";
             break;

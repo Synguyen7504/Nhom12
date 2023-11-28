@@ -200,7 +200,7 @@ foreach ($rows as $key => $value) {
                         echo $number  ?> VNĐ</strong>
               / đêm
             </p>
-            <a href="index.php?act=addtocard&maKhachSan=<?php echo $_SESSION['maKhachSan'] ?>&maPhongAdd=<?php echo $value['maPhong'] ?>"><button>Đặt Ngay</button></a>
+            <a href="index.php?act=card&maPhongAdd=<?php echo $value['maPhong'] ?>"><button>Đặt Ngay</button></a>
           </div>
         </div>
       </div>
