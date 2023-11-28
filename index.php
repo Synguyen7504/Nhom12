@@ -79,7 +79,9 @@ if (isset($_GET['act'])) {
         case 'user':
             include 'layout/user.php';
             break;
-
+        case 'donhang':
+            include 'layout/donhang.php';
+            break;
         default:
             include "layout/home.php";
             break;

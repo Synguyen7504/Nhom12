@@ -97,7 +97,7 @@
                       <li><a href="#">Về chúng tôi</a></li>
                       <li><a href="#">Tin tức</a></li>
                       <li><a href="#">Liên hệ</a></li>
-                      <li><a href="index.php?act=card">Giỏ hàng</a></li>
+                      <li><a href="index.php?act=donhang">Đơn hàng của bạn</a></li>
                       <?php
                       if (!empty($_SESSION['login'])) {
                       ?>
