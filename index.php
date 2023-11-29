@@ -77,10 +77,47 @@ if (isset($_GET['act'])) {
             break;
             // quản lý tài khoản
         case 'user':
+            extract($_SESSION['tk']);
             include 'layout/user.php';
+
             break;
         case 'donhang':
             include 'layout/donhang.php';
+            break;
+        case 'doimk':
+            extract($_SESSION['tk']);
+            $loi=[];
+            if (isset($_POST['sub'])) {
+                $mkc=$_POST['mkc'];
+                $mk1=$_POST['mk1'];
+                $mk2=$_POST['mk2'];
+                if (empty($mkc)) {
+                    $loi[]="Vui lòng nhập mật khẩu cũ";
+                    goto thoi;
+                }
+                if (empty($mk1)) {
+                    $loi[]="Vui lòng nhập mật khẩu mới";
+                    goto thoi;
+                }
+                if (empty($mk2)) {
+                    $loi[]="Vui lòng nhập lại mật khẩu mới";
+                    goto thoi;
+                }
+                if ($mk1 !== $mk2) {
+                    $loi[]="2 mật khẩu không khớp";
+                    goto thoi;
+                }
+                $matKhau;
+                if ($mkc==$matKhau) {
+                   doimk($mk1,$maKhachHang);
+                   $matKhau=$mk1;
+                   $loi[]="Đổi mật khẩu thành công";
+                }else{
+                    $loi[]="Sai mật khẩu cũ";
+                }
+                thoi:
+            }
+            include 'layout/change.php';
             break;
         default:
             include "layout/home.php";

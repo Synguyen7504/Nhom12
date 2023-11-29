@@ -19,7 +19,8 @@ if (isset($_POST['dangnhap'])) {
         if (!empty($taikhoan)) {
             extract($taikhoan);
             $_SESSION['login']= $quyen;
-            // echo $_SESSION['login'];
+            $_SESSION['tk']=$taikhoan;
+            //  print_r($_SESSION['tk']) ;
             header("Location: ../admin/index.php");
         
         //}  elseif ($tk == "admin" && $mk == "121212") {
@@ -27,10 +28,10 @@ if (isset($_POST['dangnhap'])) {
         //     $_SESSION['login']['quyen'] = "admin";
             
         //     header("Location: ../admin/index.php");
+        
+        }else{
+            $loi[]="Tài khoản không tồn tại";
         }
-        // }else{
-        //     $loi[]="Tài khoản không tồn tại";
-        // }
     }
     thoi2:
 }
@@ -47,7 +48,7 @@ if (isset($_POST['dangnhap'])) {
     <title>Space</title>
     <style>
         .header h2 {
-            margin-bottom: 50px;
+            margin-bottom: 30px;
         }
     </style>
 </head>
