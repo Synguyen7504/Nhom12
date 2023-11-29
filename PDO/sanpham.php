@@ -61,3 +61,8 @@ function layLoaiAll()
     $rows = pdo_truyVanAll($sql);
     return $rows;
 }
+// bình luận sp
+function binhluan($sao, $nd, $idks){
+    $sql="INSERT INTO binhluan (so_sao, noi_dung, ma_khs) VALUES ('$sao', '$nd', '$idks')";
+    pdo_execute($sql);
+}

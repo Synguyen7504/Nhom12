@@ -34,6 +34,25 @@ if (isset($_GET['act'])) {
                 $rows = truyVanPhong($maKhachSan);
             }
             $row = truyVan1($maKhachSan);
+            //bình luận
+            $loi=[];
+            if (isset($_POST['subp'])) {
+                $rating=$_POST['rating'];
+                $noidung=$_POST['nd'];
+                if (empty($rating)) {
+                    $rating=0;
+                }
+                if (empty($noidung)) {
+                    $loi[]="Vui lòng nhập bình luận";
+                    goto thoi;
+                }
+                if (empty($loi)) {
+                    binhluan($rating, $noidung, $maKhachSan);
+                    $loi[]="Cảm ơn bạn đã đánh giá $rating sao";
+                }
+                thoi2:
+            }
+
             include 'layout/product.php';
             break;
         case 'card':

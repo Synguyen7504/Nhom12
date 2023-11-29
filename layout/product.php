@@ -208,10 +208,109 @@ foreach ($rows as $key => $value) {
 <?php
 }
 ?>
+<style>
+  .rating {
+      direction: rtl; /* Đặt hướng viết từ phải sang trái */
+    }
 
-<div class="cac_phon">
-  <div class="row">
+    .rating input {
+      display: none;
+    }
 
+    .rating label {
+      font-size: 24px;
+      cursor: pointer;
+    }
 
+    .rating label:hover,
+    .rating label:hover ~ label,
+    .rating input:checked ~ label {
+      color: gold;
+    }
+    /* //css form */
+    .binhluan {
+      width: 80%;
+    margin-left: 10%;
+    margin-top: 50px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 30px;
+}
+    .binhluan h3 {
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  width: 10%;
+}
+
+.binhluan form {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin-top: -10px;
+}
+
+.binhluan input[type="radio"] {
+  display: none;
+}
+
+.binhluan label {
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.binhluan input[type="text"] {
+  width: 100%;
+  height: 45px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-right: 20px;
+}
+.buton{
+  display: flex;
+}
+.binhluan button {
+  padding: 8px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.binhluan button i {
+  margin-right: 5px;
+}
+  </style>
+</head>
+<body>
+
+<div class="binhluan">
+  <h3>Đánh Giá</h3>
+  <?php
+                echo "<h4 class='loidn'>" . implode($loi) . "</h4>";
+                ?>
+  <form action="" method="post">
+  <div class="rating">
+  <input type="radio" id="star5" name="rating" value="5">
+  <label for="star5"><i class="fas fa-star"></i></label>
+  <input type="radio" id="star4" name="rating" value="4">
+  <label for="star4"><i class="fas fa-star"></i></label>
+  <input type="radio" id="star3" name="rating" value="3">
+  <label for="star3"><i class="fas fa-star"></i></label>
+  <input type="radio" id="star2" name="rating" value="2">
+  <label for="star2"><i class="fas fa-star"></i></label>
+  <input type="radio" id="star1" name="rating" value="1">
+  <label for="star1"><i class="fas fa-star"></i></label>
+</div>
+  <div class="buton">
+  <input type="text" placeholder="viết bình luận..." name="nd">
+  <button type="submit"  name="subp"><i class="fa-regular fa-paper-plane"></i></button>
   </div>
+</form>
 </div>
