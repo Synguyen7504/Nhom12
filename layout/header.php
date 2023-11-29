@@ -1,12 +1,5 @@
-<?php
-// if (!$_SESSION['login']) {
-//   header("Location: ./layout/dangnhap.php");
-// }
-
-?>
 <!DOCTYPE HTML>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -96,7 +89,7 @@
                       <li><a href="index.php?rooms">Phòng</a></li>
                       <li><a href="#">Về chúng tôi</a></li>
                       <li><a href="#">Tin tức</a></li>
-                      <li><a href="#">Liên hệ</a></li>
+                      <li><a href="">Tin tức</a></li>
                       <li><a href="index.php?act=donhang">Đơn hàng của bạn</a></li>
                       <?php
                       if (!empty($_SESSION['login'])) {
@@ -105,7 +98,6 @@
                         <li><a href="./layout/dx.php">Thoát</a></li>
                       <?php
                       } else {
-
                       ?>
                         <li><a href="./layout/dangnhap.php">Đăng Nhập</a></li>
                       <?php } ?>
