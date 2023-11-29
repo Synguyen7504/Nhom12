@@ -44,7 +44,6 @@
           <?php
           }
           ?>
-
         </div>
         <div class="name">
           <p class="ten"><?php echo $row['tenKhachSan'] ?></p>

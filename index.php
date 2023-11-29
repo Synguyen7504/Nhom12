@@ -81,6 +81,9 @@ if (isset($_GET['act'])) {
             include 'layout/user.php';
 
             break;
+        case 'changepass':
+            include 'layout/change.php';
+            break;
         case 'donhang':
             include 'layout/donhang.php';
             break;

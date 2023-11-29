@@ -1,6 +1,6 @@
 <div class="container text-white py-5 text-center" data-aos="fade-up">
-    <h1 class="display-4" style="color: white;">Thông tin cá nhân</h1>
-    <p class="lead mb-0">Chỉnh sửa</p>
+    <h1 class="display-4" style="color: black;">Thông tin cá nhân</h1>
+    <p class="lead mb-0" style="color: black;">Chỉnh sửa</p>
 
 </div>
 <style>
