@@ -24,3 +24,9 @@ function layDateDonHangChiTiet()
     $rows = pdo_truyVanAll($sql);
     return $rows;
 }
+function layDateDonHangChiTietCoMaPhong($maKhachSan)
+{
+    $sql = "SELECT * FROM `donhangchitiet` INNER JOIN phong ON donhangchitiet.maPhong = phong.maPhong WHERE phong.maKhachSan = $maKhachSan;";
+    $rows = pdo_truyVanAll($sql);
+    return $rows;
+}

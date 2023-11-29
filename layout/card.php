@@ -121,6 +121,7 @@
           from.action = 'index.php?act=order';
         }
       });
+
     }
   }
   var ngayNhanInput = document.getElementById('ngayNhan');

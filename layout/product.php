@@ -104,12 +104,59 @@
         ?>
       </div>
     </div>
+
 </section>
 
 <div class="container text-white py-5 text-center" data-aos="fade-up" style="">
   <h1 class="display-4">Tất cả phòng</h1>
   <p class="lead mb-0" style="color: black;">Đặt Phòng</p>
 </div>
+<section class="section pb-4" style="margin-top: 50px;">
+  <div class="container">
+
+    <div class="row check-availabilty" id="next">
+      <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
+
+        <form action="index.php?act=product&maKhachSan=<?php echo $maKhachSan ?>" method="post">
+          <div class="row">
+            <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+              <label for="checkin_date" class="font-weight-bold text-black">Ngày Nhận</label>
+              <div class="field-icon-wrap">
+                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                <input type="date" name="ngayNhan" placeholder="Ngày nhận" required>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+              <label for="checkin_date" class="font-weight-bold text-black">Ngày Trả</label>
+              <div class="field-icon-wrap">
+                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                <input type="date" name="ngayTra" placeholder="Ngày trả" required>
+              </div>
+            </div>
+            <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
+              <label for="checkin_date" class="font-weight-bold text-black">Loại Phòng</label>
+              <div class="field-icon-wrap">
+                <div class="icon"><span class="ion-ios-arrow-down"></span></div>
+                <select name="loai" id="location" class="form-control">
+                  <option value="" selected disabled>chọn loại phòng</option>
+                  <?php
+                  foreach ($layLoai as $key => $value) { ?>
+                    <option value="<?php echo $value['maLoaiPhong'] ?>"><?php echo $value['tenLoai'] ?></option>
+                  <?php
+                  }
+                  ?>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3 align-self-end">
+              <button class="btn btn-primary btn-block text-white">Tìm phòng</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
 <section class="section pb-4" style="margin-top: 70px; margin-bottom: -50px;">
   <div class="container">
     <div class="row check-availabilty" id="next">
@@ -130,6 +177,7 @@
     </div>
   </div>
 </section>
+
 
 <?php
 foreach ($rows as $key => $value) {

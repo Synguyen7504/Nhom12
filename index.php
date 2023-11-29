@@ -15,6 +15,27 @@ if (isset($_GET['act'])) {
     $act = $_GET["act"];
     switch ($act) {
         case 'rooms':
+            $rows = truyVanAll();
+            $rows1 = truyVan2();
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                if (isset($_POST['location'])) {
+                    $diaDiem = $_POST['location'];
+                } else {
+                    $diaDiem = null;
+                }
+                if (isset($_POST['price'])) {
+                    $gia = $_POST['price'];
+                } else {
+                    $gia = null;
+                }
+                if (isset($_POST['stars'])) {
+                    $sao = $_POST['stars'];
+                } else {
+                    $sao = null;
+                }
+                $rows = locAll($sao, $diaDiem, $gia);
+            }
+
             include 'layout/rooms.php';
             break;
         case 'concat':
@@ -32,6 +53,26 @@ if (isset($_GET['act'])) {
                 $rows = locTheoLoai($maKhachSan, $_GET['maLoai']);
             } else {
                 $rows = truyVanPhong($maKhachSan);
+            }
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                $maDelete = [];
+                if (isset($_POST['loai'])) {
+                    $rows = locTheoLoai($maKhachSan, $_POST['loai']);
+                }
+                $check = layDateDonHangChiTietCoMaPhong($maKhachSan);
+                foreach ($check as $key => $value) {
+                    if (($_POST['ngayNhan'] < $value['ngayNhanPhong'] && $_POST['ngayTra'] < $value['ngayNhanPhong']) || ($_POST['ngayNhan'] > $value['ngayTraPhong'] &&  $_POST['ngayTra'] > $value['ngayTraPhong'])) {
+                    } else {
+                        foreach ($rows as $index => $giaTri) {
+                            if ($giaTri['maPhong'] == $value['maPhong']) {
+                                $maDelete[] = $index;
+                            }
+                        }
+                    }
+                }
+                foreach ($maDelete as $key => $value) {
+                    unset($rows[$value]);
+                }
             }
             $row = truyVan1($maKhachSan);
             //bình luận

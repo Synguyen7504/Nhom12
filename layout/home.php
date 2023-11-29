@@ -108,16 +108,14 @@ include "search.php";
   <div class="container">
     <div class="row justify-content-center text-center mb-5">
       <div class="col-md-7">
-        <h2 class="heading" data-aos="fade-up">Loại Phòng</h2>
-        <p data-aos="fade-up" data-aos-delay="100">Một căn phòng tiện nghi, yên tĩnh nằm giữa
-          lòng phố cổ sẽ mang đến cho bạn những phút giây thoải mái, thư giãn nhất.
-          Rapports – căn phòng đã thể hiện được sự hài hòa khi kết hợp truyền thống với hiện đại.</p>
+        <h2 class="heading" data-aos="fade-up">Các loại phòng</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Những phòng khách sạn có để có thể phục vụ bạn tốt nhất</p>
       </div>
     </div>
     <div class="row">
       <div class="js-carousel-2 owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
         <div class="testimonial text-center slider-item">
-          <a href="index.html?act=rooms&filter=phongdon" class="room">
+          <a href="" class="room">
             <figure class="img-wrap s">
               <img src="images/single.jpg" alt="Free website template" class="img-fluid mb-3">
             </figure>
@@ -127,7 +125,7 @@ include "search.php";
           </a>
         </div>
         <div class="testimonial text-center slider-item">
-          <a href="index.html?act=rooms&filter=canho" class="room">
+          <a href="" class="room">
             <figure class="img-wrap s">
               <img src="images/familly.jpg" alt="Free website template" class="img-fluid mb-3">
             </figure>
@@ -138,7 +136,7 @@ include "search.php";
         </div>
 
         <div class="testimonial text-center slider-item">
-          <a href="index.html?act=rooms&filter=phongdoi" class="room">
+          <a href="" class="room">
             <figure class="img-wrap s">
               <img src="images/president.jpg" alt="Free website template" class="img-fluid mb-3">
             </figure>
@@ -150,7 +148,7 @@ include "search.php";
 
 
         <div class="testimonial text-center slider-item">
-          <a href="index.html?act=rooms&filter=dayphong" class="room">
+          <a href="" class="room">
             <figure class="img-wrap s">
               <img src="images/familly.jpg" alt="Free website template" class="img-fluid mb-3">
             </figure>
@@ -197,11 +195,11 @@ include "search.php";
                 <div class="food-menu mb-5">
                   <span class="d-block text-primary h4 mb-3">$20.00</span>
                   <h3 class="text-white"><a href="#" class="text-white">Murgh Tikka Masala</a></h3>
-                  <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+                  <p class="text-white text-opacity-7">Xa xa, đằng sau những ngọn núi chữ, xa những đất nước Vokalia và Consonantia, có những văn bản mù quáng.</p>
                 </div>
                 <div class="food-menu mb-5">
                   <span class="d-block text-primary h4 mb-3">$35.00</span>
-                  <h3 class="text-white"><a href="#" class="text-white">Fish Moilee</a></h3>
+                  <h3 class="text-white"><a href="#" class="text-white">Cá Moilee</a></h3>
                   <p class="text-white text-opacity-7">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                 </div>
                 <div class="food-menu mb-5">
