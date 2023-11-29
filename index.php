@@ -77,9 +77,9 @@ if (isset($_GET['act'])) {
             break;
             // quản lý tài khoản
         case 'user':
-            extract($_SESSION['tk']);
-            include 'layout/user.php';
-
+                extract($_SESSION['tk']);
+                include 'layout/user.php';
+                
             break;
         case 'changepass':
             include 'layout/change.php';

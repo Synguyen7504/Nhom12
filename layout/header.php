@@ -1,12 +1,5 @@
-<?php
-// if (!$_SESSION['login']) {
-//   header("Location: ./layout/dangnhap.php");
-// }
-
-?>
 <!DOCTYPE HTML>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -105,7 +98,6 @@
                         <li><a href="./layout/dx.php">Thoát</a></li>
                       <?php
                       } else {
-
                       ?>
                         <li><a href="./layout/dangnhap.php">Đăng Nhập</a></li>
                       <?php } ?>
