@@ -1,13 +1,11 @@
 <?php
-$rows = truyVanAll();
-$rows1 = truyVan2();
-// include "search.php";
+
+include "search.php";
 ?>
 
 <!-- Danh mục phòng -->
 
 <!-- Danh mục-->
-
 <section class="section">
   <div class="container">
     <div class="row justify-content-center text-center mb-5">
@@ -27,6 +25,14 @@ $rows1 = truyVan2();
             </figure>
             <div class="p-3 text-center room-info">
               <h2 style="color: black;"><?php echo $value['tenKhachSan'] ?></h2>
+              <?php
+              for ($i = 0; $i < $value['danhGia']; $i++) {
+              ?>
+                <i class="fas fa-star"></i>
+              <?php
+              }
+              ?>
+              <br>
               <span class="text-uppercase letter-spacing-1" style="font-weight: normal;">Trung bình giá: <?php $number = addDotToNumber($value['khoangGia']);
                                                                                                           echo $number  ?> vnđ / Đêm</span>
             </div>

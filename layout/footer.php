@@ -24,16 +24,16 @@
       </div>
       <div class="col-md-3 mb-5">
         <ul class="list-unstyled link">
-          <li><a href="#">The Rooms &amp; Suites</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact Us</a></li>
-          <li><a href="#">Restaurant</a></li>
+          <li><a href="#">Phòng &amp; Suites</a></li>
+          <li><a href="#">Về chúng tôi</a></li>
+          <li><a href="#">Gửi phản hồi</a></li>
+          <li><a href="#">Nhà Hàng</a></li>
         </ul>
       </div>
       <div class="col-md-3 mb-5 pr-md-5 contact-info">
         <!-- <li>198 West 21th Street, <br> Suite 721 New York NY 10016</li> -->
-        <p><span class="d-block"><span class="ion-ios-location h5 mr-3 text-primary"></span>Address:</span> <span> 198 West 21th Street, <br> Suite 721 New York NY 10016</span></p>
-        <p><span class="d-block"><span class="ion-ios-telephone h5 mr-3 text-primary"></span>Phone:</span> <span> (+1) 435 3533</span></p>
+        <p><span class="d-block"><span class="ion-ios-location h5 mr-3 text-primary"></span>Địa chỉ:</span> <span> 198 West 21th Street, <br> Suite 721 New York NY 10016</span></p>
+        <p><span class="d-block"><span class="ion-ios-telephone h5 mr-3 text-primary"></span>Số điện thoại:</span> <span> (+1) 435 3533</span></p>
         <p><span class="d-block"><span class="ion-ios-email h5 mr-3 text-primary"></span>Email:</span> <span> info@domain.com</span></p>
       </div>
       <div class="col-md-3 mb-5">

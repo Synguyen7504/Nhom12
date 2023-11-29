@@ -18,15 +18,15 @@ if (isset($_POST['dangnhap'])) {
     if (empty($loi)) {
         if (!empty($taikhoan)) {
             extract($taikhoan);
-            $_SESSION['login']= $quyen;
+            $_SESSION['login'] = $quyen;
             // echo $_SESSION['login'];
             header("Location: ../admin/index.php");
-        
-        //}  elseif ($tk == "admin" && $mk == "121212") {
-        //     $_SESSION['login'] = "admin";
-        //     $_SESSION['login']['quyen'] = "admin";
-            
-        //     header("Location: ../admin/index.php");
+
+            //}  elseif ($tk == "admin" && $mk == "121212") {
+            //     $_SESSION['login'] = "admin";
+            //     $_SESSION['login']['quyen'] = "admin";
+
+            //     header("Location: ../admin/index.php");
         }
         // }else{
         //     $loi[]="Tài khoản không tồn tại";
