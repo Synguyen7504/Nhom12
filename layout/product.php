@@ -276,10 +276,18 @@ foreach ($rows as $key => $value) {
       color: gold;
     }
     /* //css form */
-    .binhluan {
+      .all_binnhluan {
       width: 80%;
     margin-left: 10%;
     margin-top: 50px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-bottom: 30px;
+}  
+    .binhluan {
+      width: 100%;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -288,6 +296,7 @@ foreach ($rows as $key => $value) {
     justify-content: flex-start;
     margin-bottom: 30px;
 }
+
 .abc{
   width: 20%;
 }
@@ -341,6 +350,54 @@ foreach ($rows as $key => $value) {
 .binhluan button i {
   margin-right: 5px;
 }
+.ls_binhl{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  overflow: hidden;
+  align-items: center;
+  line-height: 50px;
+}
+.alll{
+  width: 50%;
+    display: contents;
+     justify-content:flex-start;
+    overflow: hidden;
+}
+.avt{
+  width: 50px;
+  height: 50px;
+border-radius: 50%;
+margin-right: 10px;
+background-image: url(./images/single.jpg);
+}
+.avtt2{
+  width: 18%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.avtt2 h3{
+  margin-top: -15px;
+    font-size: 20px;
+    font-weight: revert;
+}
+.noidung{
+  width: 80%;
+  display: flex;
+  word-wrap: break-word;
+}
+.noidung .nd{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: black;
+}
+.sao {
+  margin-right: 10px;
+  color: red;
+  font-size: 20px;
+}
+
   </style>
 </head>
 <body>
@@ -373,6 +430,23 @@ foreach ($rows as $key => $value) {
 </form>
 </div>
 <div class="ls_binhl">
+  <?php
+  foreach ($allbl as $key) {
+    extract($key);
+    echo '
+  <div class="alll">
+  <div class="avtt2">
+  <div class="avt"></div>
+<h3>'.$tenKhachHang.' :</h3>
+</div>
+<div class="noidung">
+  <p class="sao">'.$so_sao.'<i class="fas fa-star"></i></</p>
+  <p class="nd">'.$noi_dung.'</p>
+</div></div>
+    ';
+  }
+  
+  ?>
 
 </div>
 </div>

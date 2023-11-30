@@ -13,7 +13,7 @@
                 <select name="location" id="location" class="form-control">
                   <option value="" selected disabled>Địa điểm</option>
                   <?php
-                  // $tinhThanh = truyVanDiaDiem();
+                  $tinhThanh = truyVanDiaDiem();
                   foreach ($tinhThanh as $key => $value) {
                   ?>
                     <option value="<?php echo $value['tinhThanh'] ?>"><?php echo $value['tinhThanh'] ?></option>
@@ -30,7 +30,7 @@
                 <select name="price" id="price" class="form-control">
                   <option value="" selected disabled>Giá</option>
                   <?php
-                  // $gia = truyVanGia();
+                  $gia = truyVanGia();
                   foreach ($gia as $key => $value) {
                   ?>
                     <option value="<?php echo $value['khoangGia'] ?>"><?php echo $value['khoangGia'] ?> vnđ</option>

@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -59,6 +60,30 @@
       color: #fff;
       background-color: #dbc234;
       border-radius: 5px;
+
+    }
+
+    .card {
+      border-radius: 15px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card-header {
+      background-color: #ffc533;
+      color: #fff;
+    }
+
+    .card-img-container {
+      width: 320px;
+      float: right;
+      /* Đổi float thành right để di chuyển ảnh sang bên phải */
+      margin-left: 10px;
+      /* Thay đổi margin-left thành margin-right */
     }
   </style>
 </head>

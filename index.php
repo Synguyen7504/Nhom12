@@ -33,7 +33,7 @@ if (isset($_GET['act'])) {
                 } else {
                     $sao = null;
                 }
-                // $rows = locAll($sao, $diaDiem, $gia);
+                $rows = locAll($sao, $diaDiem, $gia);
             }
 
             include 'layout/rooms.php';
@@ -75,6 +75,7 @@ if (isset($_GET['act'])) {
                 }
             }
             $row = truyVan1($maKhachSan);
+            $allbl=laybl($maKhachSan);
             //bình luận
             $loi=[];
             if (isset($_POST['subp'])) {
@@ -126,9 +127,10 @@ if (isset($_GET['act'])) {
         case 'pay':
             $layMa = layMaDonHangLonNhat();
             $layMa['maDonHang'] = $layMa['maDonHang'] + 1;
-            if (isset($_SESSION['kh']['ma'])) {
-                $maKh = $_SESSION['login']['maKhachHang'];
+            if (isset($_SESSION['tk'])) {
+                $maKh = $_SESSION['tk']['maKhachHang'];
             } else {
+                $_SESSION['layMa'][] = $layMa;
                 $maKh = null;
             }
             $dir = 'images/' . rand(1, 1000) . '_' . $_FILES['file']['name'];
@@ -142,9 +144,24 @@ if (isset($_GET['act'])) {
             break;
             // quản lý tài khoản
         case 'user':
-                extract($_SESSION['tk']);
-                include 'layout/user.php';
-                
+            extract($_SESSION['tk']);
+            header('location: index.php');
+            // include 'layout/user.php';
+
+            break;
+        case 'donhang':
+            if (isset($_SESSION['tk'])) {
+                $maKhachHang = $_SESSION['tk']['maKhachHang'];
+                $rows = layDonHangDaDat($maKhachHang);
+            } else {
+                if (isset($_SESSION['layMa'])) {
+                    foreach ($_SESSION['layMa'] as $key => $value) {
+                        $lay = layDonHangBangMa($value);
+                        $rows[] = $lay;
+                    }
+                }
+            }
+            include 'layout/donhang.php';
             break;
         case 'changepass':
             include 'layout/change.php';
@@ -154,34 +171,34 @@ if (isset($_GET['act'])) {
             break;
         case 'doimk':
             extract($_SESSION['tk']);
-            $loi=[];
+            $loi = [];
             if (isset($_POST['sub'])) {
-                $mkc=$_POST['mkc'];
-                $mk1=$_POST['mk1'];
-                $mk2=$_POST['mk2'];
+                $mkc = $_POST['mkc'];
+                $mk1 = $_POST['mk1'];
+                $mk2 = $_POST['mk2'];
                 if (empty($mkc)) {
-                    $loi[]="Vui lòng nhập mật khẩu cũ";
+                    $loi[] = "Vui lòng nhập mật khẩu cũ";
                     goto thoi;
                 }
                 if (empty($mk1)) {
-                    $loi[]="Vui lòng nhập mật khẩu mới";
+                    $loi[] = "Vui lòng nhập mật khẩu mới";
                     goto thoi;
                 }
                 if (empty($mk2)) {
-                    $loi[]="Vui lòng nhập lại mật khẩu mới";
+                    $loi[] = "Vui lòng nhập lại mật khẩu mới";
                     goto thoi;
                 }
                 if ($mk1 !== $mk2) {
-                    $loi[]="2 mật khẩu không khớp";
+                    $loi[] = "2 mật khẩu không khớp";
                     goto thoi;
                 }
                 $matKhau;
-                if ($mkc==$matKhau) {
-                   doimk($mk1,$maKhachHang);
-                   $matKhau=$mk1;
-                   $loi[]="Đổi mật khẩu thành công";
-                }else{
-                    $loi[]="Sai mật khẩu cũ";
+                if ($mkc == $matKhau) {
+                    doimk($mk1, $maKhachHang);
+                    $matKhau = $mk1;
+                    $loi[] = "Đổi mật khẩu thành công";
+                } else {
+                    $loi[] = "Sai mật khẩu cũ";
                 }
                 thoi:
             }
