@@ -18,19 +18,20 @@ if (isset($_POST['dangnhap'])) {
     if (empty($loi)) {
         if (!empty($taikhoan)) {
             extract($taikhoan);
-            $_SESSION['login']= $quyen;
-            $_SESSION['tk']=$taikhoan;
+            $_SESSION['login'] = $quyen;
+            $_SESSION['tk'] = $taikhoan;
             //  print_r($_SESSION['tk']) ;
+            unset($_SESSION['layMa']);
             header("Location: ../admin/index.php");
-        
-        //}  elseif ($tk == "admin" && $mk == "121212") {
-        //     $_SESSION['login'] = "admin";
-        //     $_SESSION['login']['quyen'] = "admin";
-            
-        //     header("Location: ../admin/index.php");
-        
-        }else{
-            $loi[]="Tài khoản không tồn tại";
+
+            //}  elseif ($tk == "admin" && $mk == "121212") {
+            //     $_SESSION['login'] = "admin";
+            //     $_SESSION['login']['quyen'] = "admin";
+
+            //     header("Location: ../admin/index.php");
+
+        } else {
+            $loi[] = "Tài khoản không tồn tại";
         }
     }
     thoi2:

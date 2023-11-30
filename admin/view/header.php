@@ -4,7 +4,7 @@ session_start();
 if (!$_SESSION['login']) {
     header("Location: ../layout/dangnhap.php");
 }
-if ($_SESSION['login']&&$_SESSION['login']!="admin") {
+if ($_SESSION['login'] && $_SESSION['login'] != "admin") {
     header("Location: ../index.php");
 }
 
@@ -60,44 +60,44 @@ if ($_SESSION['login']&&$_SESSION['login']!="admin") {
 
         <div class="sidebar-wrapper">
             <div class="logo">
-                <a href="#" class="simple-text">
+                <a href="index.php" class="simple-text">
                     sogo hotel
                 </a>
             </div>
 
             <ul class="nav">
                 <li>
-                    <a href="dashboard.html">
+                    <a href="index.php?act=thongke">
                         <i class="pe-7s-graph"></i>
                         <p>Thống kê</p>
                     </a>
                 </li>
-                <li class="active">
-                    <a href="table.html">
+                <li>
+                    <a href="index.php?act=user">
                         <i class="pe-7s-user"></i>
                         <p>Người dùng</p>
                     </a>
                 </li>
                 <li>
-                    <a href="table.html">
+                    <a href="index.php?act=loaiphong">
                         <i class="pe-7s-note2"></i>
                         <p>Loại phòng</p>
                     </a>
                 </li>
                 <li>
-                    <a href="table.html">
+                    <a href="index.php?act=khachsan">
                         <i class="pe-7s-note2"></i>
                         <p>Khách sạn</p>
                     </a>
                 </li>
                 <li>
-                    <a href="table.html">
+                    <a href="index.php?act=phong">
                         <i class="pe-7s-note2"></i>
                         <p>Phòng</p>
                     </a>
                 </li>
                 <li>
-                    <a href="typography.html">
+                    <a href="index.php?act=tienich">
                         <i class="pe-7s-leaf"></i>
                         <p>Tiện nghi</p>
                     </a>
@@ -110,20 +110,13 @@ if ($_SESSION['login']&&$_SESSION['login']!="admin") {
         <nav class="navbar navbar-default navbar-fixed">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target="#navigation-example-2">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Table List</a>
+                    <a class="navbar-brand" href="index.php">Admin</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <a href="../layout/dx.php">
-                                <p>Log out</p>
+                                <p>Đăng xuất</p>
                             </a>
                         </li>
                         <li class="separator hidden-lg hidden-md"></li>
