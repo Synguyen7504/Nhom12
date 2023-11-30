@@ -288,10 +288,17 @@ foreach ($rows as $key => $value) {
     justify-content: flex-start;
     margin-bottom: 30px;
 }
+.abc{
+  width: 20%;
+}
+.abc h5{
+  color: red;
+  font-size: 20px;
+}
     .binhluan h3 {
   font-size: 1.5em;
   margin-bottom: 15px;
-  width: 10%;
+  width: 100%;
 }
 
 .binhluan form {
@@ -338,11 +345,14 @@ foreach ($rows as $key => $value) {
 </head>
 <body>
 
+<div class="all_binnhluan">
 <div class="binhluan">
+  <div class="abc">
   <h3>Đánh Giá</h3>
   <?php
-                echo "<h4 class='loidn'>" . implode($loi) . "</h4>";
+                echo "<h5 class='loidn'>" . implode($loi) . "</h5>";
                 ?>
+  </div>
   <form action="" method="post">
   <div class="rating">
   <input type="radio" id="star5" name="rating" value="5">
@@ -357,8 +367,12 @@ foreach ($rows as $key => $value) {
   <label for="star1"><i class="fas fa-star"></i></label>
 </div>
   <div class="buton">
-  <input type="text" placeholder="viết bình luận..." name="nd">
+  <input type="text" placeholder="Viết bình luận..." name="nd">
   <button type="submit"  name="subp"><i class="fa-regular fa-paper-plane"></i></button>
   </div>
 </form>
+</div>
+<div class="ls_binhl">
+
+</div>
 </div>
