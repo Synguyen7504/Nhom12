@@ -61,8 +61,44 @@ function layLoaiAll()
     $rows = pdo_truyVanAll($sql);
     return $rows;
 }
+function truyVanDiaDiem()
+{
+    $sql = "SELECT * FROM `khachsan` GROUP BY tinhThanh;";
+    $rows = pdo_truyVanAll($sql);
+    return $rows;
+}
+function truyVanGia()
+{
+    $sql = "SELECT * FROM `khachsan` GROUP BY khoangGia;";
+    $rows = pdo_truyVanAll($sql);
+    return $rows;
+}
+function locAll($sao, $diaDiem, $gia)
+{
+    if (isset($sao) && isset($diaDiem) && empty($gia)) {
+        $sql = "SELECT * FROM `khachsan` WHERE tinhThanh = '$diaDiem' AND danhGia = $sao";
+    } elseif (isset($sao) && empty($diaDiem) && isset($gia)) {
+        $sql = "SELECT * FROM `khachsan` WHERE khoangGia = '$gia' AND danhGia = $sao";
+    } elseif (empty($sao) && isset($diaDiem) && isset($gia)) {
+        $sql = "SELECT * FROM `khachsan` WHERE tinhThanh = '$diaDiem' AND khoangGia = '$gia'";
+    } elseif (isset($diaDiem) && empty($sao) && empty($gia)) {
+        $sql = "SELECT * FROM `khachsan` WHERE tinhThanh = '$diaDiem'";
+    } elseif (empty($diaDiem) && isset($sao) && empty($gia)) {
+        $sql = "SELECT * FROM `khachsan` WHERE danhGia = $sao";
+    } elseif (empty($diaDiem) && isset($gia) && empty($sao)) {
+        $sql = "SELECT * FROM `khachsan` WHERE khoangGia = '$gia'";
+    } elseif (empty($sao) && empty($diaDiem) && empty($gia)) {
+        $sql = "SELECT * FROM `khachsan`";
+    } else {
+        $sql = "SELECT * FROM `khachsan` WHERE khoangGia = '$gia' AND tinhThanh = '$diaDiem' AND danhGia = $sao";
+    }
+
+    $rows = pdo_truyVanAll($sql);
+    return $rows;
+}
 // bình luận sp
-function binhluan($sao, $nd, $idks){
-    $sql="INSERT INTO binhluan (so_sao, noi_dung, ma_khs) VALUES ('$sao', '$nd', '$idks')";
+function binhluan($sao, $nd, $idks)
+{
+    $sql = "INSERT INTO binhluan (so_sao, noi_dung, ma_khs) VALUES ('$sao', '$nd', '$idks')";
     pdo_execute($sql);
 }

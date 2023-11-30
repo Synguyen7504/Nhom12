@@ -27,10 +27,10 @@
                                         <td><?php echo $value['maPhong'] ?></td>
                                         <td><?php echo $value['tenKhachSan'] ?></td>
                                         <td><?php echo $value['tenLoai'] ?></td>
-                                        <td><img style="width: 50px; height: 50px;" src="../<?php echo $value['image'] ?>" alt=""></td>
+                                        <td><img style="width: 70px; height: 70px; border-radius: 5px;" src="../<?php echo $value['image'] ?>" alt=""></td>
                                         <td><?php echo $value['giaPhong'] ?></td>
                                         <td><?php echo $value['giuong'] ?></td>
-                                        <td><a href="index.php?act=updatePhong?maPhong=<?php echo $value['maPhong'] ?>">Sửa</a><a style="margin-left: 15px;" href="index.php?act=deletePhong?maPhong=<?php echo $value['maPhong'] ?>">Xóa</a></td>
+                                        <td><a href="index.php?act=updatePhong&maPhong=<?php echo $value['maPhong'] ?>">Sửa</a><a style="margin-left: 15px;" href="index.php?act=deletePhong&maPhong=<?php echo $value['maPhong'] ?>">Xóa</a></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
