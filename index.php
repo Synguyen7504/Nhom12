@@ -75,27 +75,27 @@ if (isset($_GET['act'])) {
                 }
             }
             $row = truyVan1($maKhachSan);
-            $allbl=laybl($maKhachSan);
+            $allbl = laybl($maKhachSan);
             //bình luận
-            $loi=[];
+            $loi = [];
             if (isset($_POST['subp'])) {
-                $rating=$_POST['rating'];
-                $noidung=$_POST['nd'];
+                $rating = $_POST['rating'];
+                $noidung = $_POST['nd'];
                 if (empty($rating)) {
-                    $rating=0;
+                    $rating = 0;
                 }
                 if (!$_SESSION['tk']) {
-                    $loi[]="Vui lòng đăng nhập để sử dụng tính năng này";
+                    $loi[] = "Vui lòng đăng nhập để sử dụng tính năng này";
                     goto thoi2;
                 }
                 if (empty($noidung)) {
-                    $loi[]="Vui lòng nhập bình luận";
+                    $loi[] = "Vui lòng nhập bình luận";
                     goto thoi2;
                 }
                 if (empty($loi)) {
                     extract($_SESSION['tk']);
-                    binhluan($rating, $noidung, $maKhachSan, $maKhachHang );
-                    $loi[]="Cảm ơn bạn đã đánh giá $rating sao";
+                    binhluan($rating, $noidung, $maKhachSan, $maKhachHang);
+                    $loi[] = "Cảm ơn bạn đã đánh giá $rating sao";
                 }
                 thoi2:
             }
@@ -120,8 +120,8 @@ if (isset($_GET['act'])) {
             }
             $tongTien = $row['giaPhong'] * $countDay;
             $phaiTra = $tongTien / 2;
-            echo $tongTien;
-            include "layout/order.php";
+            // include "layout/order.php";
+            header('location: index.php?act=order');
             break;
 
         case 'pay':

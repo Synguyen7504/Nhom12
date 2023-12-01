@@ -96,12 +96,12 @@ if ($_SESSION['login'] && $_SESSION['login'] != "admin") {
                         <p>Phòng</p>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="index.php?act=tienich">
                         <i class="pe-7s-leaf"></i>
                         <p>Tiện nghi</p>
                     </a>
-                </li>
+                </li> -->
             </ul>
         </div>
     </div>
