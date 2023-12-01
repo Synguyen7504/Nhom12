@@ -97,8 +97,14 @@ function locAll($sao, $diaDiem, $gia)
     return $rows;
 }
 // bình luận sp
-function binhluan($sao, $nd, $idks)
-{
-    $sql = "INSERT INTO binhluan (so_sao, noi_dung, ma_khs) VALUES ('$sao', '$nd', '$idks')";
+function binhluan($sao, $nd, $idks, $idkh){
+    $sql="INSERT INTO binhluan (so_sao, noi_dung, ma_khs, ma_kh) VALUES ('$sao', '$nd', '$idks', '$idkh')";
     pdo_execute($sql);
+}
+function laybl($idks){
+    $sql="SELECT binhluan.noi_dung, binhluan.so_sao, khachhang.tenKhachHang FROM `binhluan`
+    LEFT JOIN khachhang ON binhluan.ma_kh=khachhang.maKhachHang 
+    LEFT JOIN khachsan ON binhluan.ma_khs=khachsan.maKhachSan
+    WHERE khachsan.maKhachSan=$idks";
+    return $bl=pdo_query($sql);   
 }

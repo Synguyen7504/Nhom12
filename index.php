@@ -75,6 +75,7 @@ if (isset($_GET['act'])) {
                 }
             }
             $row = truyVan1($maKhachSan);
+            $allbl=laybl($maKhachSan);
             //bình luận
             $loi=[];
             if (isset($_POST['subp'])) {
@@ -83,12 +84,17 @@ if (isset($_GET['act'])) {
                 if (empty($rating)) {
                     $rating=0;
                 }
+                if (!$_SESSION['tk']) {
+                    $loi[]="Vui lòng đăng nhập để sử dụng tính năng này";
+                    goto thoi2;
+                }
                 if (empty($noidung)) {
                     $loi[]="Vui lòng nhập bình luận";
-                    goto thoi;
+                    goto thoi2;
                 }
                 if (empty($loi)) {
-                    binhluan($rating, $noidung, $maKhachSan);
+                    extract($_SESSION['tk']);
+                    binhluan($rating, $noidung, $maKhachSan, $maKhachHang );
                     $loi[]="Cảm ơn bạn đã đánh giá $rating sao";
                 }
                 thoi2:
