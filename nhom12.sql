@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th10 28, 2023 lúc 08:30 AM
+-- Thời gian đã tạo: Th12 01, 2023 lúc 08:38 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.1.17
 
@@ -91,13 +91,7 @@ INSERT INTO `donhangchitiet` (`maDonHangChiTiet`, `maDonHang`, `maPhong`, `ngayN
 (21, 12, 4, '2023-11-28', '2023-11-29'),
 (22, 13, 3, '2023-11-28', '2023-11-29'),
 (23, 14, 3, '2023-12-08', '2023-12-09'),
-(24, 15, 3, '2023-12-10', '2023-12-11'),
-(25, 16, 3, '2023-12-17', '2023-12-18'),
-(26, 17, 3, '2023-12-21', '2023-12-22'),
-(27, 18, 3, '2023-12-24', '2023-12-25'),
-(28, 19, 3, '2023-12-27', '2023-12-28'),
-(29, 14, 3, '2023-11-30', '2023-12-01'),
-(30, 15, 5, '2023-11-28', '2023-11-29');
+(24, 15, 3, '2023-12-10', '2023-12-11');
 
 -- --------------------------------------------------------
 
@@ -123,17 +117,21 @@ CREATE TABLE `khachhang` (
   `soDienThoai` int(10) NOT NULL,
   `tenDangNhap` varchar(50) NOT NULL,
   `matKhau` int(11) NOT NULL,
-  `quyen` varchar(50) NOT NULL DEFAULT 'user'
+  `quyen` varchar(50) NOT NULL DEFAULT 'user',
+  `avatar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `khachhang`
 --
 
-INSERT INTO `khachhang` (`maKhachHang`, `tenKhachHang`, `email`, `soDienThoai`, `tenDangNhap`, `matKhau`, `quyen`) VALUES
-(1, 'anhquangday', '', 973320198, 'anhquangday', 121212, 'user'),
-(2, 'sy', '', 123154, 'sy', 123456, 'user'),
-(3, 'admin', '321312', 321312, 'admin', 1, 'admin');
+INSERT INTO `khachhang` (`maKhachHang`, `tenKhachHang`, `email`, `soDienThoai`, `tenDangNhap`, `matKhau`, `quyen`, `avatar`) VALUES
+(1, 'anhquangday', '', 973320198, 'anhquangday', 121212, 'user', 'images/khachsan1a.jpg'),
+(2, 'sy', '', 123154, 'sy', 123456, 'user', 'images/khachsan1a.jpg'),
+(3, 'admin', '321312', 321312, 'admin', 1, 'admin', 'images/khachsan1a.jpg'),
+(4, 'Sỹ', 'email', 1234567, 'syadmin', 1, '1', 'images/1.jpg'),
+(5, 'Test', 'email', 1234567, 'test', 1, '0', 'images/1.jpg'),
+(6, 'Admin', 'email', 1234567, 'test', 1, '0', 'images/1.jpg');
 
 -- --------------------------------------------------------
 
@@ -145,6 +143,7 @@ CREATE TABLE `khachsan` (
   `maKhachSan` int(11) NOT NULL,
   `tenKhachSan` varchar(50) NOT NULL,
   `diaDiem` varchar(250) NOT NULL,
+  `tinhThanh` varchar(255) NOT NULL,
   `khoangGia` float DEFAULT NULL,
   `danhGia` int(1) NOT NULL DEFAULT 1,
   `anh1` varchar(255) NOT NULL,
@@ -163,13 +162,13 @@ CREATE TABLE `khachsan` (
 -- Đang đổ dữ liệu cho bảng `khachsan`
 --
 
-INSERT INTO `khachsan` (`maKhachSan`, `tenKhachSan`, `diaDiem`, `khoangGia`, `danhGia`, `anh1`, `anh2`, `anh3`, `anh4`, `nhaHang`, `hoBoi`, `phongGym`, `wifi`, `mayLanh`, `hutThuoc`) VALUES
-(1, 'Khách sạn Hoa Hồng', 'Tây Hồ - Hà Nội', 1000000, 1, 'images/khachsan1a.jpg', 'images/khachsan1b.jpg', 'images/khachsan1c.jpg', 'images/khachsan1d.jpg', b'1', b'1', b'1', b'1', b'1', b'1'),
-(2, 'Khách sạn phượng múa', 'Hà đông - Hà Nội', 1000000, 3, 'images/khachsan2a.jpg', 'images/khachsan2d.jpg', 'images/khachsan2c.jpg', 'images/khachsan2d.jpg', b'1', b'1', b'1', b'0', b'1', b'1'),
-(3, 'Khách sạn Hoa Hồng', 'Hà Đông - Ha Nội', 1000000, 1, './images/khachsan1a.jpg', '../images/khachsan1b.jpg', '../images/khachsan1c.jpg', '../images/khachsan1d.jpg', b'0', b'1', b'1', b'1', b'1', b'1'),
-(4, 'Khách sạn rồng bay', 'Đà lạt - Lâm Đồng', 1000000, 1, './images/khachsan2a.jpg', '../images/khachsan2b.jpg', '../images/khachsan2c.jpg', '../images/khachsan2d.jpg', b'1', b'1', b'0', b'1', b'1', b'1'),
-(5, 'Khách sạn Biển Cả', 'Chu Du - Lâm Đồng', 1000000, 1, './images/khachsan3b.jpg', '../images/khachsan3b.jpg', '../images/khachsan3c.jpg', '../images/khachsan3d.jpg', b'1', b'1', b'1', b'1', b'1', b'1'),
-(6, 'Khách sạn đồng quê', 'Tây Hồ - Hà Nội', 1000000, 1, './images/khachsan4b.jpg', '../images/khachsan4b.jpg', '../images/khachsan4c.jpg', 'images/khachsan2a.jpg', b'1', b'1', b'1', b'1', b'1', b'0');
+INSERT INTO `khachsan` (`maKhachSan`, `tenKhachSan`, `diaDiem`, `tinhThanh`, `khoangGia`, `danhGia`, `anh1`, `anh2`, `anh3`, `anh4`, `nhaHang`, `hoBoi`, `phongGym`, `wifi`, `mayLanh`, `hutThuoc`) VALUES
+(1, 'Khách sạn Hoa Hồng', 'Tây Hồ - Hà Nội', 'Hà Nội', 1000000, 1, 'images/khachsan1a.jpg', 'images/khachsan1b.jpg', 'images/khachsan1c.jpg', 'images/khachsan1d.jpg', b'1', b'1', b'1', b'1', b'1', b'1'),
+(2, 'Khách sạn phượng múa', 'Hà đông - Hà Nội', 'Hà Nội', 2000000, 3, 'images/khachsan2a.jpg', 'images/khachsan2d.jpg', 'images/khachsan2c.jpg', 'images/khachsan2d.jpg', b'1', b'1', b'1', b'0', b'1', b'1'),
+(3, 'Khách sạn Hoa Hồng', 'Hà Đông - Ha Nội', 'Hà Nội', 1000000, 1, 'images/khachsan1a.jpg', 'images/khachsan1b.jpg', 'images/khachsan1c.jpg', 'images/khachsan1d.jpg', b'0', b'1', b'1', b'1', b'1', b'1'),
+(4, 'Khách sạn rồng bay', 'Đà lạt - Lâm Đồng', 'Lâm Đồng', 1000000, 1, 'images/khachsan2a.jpg', 'images/khachsan2c.jpg', 'images/khachsan2c.jpg', 'images/khachsan2d.jpg', b'1', b'1', b'0', b'1', b'1', b'1'),
+(5, 'Khách sạn Biển Cả', 'Chu Du - Lâm Đồng', 'Lâm Đồng', 1000000, 1, 'images/khachsan3b.jpg', 'images/khachsan3b.jpg', 'images/khachsan3c.jpg', 'images/khachsan3d.jpg', b'1', b'1', b'1', b'1', b'1', b'1'),
+(6, 'Khách sạn đồng quê', 'Tây Hồ - Hà Nội', 'Hà Nội', 1000000, 1, 'images/khachsan4b.jpg', 'images/khachsan4b.jpg', 'images/khachsan4c.jpg', 'images/khachsan2a.jpg', b'1', b'1', b'1', b'1', b'1', b'0');
 
 -- --------------------------------------------------------
 
@@ -223,7 +222,7 @@ CREATE TABLE `phong` (
 INSERT INTO `phong` (`maPhong`, `maKhachSan`, `soPhong`, `maLoaiPhong`, `giaPhong`, `giuong`, `dienTich`, `image`, `trangThai`) VALUES
 (1, 1, 1, 1, 1000000, '1 giường đôi', 30, 'images/1phonng,1giuongdoi,khachsan3.jpg', b'0'),
 (2, 1, 2, 2, 2000000, '1 giường đôi', 30, 'images/phong1,1giuongdoi,khachsan1.jpg', b'0'),
-(3, 1, 2, 2, 2000000, '2 giường đơn', 30, 'phong1,2giuongdon,khachsan1.jpg', b'0'),
+(3, 1, 2, 2, 2000000, '2 giường đơn', 30, 'images/phong1,1giuongdoi,khachsan1.jpg', b'0'),
 (4, 1, 3, 3, 3000000, 'Nhiều giường', 30, 'images/canho,khachsan3.jpg', b'0'),
 (5, 1, 4, 4, 1000000, 'Nhiều giường', 30, 'images/canho,khachsan3.jpg', b'0'),
 (6, 2, 1, 1, 1000000, '1 giường đôi', 300, 'images/phong1,1giuongdoi,khachsan2.jpg', b'0'),
@@ -340,7 +339,7 @@ ALTER TABLE `giohang`
 -- AUTO_INCREMENT cho bảng `khachhang`
 --
 ALTER TABLE `khachhang`
-  MODIFY `maKhachHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `maKhachHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT cho bảng `khachsan`
