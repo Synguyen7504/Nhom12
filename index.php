@@ -4,6 +4,9 @@ include "./PDO/sanpham.php";
 include "./PDO/donghang.php";
 $get = "";
 session_start();
+if (!$_SESSION['tk']) {
+    header("Location: ./layout/dangnhap.php");
+}
 if (isset($_GET['act'])) {
     $get = $_GET['act'];
 }
@@ -54,7 +57,7 @@ if (isset($_GET['act'])) {
             } else {
                 $rows = truyVanPhong($maKhachSan);
             }
-            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+            if (isset($_POST['ngayNhan'])  && isset($_POST['ngayTra'])) {
                 $maDelete = [];
                 if (isset($_POST['loai'])) {
                     $rows = locTheoLoai($maKhachSan, $_POST['loai']);
@@ -70,12 +73,13 @@ if (isset($_GET['act'])) {
                         }
                     }
                 }
+
+
                 foreach ($maDelete as $key => $value) {
                     unset($rows[$value]);
                 }
             }
             $row = truyVan1($maKhachSan);
-            $allbl = laybl($maKhachSan);
             //bình luận
             $loi = [];
             if (isset($_POST['subp'])) {
@@ -84,7 +88,7 @@ if (isset($_GET['act'])) {
                 if (empty($rating)) {
                     $rating = 0;
                 }
-                if (!$_SESSION['tk']) {
+                if (empty($_SESSION['tk'])) {
                     $loi[] = "Vui lòng đăng nhập để sử dụng tính năng này";
                     goto thoi2;
                 }
@@ -99,7 +103,7 @@ if (isset($_GET['act'])) {
                 }
                 thoi2:
             }
-
+            $allbl = laybl($maKhachSan);
             include 'layout/product.php';
             break;
         case 'card':
@@ -120,8 +124,7 @@ if (isset($_GET['act'])) {
             }
             $tongTien = $row['giaPhong'] * $countDay;
             $phaiTra = $tongTien / 2;
-            // include "layout/order.php";
-            header('location: index.php?act=order');
+            include "layout/order.php";
             break;
 
         case 'pay':
@@ -145,22 +148,22 @@ if (isset($_GET['act'])) {
             // quản lý tài khoản
         case 'user':
             extract($_SESSION['tk']);
-            header('location: index.php');
-            // include 'layout/user.php';
+            include 'layout/user.php';
 
             break;
         case 'donhang':
             if (isset($_SESSION['tk'])) {
                 $maKhachHang = $_SESSION['tk']['maKhachHang'];
                 $rows = layDonHangDaDat($maKhachHang);
-            } else {
-                if (isset($_SESSION['layMa'])) {
-                    foreach ($_SESSION['layMa'] as $key => $value) {
-                        $lay = layDonHangBangMa($value);
-                        $rows[] = $lay;
-                    }
-                }
+                // } else {
+                //     if (isset($_SESSION['layMa'])) {
+                //         foreach ($_SESSION['layMa'] as $key => $value) {
+                //             $lay = layDonHangBangMa($value);
+                //             $rows[] = $lay;
+                //         }
+                //     }
             }
+
             include 'layout/donhang.php';
             break;
         case 'changepass':

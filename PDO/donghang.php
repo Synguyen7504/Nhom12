@@ -32,12 +32,13 @@ function layDateDonHangChiTietCoMaPhong($maKhachSan)
 }
 function layDonHangDaDat($maKhachHang)
 {
-    $sql = "SELECT donhang.maDonHang,khachsan.tenKhachSan, khachsan.maKhachSan,donhang.tongDonHang,donhang.trangThai,ngayDat,donhangchitiet.ngayNhanPhong,donhangchitiet.ngayTraPhong, tenLoai FROM `donHang` INNER JOIN `donhangchitiet` on donhang.maDonHang = donhangchitiet.maDonHang INNER JOIN phong ON donhangchitiet.maPhong = phong.maPhong INNER JOIN khachsan ON phong.maKhachSan = khachsan.maKhachSan INNER JOIN loaiphong ON phong.maLoaiPhong = loaiphong.maLoaiPhong WHERE maKhachHang = $maKhachHang ORDER BY donhang.maDonHang;";
+    $sql = "SELECT donhang.maDonHang,khachsan.tenKhachSan, khachsan.maKhachSan,donhang.tongDonHang,donhang.trangThai,ngayDat,donhangchitiet.ngayNhanPhong,donhangchitiet.ngayTraPhong, tenLoai,donhang.image FROM `donHang` INNER JOIN `donhangchitiet` on donhang.maDonHang = donhangchitiet.maDonHang INNER JOIN phong ON donhangchitiet.maPhong = phong.maPhong INNER JOIN khachsan ON phong.maKhachSan = khachsan.maKhachSan INNER JOIN loaiphong ON phong.maLoaiPhong = loaiphong.maLoaiPhong WHERE maKhachHang = $maKhachHang ORDER BY donhang.maDonHang;";
     $rows = pdo_truyVanAll($sql);
     return $rows;
 }
 function layDonHangBangMa($maDonHang)
 {
-    $sql = "SELECT donhang.maDonHang,khachsan.tenKhachSan, khachsan.maKhachSan,donhang.tongDonHang,donhang.trangThai,ngayDat,donhangchitiet.ngayNhanPhong,donhangchitiet.ngayTraPhong, tenLoai FROM `donHang` INNER JOIN `donhangchitiet` on donhang.maDonHang = donhangchitiet.maDonHang INNER JOIN phong ON donhangchitiet.maPhong = phong.maPhong INNER JOIN khachsan ON phong.maKhachSan = khachsan.maKhachSan INNER JOIN loaiphong ON phong.maLoaiPhong = loaiphong.maLoaiPhong WHERE donhang.maDonHang = $maDonHang";
-$rows = pdo_truyVan1($sql);
+    $sql = "SELECT donhang.maDonHang,khachsan.tenKhachSan, khachsan.maKhachSan,donhang.tongDonHang,donhang.trangThai,ngayDat,donhangchitiet.ngayNhanPhong,donhangchitiet.ngayTraPhong,tenLoai FROM `donHang` INNER JOIN `donhangchitiet` on donhang.maDonHang = donhangchitiet.maDonHang INNER JOIN phong ON donhangchitiet.maPhong = phong.maPhong INNER JOIN khachsan ON phong.maKhachSan = khachsan.maKhachSan INNER JOIN loaiphong ON phong.maLoaiPhong = loaiphong.maLoaiPhong WHERE donhang.maDonHang = $maDonHang";
+    $rows = pdo_truyVan1($sql);
+    return $rows;
 }

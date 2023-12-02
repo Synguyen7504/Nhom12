@@ -21,7 +21,7 @@ if (isset($_POST['dangnhap'])) {
             $_SESSION['login'] = $quyen;
             $_SESSION['tk'] = $taikhoan;
             //  print_r($_SESSION['tk']) ;
-            unset($_SESSION['layMa']);
+            // unset($_SESSION['layMa']);
             header("Location: ../admin/index.php");
 
             //}  elseif ($tk == "admin" && $mk == "121212") {

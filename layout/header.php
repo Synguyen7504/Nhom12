@@ -111,7 +111,7 @@
                   <div class="col-md-6 mx-auto">
                     <ul class="list-unstyled menu">
                       <li class="active"><a href="index.php">Trang chủ</a></li>
-                      <li><a href="index.php?rooms">Phòng</a></li>
+                      <li><a href="index.php?act=rooms">Phòng</a></li>
                       <li><a href="#">Về chúng tôi</a></li>
                       <li><a href="#">Tin tức</a></li>
                       <li><a href="">Tin tức</a></li>
@@ -154,3 +154,4 @@
       </div>
     </a>
   </section>
+  

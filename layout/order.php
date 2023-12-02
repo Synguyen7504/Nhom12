@@ -69,19 +69,13 @@
             <div class="p-4">
               <p class="font-italic mb-4">Nếu chưa có tài khoản, bạn hãy tạo tài khoản để việc đặt phòng thuận tiện hơn nhé!</p>
               <div class="input-group mb-4 border rounded-pill p-2">
-                <input type="text" placeholder="Tên" name="name" id="name" <?php if (isset($_SESSION['login'])) {
-                                                                            ?> value="<?php echo $_SESSION['login']['tenKhachHang'] ?>" <?php
-                                                                                                                                      } ?> aria-describedby="button-addon3" class="form-control border-0" required>
+                <input type="text" placeholder="Tên" name="name" id="name" value="<?php echo $_SESSION['tk']['tenDangNhap'] ?>" aria-describedby="button-addon3" class="form-control border-0" required>
               </div>
               <div class="input-group mb-4 border rounded-pill p-2">
-                <input type="text" placeholder="Số điện thoại" id="phne" <?php if (isset($_SESSION['login'])) {
-                                                                          ?> value="<?php echo $_SESSION['login']['soDienThoai'] ?>" <?php
-                                                                                                                                    } ?> name="phoneNumber" aria-describedby="button-addon3" class="form-control border-0" required>
+                <input type="text" placeholder="Số điện thoại" id="phne" value="<?php echo $_SESSION['tk']['soDienThoai'] ?>" name="phoneNumber" aria-describedby="button-addon3" class="form-control border-0" required>
               </div>
               <div class="input-group mb-4 border rounded-pill p-2">
-                <input type="text" placeholder="Email" id="email" <?php if (isset($_SESSION['login'])) {
-                                                                  ?> value="<?php echo $_SESSION['login']['email'] ?>" <?php
-                                                                                                                      } ?> name="email" aria-describedby="button-addon3" class="form-control border-0" required>
+                <input type="text" id="email" placeholder="Email" value="" name="email" aria-describedby="button-addon3" class="form-control border-0" required>
               </div>
               <label for="" style="color: #23272b; font-weight: 300;">Ảnh chụp đã thanh toán:</label>
               <div class="input-group mb-4 border rounded-pill p-2">
@@ -103,7 +97,7 @@
                 </li>
                 <p class="" style="color: #23272b; font-weight: 300;">Quét mã QR chuyển khoản:</p>
                 <img src="images/QR.png" alt="" style="width: 50%; height: 50%; margin-left: 25%;">
-                <input type="submit" value="Thanh Toán" class="btn btn-dark rounded-pill py-2 btn-block" style="margin-top: 20px;">
+                <input type="submit" value="Thanh Toán" class="btn btn-dark rounded-pill py-2  btn-block" onclick="change()" style="margin-top: 20px;">
             </div>
           </div>
         </div>
@@ -113,19 +107,17 @@
 </div>
 </div>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    document.querySelector('form').addEventListener('submit', function(event) {
-      const name = document.getElementById('name').value.trim();
-      const phone = document.getElementById('phne').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const file = document.getElementById('file').value.trim();
+  function change() {
+    var name = document.getElementById("name").value;
+    var phone = document.getElementById("phne").value;
+    var email = document.getElementById("email").value;
+    var file = document.getElementById("file").value;
 
-      if (name === '' || phone === '' || email === '' || file === '') {
-        alert('Vui lòng điền đầy đủ thông tin vào các trường');
-        event.preventDefault(); // Ngăn chặn việc submit form nếu thông tin không hợp lệ
-      } else {
-        alert('Đơn hàng đang được sét duyệt vui lòng vào đơn hàng đã đặt để xem trạng thái');
-      }
-    });
-  });
+    if (name != '' && phone != '' && email != '' && file != '') {
+      var thongBao = 'Đơn hàng của bạn đang được xử lý, để kiểm tra thông tin và trạng thái đơn hàng của bạn hãy vào quản lý đơn hàng trân trọng!';
+    } else {
+      var thongBao = 'Vui lòng điền đầy đủ thông tin.';
+    }
+    alert(thongBao)
+  }
 </script>

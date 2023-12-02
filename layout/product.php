@@ -117,20 +117,26 @@
     <div class="row check-availabilty" id="next">
       <div class="block-32" data-aos="fade-up" data-aos-offset="-200">
 
-        <form action="index.php?act=product&maKhachSan=<?php echo $maKhachSan ?>" method="post">
+        <form id="myFrom" action="index.php?act=product&maKhachSan=<?php echo $maKhachSan ?>" method="post">
           <div class="row">
             <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
               <label for="checkin_date" class="font-weight-bold text-black">Ngày Nhận</label>
               <div class="field-icon-wrap">
                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                <input type="date" name="ngayNhan" placeholder="Ngày nhận" required>
+                <input type="date" id="ngayNhan" name="ngayNhan" placeholder="Ngày nhận" min="<?php $date = date('Y-m-d');
+                                                                                              echo $date ?>" max="<?php $chuyenDate = strtotime($date) + (30 * 86400);
+                                                                                                                  $datemax = date('Y-m-d', $chuyenDate);
+                                                                                                                  echo $datemax ?>" required>
               </div>
             </div>
             <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
               <label for="checkin_date" class="font-weight-bold text-black">Ngày Trả</label>
               <div class="field-icon-wrap">
                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
-                <input type="date" name="ngayTra" placeholder="Ngày trả" required>
+                <input type="date" id="ngayTra" name="ngayTra" placeholder="Ngày trả" min="<?php $date = date('Y-m-d');
+                                                                                            echo $date ?>" max="<?php $chuyenDate = strtotime($date) + (30 * 86400);
+                                                                                                                $datemax = date('Y-m-d', $chuyenDate);
+                                                                                                                echo $datemax ?>" required>
               </div>
             </div>
             <div class="col-md-6 mb-3 mb-lg-0 col-lg-3">
@@ -258,26 +264,28 @@ foreach ($rows as $key => $value) {
 ?>
 <style>
   .rating {
-      direction: rtl; /* Đặt hướng viết từ phải sang trái */
-    }
+    direction: rtl;
+    /* Đặt hướng viết từ phải sang trái */
+  }
 
-    .rating input {
-      display: none;
-    }
+  .rating input {
+    display: none;
+  }
 
-    .rating label {
-      font-size: 24px;
-      cursor: pointer;
-    }
+  .rating label {
+    font-size: 24px;
+    cursor: pointer;
+  }
 
-    .rating label:hover,
-    .rating label:hover ~ label,
-    .rating input:checked ~ label {
-      color: gold;
-    }
-    /* //css form */
-      .all_binnhluan {
-      width: 80%;
+  .rating label:hover,
+  .rating label:hover~label,
+  .rating input:checked~label {
+    color: gold;
+  }
+
+  /* //css form */
+  .all_binnhluan {
+    width: 80%;
     margin-left: 10%;
     margin-top: 50px;
     padding: 20px;
@@ -285,9 +293,10 @@ foreach ($rows as $key => $value) {
     border-radius: 5px;
     background-color: #f9f9f9;
     margin-bottom: 30px;
-}  
-    .binhluan {
-      width: 100%;
+  }
+
+  .binhluan {
+    width: 100%;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -295,158 +304,188 @@ foreach ($rows as $key => $value) {
     display: flex;
     justify-content: flex-start;
     margin-bottom: 30px;
-}
+  }
 
-.abc{
-  width: 20%;
-}
-.abc h5{
-  color: red;
-  font-size: 20px;
-}
-    .binhluan h3 {
-  font-size: 1.5em;
-  margin-bottom: 15px;
-  width: 100%;
-}
+  .abc {
+    width: 20%;
+  }
 
-.binhluan form {
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  margin-top: -10px;
-}
+  .abc h5 {
+    color: red;
+    font-size: 20px;
+  }
 
-.binhluan input[type="radio"] {
-  display: none;
-}
+  .binhluan h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    width: 100%;
+  }
 
-.binhluan label {
-  font-size: 24px;
-  cursor: pointer;
-  margin-right: 5px;
-}
+  .binhluan form {
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    margin-top: -10px;
+  }
 
-.binhluan input[type="text"] {
-  width: 100%;
-  height: 45px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  margin-right: 20px;
-}
-.buton{
-  display: flex;
-}
-.binhluan button {
-  padding: 8px 15px;
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-}
+  .binhluan input[type="radio"] {
+    display: none;
+  }
 
-.binhluan button i {
-  margin-right: 5px;
-}
-.ls_binhl{
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  overflow: hidden;
-  align-items: center;
-  line-height: 50px;
-}
-.alll{
-  width: 50%;
-    display: contents;
-     justify-content:flex-start;
+  .binhluan label {
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+
+  .binhluan input[type="text"] {
+    width: 100%;
+    height: 45px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-right: 20px;
+  }
+
+  .buton {
+    display: flex;
+  }
+
+  .binhluan button {
+    padding: 8px 15px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .binhluan button i {
+    margin-right: 5px;
+  }
+
+  .ls_binhl {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
     overflow: hidden;
-}
-.avt{
-  width: 50px;
-  height: 50px;
-border-radius: 50%;
-margin-right: 10px;
-background-image: url(./images/single.jpg);
-}
-.avtt2{
-  width: 18%;
+    align-items: center;
+    line-height: 50px;
+  }
+
+  .alll {
+    width: 50%;
+    display: contents;
+    justify-content: flex-start;
+    overflow: hidden;
+  }
+
+  .avt {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-image: url(./images/single.jpg);
+  }
+
+  .avtt2 {
+    width: 18%;
     height: 60px;
     display: flex;
     align-items: center;
-}
-.avtt2 h3{
-  margin-top: -15px;
+  }
+
+  .avtt2 h3 {
+    margin-top: -15px;
     font-size: 20px;
     font-weight: revert;
-}
-.noidung{
-  width: 80%;
-  display: flex;
-  word-wrap: break-word;
-}
-.noidung .nd{
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: black;
-}
-.sao {
-  margin-right: 10px;
-  color: red;
-  font-size: 20px;
-}
+  }
 
-  </style>
+  .noidung {
+    width: 80%;
+    display: flex;
+    word-wrap: break-word;
+  }
+
+  .noidung .nd {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+  }
+
+  .sao {
+    margin-right: 10px;
+    color: red;
+    font-size: 20px;
+  }
+</style>
 </head>
+
 <body>
 
-<div class="all_binnhluan">
-<div class="binhluan">
-  <div class="abc">
-  <h3>Đánh Giá</h3>
-  <?php
-                echo "<h5 class='loidn'>" . implode($loi) . "</h5>";
-                ?>
-  </div>
-  <form action="" method="post">
-  <div class="rating">
-  <input type="radio" id="star5" name="rating" value="5">
-  <label for="star5"><i class="fas fa-star"></i></label>
-  <input type="radio" id="star4" name="rating" value="4">
-  <label for="star4"><i class="fas fa-star"></i></label>
-  <input type="radio" id="star3" name="rating" value="3">
-  <label for="star3"><i class="fas fa-star"></i></label>
-  <input type="radio" id="star2" name="rating" value="2">
-  <label for="star2"><i class="fas fa-star"></i></label>
-  <input type="radio" id="star1" name="rating" value="1">
-  <label for="star1"><i class="fas fa-star"></i></label>
-</div>
-  <div class="buton">
-  <input type="text" placeholder="Viết bình luận..." name="nd">
-  <button type="submit"  name="subp"><i class="fa-regular fa-paper-plane"></i></button>
-  </div>
-</form>
-</div>
-<div class="ls_binhl">
-  <?php
-  foreach ($allbl as $key) {
-    extract($key);
-    echo '
+  <div class="all_binnhluan">
+    <div class="binhluan">
+      <div class="abc">
+        <h3>Đánh Giá</h3>
+        <?php
+        echo "<h5 class='loidn'>" . implode($loi) . "</h5>";
+        ?>
+      </div>
+      <form action="" method="post">
+        <div class="rating">
+          <input type="radio" id="star5" name="rating" value="5">
+          <label for="star5"><i class="fas fa-star"></i></label>
+          <input type="radio" id="star4" name="rating" value="4">
+          <label for="star4"><i class="fas fa-star"></i></label>
+          <input type="radio" id="star3" name="rating" value="3">
+          <label for="star3"><i class="fas fa-star"></i></label>
+          <input type="radio" id="star2" name="rating" value="2">
+          <label for="star2"><i class="fas fa-star"></i></label>
+          <input type="radio" id="star1" name="rating" value="1">
+          <label for="star1"><i class="fas fa-star"></i></label>
+        </div>
+        <div class="buton">
+          <input type="text" placeholder="Viết bình luận..." name="nd">
+          <button type="submit" name="subp"><i class="fa-regular fa-paper-plane"></i></button>
+        </div>
+      </form>
+    </div>
+    <div class="ls_binhl">
+      <?php
+      foreach ($allbl as $key) {
+        extract($key);
+        echo '
   <div class="alll">
   <div class="avtt2">
   <div class="avt"></div>
-<h3>'.$tenKhachHang.' :</h3>
+<h3>' . $tenKhachHang . ' :</h3>
 </div>
 <div class="noidung">
-  <p class="sao">'.$so_sao.'<i class="fas fa-star"></i></</p>
-  <p class="nd">'.$noi_dung.'</p>
+  <p class="sao">' . $so_sao . '<i class="fas fa-star"></i></</p>
+  <p class="nd">' . $noi_dung . '</p>
 </div></div>
     ';
-  }
-  
-  ?>
+      }
 
-</div>
-</div>
+      ?>
+
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      // Get references to the NgayNhan and NgayTra input fields
+      var ngayNhanInput = document.getElementById("ngayNhan");
+      var ngayTraInput = document.getElementById("ngayTra");
+
+      // Add event listener to NgayNhan input field
+      ngayNhanInput.addEventListener("change", function() {
+        // Parse the input values as dates
+        var ngayNhanValue = new Date(ngayNhanInput.value);
+        var ngayTraMin = new Date(ngayNhanValue.getTime() + (24 * 60 * 60 * 1000)); // Thêm 1 ngày (24 giờ * 60 phút * 60 giây * 1000 milliseconds)
+
+        var minDate = ngayTraMin.toISOString().split('T')[0];
+        ngayTraInput.setAttribute('min', minDate);
+
+      });
+    });
+  </script>
