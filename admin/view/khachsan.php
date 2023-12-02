@@ -1,12 +1,13 @@
 <div class="content" style="margin-bottom: 155px;">
-    <h2 style="margin-left: 20px; margin-bottom: 30px; margin-top: -10px;">Quản lý phòng</h2>
+    <h2 style="margin-left: 20px; margin-bottom: 30px; margin-top: -10px;">Quản lý khách sạn</h2>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Tất cả phòng</h4>
-                        <p class="category">Có thể thêm sửa xóa phòng</p>
+                        <h4 class="title">Tất cả khách sạn</h4>
+                        <p class="category">Có thể thêm sửa xóa </p> 
+                        <button type="button"><a href="./index.php?act=themks">Thêm khách sạn</a></button>
                     </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">

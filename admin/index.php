@@ -25,6 +25,9 @@ if (isset($_GET['act'])) {
             $rows = truyVanLoai();
             include 'view/loaiphong.php';
             break;
+        case 'themks':
+            include 'view/themks.php';
+            break;
         default:
             include 'view/thongke.php';
             break;
