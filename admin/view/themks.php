@@ -31,7 +31,7 @@
                 ?>
                         <h4 class="title">Thêm khách sạn</h4>
                         <p class="category"> </p> 
-                        <button type="button"><a href="./index.php?act=themks">Quay lại</a></button>
+                        <button type="button"><a href="./index.php?act=khachsan">Quay lại</a></button>
                     </div>
 <div class="login-box">
  
