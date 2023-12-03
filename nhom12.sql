@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th12 01, 2023 lúc 08:38 AM
+-- Thời gian đã tạo: Th12 03, 2023 lúc 11:03 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.1.17
 
@@ -28,10 +28,27 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `binhluan` (
-  `maBinhLuan` int(11) NOT NULL,
-  `maKhachHang` int(11) NOT NULL,
-  `binhLuan` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `ma_bl` tinyint(4) NOT NULL,
+  `so_sao` int(2) NOT NULL,
+  `noi_dung` varchar(255) NOT NULL,
+  `ma_khs` int(11) NOT NULL,
+  `ma_kh` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `binhluan`
+--
+
+INSERT INTO `binhluan` (`ma_bl`, `so_sao`, `noi_dung`, `ma_khs`, `ma_kh`) VALUES
+(8, 0, 'khách sạn rất đẹp', 1, 1),
+(11, 5, 'raats ko ook luon', 1, 1),
+(12, 5, 'raats ko ook luon', 1, 1),
+(13, 5, 'khách sạn rất đẹp', 1, 1),
+(14, 4, 'anvnfjnsv', 1, 1),
+(15, 3, '213213123', 1, 2),
+(16, 3, '213213123', 1, 2),
+(17, 3, '213213123', 1, 2),
+(18, 1, 'sy', 1, 2);
 
 -- --------------------------------------------------------
 
@@ -56,14 +73,10 @@ CREATE TABLE `donhang` (
 --
 
 INSERT INTO `donhang` (`maDonHang`, `maKhachHang`, `tongDonHang`, `ngayDat`, `image`, `ten`, `email`, `soDienThoai`, `trangThai`) VALUES
-(8, 0, 8, '2023-11-28', 'images/103_1.jpg', 'synguyen', 'syxnguyen754@gmail.com', 971052629, b'0'),
-(9, 0, 16, '2023-11-28', 'images/582_3.jpg', 'Sỹ 0 suy', '2', 971052629, b'0'),
-(10, 0, 2, '2023-11-28', 'images/530_103_1.jpg', '21321', '2', 971052629, b'0'),
-(11, 0, 1000000, '2023-11-28', 'images/378_about_feature_image.png', 'synguyen', 'syvannguyen4747@gmail.com', 971052629, b'0'),
-(12, 0, 3000000, '2023-11-28', 'images/174_530_103_1.jpg', 'Sỹ 0 suy', 'syvannguyen4747@gmail.com', 971052629, b'0'),
-(13, 0, 2000000, '2023-11-28', 'images/567_1.jpg', 'synguyen', '1231231', 971052629, b'0'),
-(14, 0, 2000000, '2023-11-28', 'images/885_378_about_feature_image.png', 'synguyen', 'syvannguyen4747@gmail.com', 971052629, b'0'),
-(15, 0, 1000000, '2023-11-28', 'images/56_174_530_103_1.jpg', 'synguyen', 'syvannguyen4747@gmail.com', 971052629, b'0');
+(17, 2, 1000000, '2023-12-01', 'images/404_31_dn3.jpg', 'sy', 'syvannguyen4747@gmail.com', 123154, b'0'),
+(18, 2, 1000000, '2023-12-01', 'images/646_familly.jpg', 'sy', 'syvannguyen4747@gmail.com', 123154, b'0'),
+(19, 2, 1000000, '2023-12-02', 'images/267_314_test.jpg', 'sy', 'syvannguyen4747@gmail.com', 123154, b'0'),
+(20, 2, 1000000, '2023-12-02', 'images/626_314_test.jpg', 'sy', 'syvannguyen4747@gmail.com', 123154, b'0');
 
 -- --------------------------------------------------------
 
@@ -84,14 +97,9 @@ CREATE TABLE `donhangchitiet` (
 --
 
 INSERT INTO `donhangchitiet` (`maDonHangChiTiet`, `maDonHang`, `maPhong`, `ngayNhanPhong`, `ngayTraPhong`) VALUES
-(17, 8, 1, '2023-12-02', '2023-12-10'),
-(18, 9, 2, '2023-12-09', '2023-12-17'),
-(19, 10, 2, '2023-12-01', '2023-12-02'),
-(20, 11, 1, '2023-11-30', '2023-12-01'),
-(21, 12, 4, '2023-11-28', '2023-11-29'),
-(22, 13, 3, '2023-11-28', '2023-11-29'),
-(23, 14, 3, '2023-12-08', '2023-12-09'),
-(24, 15, 3, '2023-12-10', '2023-12-11');
+(31, 17, 5, '2023-12-01', '2023-12-02'),
+(32, 18, 5, '2023-12-05', '2023-12-06'),
+(36, 19, 6, '2023-12-02', '2023-12-03');
 
 -- --------------------------------------------------------
 
@@ -257,7 +265,9 @@ CREATE TABLE `tiennghi` (
 -- Chỉ mục cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
-  ADD PRIMARY KEY (`maBinhLuan`);
+  ADD PRIMARY KEY (`ma_bl`),
+  ADD KEY `fk_p-tl` (`ma_khs`),
+  ADD KEY `fk_bl_kh` (`ma_kh`);
 
 --
 -- Chỉ mục cho bảng `donhang`
@@ -315,19 +325,19 @@ ALTER TABLE `tiennghi`
 -- AUTO_INCREMENT cho bảng `binhluan`
 --
 ALTER TABLE `binhluan`
-  MODIFY `maBinhLuan` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ma_bl` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT cho bảng `donhang`
 --
 ALTER TABLE `donhang`
-  MODIFY `maDonHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `maDonHang` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT cho bảng `donhangchitiet`
 --
 ALTER TABLE `donhangchitiet`
-  MODIFY `maDonHangChiTiet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `maDonHangChiTiet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT cho bảng `giohang`
@@ -364,6 +374,17 @@ ALTER TABLE `phong`
 --
 ALTER TABLE `tiennghi`
   MODIFY `maTienNghi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Các ràng buộc cho các bảng đã đổ
+--
+
+--
+-- Các ràng buộc cho bảng `binhluan`
+--
+ALTER TABLE `binhluan`
+  ADD CONSTRAINT `fk_bl_kh` FOREIGN KEY (`ma_kh`) REFERENCES `khachhang` (`maKhachHang`),
+  ADD CONSTRAINT `fk_p-tl` FOREIGN KEY (`ma_khs`) REFERENCES `khachsan` (`maKhachSan`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

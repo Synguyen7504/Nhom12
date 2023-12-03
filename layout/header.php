@@ -112,9 +112,9 @@
                     <ul class="list-unstyled menu">
                       <li class="active"><a href="index.php">Trang chủ</a></li>
                       <li><a href="index.php?act=rooms">Phòng</a></li>
-                      <li><a href="#">Về chúng tôi</a></li>
-                      <li><a href="#">Tin tức</a></li>
-                      <li><a href="">Tin tức</a></li>
+                      <!-- <li><a href="#">Về chúng tôi</a></li> -->
+                      <!-- <li><a href="#">Tin tức</a></li> -->
+                      <li><a href="index.php?act=concat">Liên Hệ</a></li>
                       <li><a href="index.php?act=donhang">Đơn hàng của bạn</a></li>
                       <?php
                       if (!empty($_SESSION['login'])) {
@@ -154,4 +154,3 @@
       </div>
     </a>
   </section>
-  

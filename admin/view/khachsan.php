@@ -6,7 +6,7 @@
                 <div class="card">
                     <div class="header">
                         <h4 class="title">Tất cả khách sạn</h4>
-                        <p class="category">Có thể thêm sửa xóa </p> 
+                        <p class="category">Có thể thêm sửa xóa </p>
                         <button type="button"><a href="./index.php?act=themks">Thêm khách sạn</a></button>
                     </div>
                     <div class="content table-responsive table-full-width">
@@ -20,7 +20,6 @@
                                 <th>Giá trung bình</th>
                                 <th>Địa điểm</th>
                                 <th>Sao</th>
-                                <th>Số phòng</th>
                                 <th>Chức năng</th>
                             </thead>
                             <tbody>
@@ -36,7 +35,6 @@
                                         <td><?php echo $value['khoangGia'] ?></td>
                                         <td><?php echo $value['diaDiem'] ?></td>
                                         <td><?php echo $value['danhGia']; ?>
-                                        <td><?php echo $value['soLuong'] ?></td>
                                         </td>
                                         <td><a href="index.php?act=updateKhachSan&maKhachSan=<?php echo $value['maKhachSan'] ?>">Sửa</a><a style="margin-left: 15px;" href="index.php?act=deleteKhachSan&maKhachSan=<?php echo $value['maKhachSan'] ?>">Xóa</a></td>
                                     </tr>

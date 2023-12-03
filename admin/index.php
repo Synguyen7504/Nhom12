@@ -4,6 +4,7 @@ include 'model/user.php';
 include 'model/phong.php';
 include 'model/khachsan.php';
 include 'model/loai.php';
+include 'model/tiennghi.php';
 include 'view/header.php';
 
 if (isset($_GET['act'])) {
@@ -28,11 +29,15 @@ if (isset($_GET['act'])) {
         case 'themks':
             include 'view/themks.php';
             break;
+        case 'tiennghi':
+            $rows = truyVanTienNghi();
+            include 'view/tiennghi.php';
+            break;
         default:
-            include 'view/thongke.php';
+            include 'view/khachsan.php';
             break;
     }
 } else {
-    include 'view/thongke.php';
+    include 'view/khachsan.php';
 }
 include 'view/footer.php';
