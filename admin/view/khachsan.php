@@ -23,8 +23,11 @@
                                 <th>Chức năng</th>
                             </thead>
                             <tbody>
-                                <?php foreach ($rows as $key => $value) {
-
+                                <?php
+                               echo" <prev>";
+                                var_dump($rows);
+                                foreach ($rows as $key => $value) {
+    echo" </prev>";
                                 ?>
                                     <tr>
                                         <td><?php echo $value['maKhachSan'] ?></td>
