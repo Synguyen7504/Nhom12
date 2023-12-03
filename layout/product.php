@@ -9,16 +9,16 @@
       <div class="col-md-12">
         <div class="home-slider major-caousel owl-carousel mb-5" data-aos="fade-up" data-aos-delay="200">
           <div class="slider-item">
-            <a href="<?php echo $row['anh1'] ?>" data-fancybox="images" data-caption="Caption for this image" "><img src=" <?php echo $row['anh1'] ?> " alt=" Image placeholder" class="img-fluid"></a>
+            <a href="<?php echo $row['anh1'] ?>" data-fancybox="images" data-caption="Caption for this image" "><img style=" border-radius: 7px;" src=" <?php echo $row['anh1'] ?> " alt=" Image placeholder" class="img-fluid"></a>
           </div>
           <div class="slider-item">
-            <a href="<?php echo $row['anh2'] ?>" data-fancybox="images" data-caption="Caption for this image" "><img src=" <?php echo $row['anh2'] ?> " alt=" Image placeholder" class="img-fluid"></a>
+            <a href="<?php echo $row['anh2'] ?>" data-fancybox="images" data-caption="Caption for this image" "><img style=" border-radius: 7px;" src=" <?php echo $row['anh2'] ?> " alt=" Image placeholder" class="img-fluid"></a>
           </div>
           <div class="slider-item">
-            <a href="<?php echo $row['anh3'] ?>" data-fancybox="images" data-caption="Caption for this image" "><img src=" <?php echo $row['anh3'] ?> " alt=" Image placeholder" class="img-fluid"></a>
+            <a href="<?php echo $row['anh3'] ?>" data-fancybox="images" data-caption="Caption for this image" "><img style=" border-radius: 7px;" src=" <?php echo $row['anh3'] ?> " alt=" Image placeholder" class="img-fluid"></a>
           </div>
           <div class="slider-item">
-            <a href="<?php echo $row['anh4'] ?>" data-fancybox="images" data-caption="Caption for this image" "><img src=" <?php echo $row['anh4'] ?> " alt=" Image placeholder" class="img-fluid"></a>
+            <a href="<?php echo $row['anh4'] ?>" data-fancybox="images" data-caption="Caption for this image" "><img style=" border-radius: 7px;" src=" <?php echo $row['anh4'] ?> " alt=" Image placeholder" class="img-fluid"></a>
           </div>
         </div>
         <!-- END slider -->
@@ -189,7 +189,7 @@
 foreach ($rows as $key => $value) {
 ?>
   <div class="mota">
-    <h3><?php echo $value['tenLoai'] ?></h3>
+    <h3>Mã phòng: <?php echo $value['maPhong'] ?></h3>
     <div class="all">
       <div class="all_lef">
         <img src="<?php echo $value['image'] ?>" alt="">
@@ -197,6 +197,90 @@ foreach ($rows as $key => $value) {
           <p><i class="fa-solid fa-house"></i><?php echo $value['dienTich'] ?>m <sup>2</sup></p>
           <p><i class="fa-solid fa-bed"></i><?php echo $value['giuong'] ?></p>
         </div>
+        <style>
+          .dropdown {
+            position: relative;
+            font-weight: 700;
+            font-size: large;
+            margin-left: 23px;
+            margin-top: 30px;
+          }
+
+          ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+          }
+
+          .dropdown li {
+            color: #cc0000;
+          }
+
+          .dropdown label {
+            color: white;
+            cursor: pointer;
+            padding: 10px;
+            position: relative;
+            background-color: #ffc533;
+            /* Màu nền của nhãn */
+            border-radius: 5px;
+            /* Đường cong viền */
+            display: inline-block;
+            /* Để có thể sử dụng padding và border-radius */
+          }
+
+          .dropdown label:hover {
+            background-color: #ffaa34;
+            /* Màu nền khi hover vào nhãn */
+          }
+
+          .dropdown label i {
+            color: white;
+            margin-left: 5px;
+            /* Khoảng cách giữa văn bản và biểu tượng */
+          }
+
+          .dropdown-content {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            z-index: 1;
+          }
+        </style>
+        <?php
+        $ngay = layDateDonHangChiTietBangMaPhong($value['maPhong']);
+        ?>
+        <div class="dropdown">
+          <ul>
+            <li onclick="toggleDropdown(this);">
+              <label for=""><?php if (isset($ngay[0])) { ?>
+                  Ngày đã có người đặt trước<i class="fas fa-chevron-down"></i>
+                <?php } else { ?> Phòng trống <?php } ?></label>
+              <ul class="dropdown-content">
+                <?php
+                foreach ($ngay as $index => $lay) {
+                ?>
+                  <li>Từ: <?php echo $lay['ngayNhanPhong'] ?> đến <?php echo $lay['ngayTraPhong'] ?> </li>
+                <?php } ?>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <script>
+          function toggleDropdown(element) {
+            var dropdownContent = element.querySelector('.dropdown-content');
+            dropdownContent.style.display = (dropdownContent.style.display === 'block' ? 'none' : 'block');
+          }
+        </script>
+
       </div>
       <div class="all_right">
         <p class="he"><i class="fa-solid fa-person"></i> <?php echo $value['tenLoai'] ?></p>
@@ -253,7 +337,7 @@ foreach ($rows as $key => $value) {
                         echo $number  ?> VNĐ</strong>
               / đêm
             </p>
-            <a href="index.php?act=card&maPhongAdd=<?php echo $value['maPhong'] ?>"><button>Đặt Ngay</button></a>
+            <a href="index.php?act=card&maPhongAdd=<?php echo $value['maPhong'] ?>"><button onmouseover="this.style.backgroundColor='#ee9820'" onmouseout="this.style.backgroundColor='#ffaa34'" style="background-color: #ffaa34;">Đặt Ngay</button></a>
           </div>
         </div>
       </div>

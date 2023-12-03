@@ -42,3 +42,9 @@ function layDonHangBangMa($maDonHang)
     $rows = pdo_truyVan1($sql);
     return $rows;
 }
+function layDateDonHangChiTietBangMaPhong($maPhong)
+{
+    $sql = "SELECT ngayNhanPhong,ngayTraPhong FROM `donhangchitiet` WHERE maPhong = $maPhong;";
+    $rows = pdo_truyVanAll($sql);
+    return $rows;
+}
