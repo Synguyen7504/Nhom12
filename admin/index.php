@@ -65,11 +65,8 @@ if (isset($_GET['act'])) {
                     $loi[]="Sao khách sạn không được lớn hơn 5";
                     goto loi;
                 }
-                if (count($_FILES['img']['name'])<4) {
-                    $loi[]="Vui lòng chọn 4 ảnh";
-                    goto loi;
-                }
                 if (empty($loi)) {
+                    $link_anh=[];
                 for ($i = 0; $i < count($_FILES['img']['name']); $i++) {
                     $ten_tep = $_FILES['img']['name'][$i];
                     $duong_dan_tam_thoi = $_FILES['img']['tmp_name'][$i];
@@ -80,7 +77,7 @@ if (isset($_GET['act'])) {
                     // Kiểm tra và di chuyển tệp tin
                     if (move_uploaded_file($duong_dan_tam_thoi, $duong_dan_cuoi_cung)) {
                         // Xử lý thành công, ví dụ: tạo đường link đầy đủ
-                        $link_anh = "http://localhost/Nhom%2012/admin/anhadmin/" . $ten_tep;
+                        $link_anh[$i] = "http://localhost/Nhom%2012/admin/anhadmin/" . $ten_tep;
                     } else {
                         // Ghi lại lỗi vào mảng $loi
                         $loi[] = 'Lỗi di chuyển ảnh ' . $ten_tep . ': ' . error_get_last()['message'];
@@ -88,12 +85,79 @@ if (isset($_GET['act'])) {
                     }
 
                 }
-                addkhachsan($name,$diadiem, $tinh, $gia,$sao, $link_anh, $link_anh, $link_anh, $link_anh,$nhah,$beboi,$gym,$wifi,$maylanh,$thuoc);
+                addkhachsan($name,$diadiem, $tinh, $gia,$sao, $link_anh[0], $link_anh[1], $link_anh[2], $link_anh[3],$nhah,$beboi,$gym,$wifi,$maylanh,$thuoc);
             } 
                 loi:
 
             include 'view/themks.php';
             break;
+            case 'updateKhachSan':
+                $loi=[];
+                if (isset($_GET['maKhachSan'])) {
+                    $id=intval($_GET['maKhachSan']);
+                    $rows=truyVanKhachSan_1($id);
+                }else{
+                    $loi[]="Không tìm thấy khách sạn cần sửa";
+                }
+                if (isset($_POST['name'])) {
+
+                    $name=$_POST['name'];
+                    $diadiem=$_POST['diadiem'];
+                    $tinh=$_POST['tinh'];
+                    $gia=$_POST['gia'];
+                    $sao=$_POST['sao'];
+                    $nhah = isset($_POST['nhah']) ? true : false;
+                     $beboi = isset($_POST['beboi']) ? true : false;
+                    $wifi = isset($_POST['wifi']) ? true : false;
+                    $gym = isset($_POST['gym']) ? true : false;
+                    $maylanh = isset($_POST['maylanh']) ? true : false;
+                    $thuoc = isset($_POST['thuoc']) ? true : false;
+                    if (empty($name)) {
+                        $loi[]="Vui lòng nhập tên khách sạn";
+                        goto loi1;
+                    }
+                    if (empty($diadiem)) {
+                        $loi[]="Vui lòng nhập địa chỉ khách sạn";
+                        goto loi1;
+                    }
+                    if (empty($tinh)) {
+                        $loi[]="Vui lòng nhập tỉnh khách sạn";
+                        goto loi1;
+                    }
+                    if (empty($gia)) {
+                        $loi[]="Vui lòng giá  khách sạn";
+                        goto loi1;
+                    }
+                    if (empty($sao)) {
+                        $loi[]="Vui lòng sao khách sạn";
+                        goto loi1;
+                    }
+                    if ($sao>5) {
+                        $loi[]="Sao khách sạn không được lớn hơn 5";
+                        goto loi1;
+                    }
+                        $ten_tep = $_FILES['img']['name'];
+                        $duong_dan_tam_thoi = $_FILES['img']['tmp_name'];
+                        $thu_muc=__DIR__."/anhadmin/";
+                        // Tạo đường dẫn đầy đủ cho tệp tin
+                        $duong_dan_cuoi_cung = $thu_muc . $ten_tep;
+                    $link_anh='';
+                        // Kiểm tra và di chuyển tệp tin
+                        if (move_uploaded_file($duong_dan_tam_thoi, $duong_dan_cuoi_cung)) {
+                            // Xử lý thành công, ví dụ: tạo đường link đầy đủ
+                            $link_anh = "http://localhost/Nhom%2012/admin/anhadmin/" . $ten_tep;
+                        } 
+                        if (empty($loi)) {
+                            if ($link_anh!='') {
+                                anhks($name,$diadiem, $tinh, $gia,$sao, $link_anh, $nhah,$beboi,$gym,$wifi,$maylanh,$thuoc,$id);
+                            }else{
+                                noanhks($name,$diadiem, $tinh, $gia,$sao, $nhah,$beboi,$gym,$wifi,$maylanh,$thuoc,$id);
+                            }
+                        }
+                } 
+                    loi1:
+                include "view/suakhachsan.php";
+                break;
         case 'tiennghi':
             $rows = truyVanTienNghi();
             include 'view/tiennghi.php';
