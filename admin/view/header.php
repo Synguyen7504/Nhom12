@@ -4,7 +4,7 @@ session_start();
 if (!$_SESSION['login']) {
     header("Location: ../layout/dangnhap.php");
 }
-if ($_SESSION['login'] && $_SESSION['login'] != "admin") {
+if ($_SESSION['login'] != "admin" && $_SESSION['login'] != 'staff') {
     header("Location: ../index.php");
 }
 
@@ -51,18 +51,10 @@ if ($_SESSION['login'] && $_SESSION['login'] != "admin") {
 <body>
 
     <div class="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
-        <!--
-    
-            Tip 1: you can change the color of the sidebar using: data-color="blue | azure | green | orange | red | purple"
-            Tip 2: you can also add an image using data-image tag
-    
-        -->
-
         <div class="sidebar-wrapper">
             <div class="logo">
                 <a href="index.php" class="simple-text">
-                    sogo hotel
-                </a>
+                    sogo hotel</a>
             </div>
 
             <ul class="nav">
@@ -76,6 +68,12 @@ if ($_SESSION['login'] && $_SESSION['login'] != "admin") {
                     <a href="index.php?act=user">
                         <i class="pe-7s-user"></i>
                         <p>Người dùng</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php?act=donhang">
+                        <i class="pe-7s-note"></i>
+                        <p>Đơn hàng</p>
                     </a>
                 </li>
                 <li>

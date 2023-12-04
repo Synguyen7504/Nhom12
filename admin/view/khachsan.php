@@ -24,10 +24,10 @@
                             </thead>
                             <tbody>
                                 <?php
-                               echo" <prev>";
-                                var_dump($rows);
+                                echo " <prev>";
+                                // var_dump($rows);
                                 foreach ($rows as $key => $value) {
-    echo" </prev>";
+                                    echo " </prev>";
                                 ?>
                                     <tr>
                                         <td><?php echo $value['maKhachSan'] ?></td>

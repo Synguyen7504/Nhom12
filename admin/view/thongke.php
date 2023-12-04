@@ -1,5 +1,4 @@
 <div class="content">
-    <h2 style="margin-left: 20px; margin-bottom: 30px; margin-top: -10px;">Thống kê</h2>
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-4">

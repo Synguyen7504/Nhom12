@@ -15,6 +15,7 @@ if (isset($_POST['dangnhap'])) {
     }
     $taikhoan = khachhang($tk, $mk);
     // print_r($taikhoan);
+
     if (empty($loi)) {
         if (!empty($taikhoan)) {
             extract($taikhoan);
@@ -23,7 +24,7 @@ if (isset($_POST['dangnhap'])) {
             //  print_r($_SESSION['tk']) ;
             // unset($_SESSION['layMa']);
             header("Location: ../admin/index.php");
-
+            
             //}  elseif ($tk == "admin" && $mk == "121212") {
             //     $_SESSION['login'] = "admin";
             //     $_SESSION['login']['quyen'] = "admin";
