@@ -158,15 +158,27 @@ if (isset($_GET['act'])) {
                     loi1:
                 include "view/suakhachsan.php";
                 break;
+                case 'deleteKhachSan':
+                    if (isset($_GET['maKhachSan'])) {
+                        $id=intval($_GET['maKhachSan']);
+                        xoaks($id);
+                        header("Location: index.php?act=khachsan");
+                    }else{
+                        echo"Không xác định sản phẩm cần xóa!!";
+                    }
+            break;
+                    break;
         case 'tiennghi':
             $rows = truyVanTienNghi();
             include 'view/tiennghi.php';
             break;
         default:
+        $rows = truyVanKhachSan();
             include 'view/khachsan.php';
             break;
     }
 } else {
+    $rows = truyVanKhachSan();
     include 'view/khachsan.php';
 }
 include 'view/footer.php';

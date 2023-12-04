@@ -54,3 +54,7 @@ WHERE maKhachSan = $idks;
 ";
 pdo_execute($sql);
 }
+function xoaks($id){
+    $sql="DELETE FROM khachsan WHERE maKhachSan =$id";
+    return pdo_thucThi($sql);
+}

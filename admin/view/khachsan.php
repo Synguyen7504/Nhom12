@@ -25,7 +25,7 @@
                             <tbody>
                                 <?php
                                 foreach ($rows as $key => $value) {
-    echo" </prev>";
+                                    $hoi='onclick="return confirm(\'Bạn Có Muốn Xóa Sản Phẩm Này Không\')"';
                                 ?>
                                     <tr>
                                         <td><?php echo $value['maKhachSan'] ?></td>
@@ -37,7 +37,7 @@
                                         <td><?php echo $value['diaDiem'] ?></td>
                                         <td><?php echo $value['danhGia']; ?>
                                         </td>
-                                        <td><a href="index.php?act=updateKhachSan&maKhachSan=<?php echo $value['maKhachSan'] ?>">Sửa</a><a style="margin-left: 15px;" href="index.php?act=deleteKhachSan&maKhachSan=<?php echo $value['maKhachSan'] ?>">Xóa</a></td>
+                                        <td><a href="index.php?act=updateKhachSan&maKhachSan=<?php echo $value['maKhachSan'] ?>">Sửa</a><a <?=$hoi?> style="margin-left: 15px;" href="index.php?act=deleteKhachSan&maKhachSan=<?php echo $value['maKhachSan'] ?>">Xóa</a></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>
