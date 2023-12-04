@@ -7,6 +7,7 @@
                     <div class="header">
                         <h4 class="title">Tất cả phòng</h4>
                         <p class="category">Có thể thêm sửa xóa phòng</p>
+                        <button type="button"><a href="./index.php?act=themloai">Thêm Loại</a></button>
                     </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">
@@ -17,12 +18,12 @@
                             </thead>
                             <tbody>
                                 <?php foreach ($rows as $key => $value) {
-
+                                      $hoi='onclick="return confirm(\'Bạn Có Muốn Xóa Loại Phòng Này Không\')"';
                                 ?>
                                     <tr>
                                         <td><?php echo $value['maLoaiPhong'] ?></td>
                                         <td><?php echo $value['tenLoai'] ?></td>
-                                        <td><a href="index.php?act=updateLoaiPhong&maLoaiPhong=<?php echo $value['maLoaiPhong'] ?>">Sửa</a><a style="margin-left: 15px;" href="index.php?act=deleteLoaiPhong&maLoaiPhong=<?php echo $value['maLoaiPhong'] ?>">Xóa</a></td>
+                                        <td><a href="index.php?act=updateLoaiPhong&maLoaiPhong=<?php echo $value['maLoaiPhong'] ?>">Sửa</a><a style="margin-left: 15px;"<?=$hoi?> href="index.php?act=deleteLoaiPhong&maLoaiPhong=<?php echo $value['maLoaiPhong'] ?>">Xóa</a></td>
                                     </tr>
                                 <?php } ?>
                             </tbody>

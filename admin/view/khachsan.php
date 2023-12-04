@@ -25,7 +25,7 @@
                             <tbody>
                                 <?php
                                 foreach ($rows as $key => $value) {
-                                    $hoi='onclick="return confirm(\'Bạn Có Muốn Xóa Sản Phẩm Này Không\')"';
+                                    $hoi='onclick="return confirm(\'Bạn Có Muốn Xóa Khách Sạn Này Không\')"';
                                 ?>
                                     <tr>
                                         <td><?php echo $value['maKhachSan'] ?></td>

@@ -167,7 +167,63 @@ if (isset($_GET['act'])) {
                         echo"Không xác định sản phẩm cần xóa!!";
                     }
             break;
+            case "themloai" :
+                $loi=[];
+            if (isset($_POST['name'])) {
+                $name=$_POST['name'];
+                $nhah = isset($_POST['nhah']) ? true : false;
+                 $beboi = isset($_POST['beboi']) ? true : false;
+                $wifi = isset($_POST['wifi']) ? true : false;
+                $gym = isset($_POST['gym']) ? true : false;
+                $maylanh = isset($_POST['maylanh']) ? true : false;
+                $thuoc = isset($_POST['thuoc']) ? true : false;
+                if (empty($name)) {
+                    $loi[]="Vui lòng nhập Loại phòng";
+                    goto thoi;
+                }
+                if (empty($loi)) {
+                 addloai($name, $nhah, $beboi, $gym, $wifi,$maylanh, $thuoc);
+                }} 
+                thoi:
+                include "view/themloai.php";
+                break;
+                case "updateLoaiPhong":
+                    $loi=[];
+                    if (isset($_GET['maLoaiPhong'])) {
+                        $id=intval($_GET['maLoaiPhong']);
+                        $rows=truyvanloaiphong($id);
+                    }else{
+                        $loi[]="Không tìm thấy khách sạn cần sửa";
+                    }
+                    if (isset($_POST['name'])) {
+                        $name=$_POST['name'];
+                        $nhah = isset($_POST['nhah']) ? true : false;
+                         $beboi = isset($_POST['beboi']) ? true : false;
+                        $wifi = isset($_POST['wifi']) ? true : false;
+                        $gym = isset($_POST['gym']) ? true : false;
+                        $maylanh = isset($_POST['maylanh']) ? true : false;
+                        $thuoc = isset($_POST['thuoc']) ? true : false;
+                        if (empty($name)) {
+                            $loi[]="Vui lòng nhập Loại phòng";
+                            goto thoi2;
+                        }
+                        if (empty($loi)) {
+                         sualoai($name, $nhah, $beboi, $gym, $wifi,$maylanh, $thuoc,$id);
+                         $loi[]="Sửa thành công";
+                        }} 
+                        thoi2:
+                    include "view/sualoai.php";
                     break;
+                    case 'deleteLoaiPhong':
+                        if (isset($_GET['maLoaiPhong'])) {
+                            $id=intval($_GET['maLoaiPhong']);
+                            xoaloai($id);
+                            header("Location: index.php?act=loaiphong");
+                        }else{
+                            echo"Không xác định sản phẩm cần xóa!!";
+                        }
+                        break;
+                   
         case 'tiennghi':
             $rows = truyVanTienNghi();
             include 'view/tiennghi.php';
