@@ -11,3 +11,15 @@ function doimk($mk,$id){
     $sql="UPDATE khachhang SET matKhau ='$mk' WHERE maKhachHang  = '$id'";
     return pdo_execute($sql);
 }
+// update
+function updatetk($name, $emal, $sdt, $dc, $gt,$id){
+    $sql="UPDATE khachhang SET
+tenKhachHang='$name',
+email='$emal',
+soDienThoai='$sdt',	
+diaChi='$dc',
+gioThieu='$gt'
+WHERE maKhachHang = '$id';
+";
+    return pdo_execute($sql);
+}

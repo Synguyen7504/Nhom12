@@ -34,7 +34,7 @@
             <div class="card">
 
                 <div class="col-md-12" style="margin-top: -70px; " data-aos="fade">
-                    <div class="card card-user" style="border: 0px solid white; background-color: rgba(153, 205, 50, 0);">
+                    <div class="card card-user" style="border: 0px solid white; background-color: #f1f1f1;">
                         <div class="image text-center">
                             <img src="images/person_4.jpg" alt="..." style="border-radius: 100px; width: 20%; height: 20%;" />
                         </div>
@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="content" style="margin: 00px 20px 20px 20px;">
-                    <form>
+                    <form method="post">
                         <div class="row" data-aos="fade">
                             <div class="col-md-5">
                                 <div class="form-group">
@@ -73,7 +73,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Họ Tên</label>
-                                    <input type="text" class="form-control" placeholder="Company" value="<?=$tenKhachHang?>">
+                                    <input type="text" class="form-control" placeholder="Company" name="hoten" value="<?=$tenKhachHang?>">
                                 </div>
                             </div>
                             <!-- <div class="col-md-6">
@@ -88,7 +88,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Địa chỉ</label>
-                                    <input type="text" class="form-control" placeholder="Home Address" value="Hà nội - Việt Nam">
+                                    <input type="text" class="form-control" name="diachi" placeholder="Hà nội - Việt Nam" value="<?=$diaChi?>" >
                                 </div>
                             </div>
                         </div>
@@ -97,13 +97,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Email</label>
-                                    <input type="text" class="form-control" placeholder="City" value="<?=$email?>">
+                                    <input type="text" class="form-control" name="email" placeholder="@gmail.com" value="<?=$email?>">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Số điện thoại</label>
-                                    <input type="text" class="form-control" placeholder="Country" value="<?=$soDienThoai?>">
+                                    <input type="text" class="form-control" name="sdt" placeholder="Số điện thoại" value="<?=$soDienThoai?>">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -118,12 +118,12 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Giới thiệu</label>
-                                    <textarea rows="5" class="form-control" placeholder="Here can be your description" value="Mike">thank you dcm ok im fire I'm in that two seat Lambo"</textarea>
+                                    <textarea rows="5" class="form-control" name="gioithieu" placeholder="Here can be your description" value="<?=$gioiThieu?>"></textarea>
                                 </div>
                             </div>
                         </div>
 
-                        <button type="submit" class="btn btn-info btn-fill pull-right" style="background-color: #23272b; border: 0px; border-radius: 7px;" data-aos="fade">Cập nhập tài
+                        <button type="submit" name="sup" class="btn btn-info btn-fill pull-right" style="background-color: #23272b; border: 0px; border-radius: 7px;" data-aos="fade">Cập nhập tài
                             khoản</button>
                         <div class="clearfix"></div>
                     </form>

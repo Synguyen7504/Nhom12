@@ -11,6 +11,7 @@ if (isset($_GET['act'])) {
     $get = $_GET['act'];
 }
 if ($get != "login") {
+    extract($_SESSION['tk']);
     include "layout/header.php";
 }
 
@@ -148,6 +149,14 @@ if (isset($_GET['act'])) {
             // quản lý tài khoản
         case 'user':
             extract($_SESSION['tk']);
+            if (isset($_POST['sup'])) {
+               $diachi=$_POST['diachi'];
+               $email=$_POST['email'];
+               $sdt=$_POST['sdt'];
+               $gioithieu=$_POST['gioithieu'];
+               $hoten=$_POST['hoten'];
+                updatetk($hoten, $email, $sdt, $diachi, $gioithieu, $maKhachHang);
+            }
             include 'layout/user.php';
 
             break;
