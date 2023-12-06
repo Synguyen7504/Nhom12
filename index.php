@@ -161,6 +161,7 @@ if (isset($_GET['act'])) {
                 $hoten = $_POST['hoten'];
                 updatetk($hoten, $email, $sdt, $diachi, $gioithieu, $maKhachHang);
             }
+
             include 'layout/user.php';
 
             break;

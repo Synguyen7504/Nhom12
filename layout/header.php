@@ -119,7 +119,7 @@
                       <?php
                       if (!empty($_SESSION['login'])) {
                       ?>
-                        <li><a href="index.php?act=user&id=<?= $maKhachHang ?>">Quản lý tài khoản</a></li>
+                        <li><a href="index.php?act=user&id=<?php echo $_SESSION['tk']['maKhachHang']; ?>">Quản lý tài khoản</a></li>
                         <li><a href="./layout/dx.php">Thoát</a></li>
                       <?php
                       } else {

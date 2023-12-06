@@ -77,3 +77,9 @@ WHERE maKhachHang = '$id';
 ";
     return pdo_execute($sql);
 }
+
+function updateKhachHang($ma)
+{
+    $sql = "SELECT * FROM `khachhang` WHERE maKhachHang = $ma";
+    return pdo_truyVanAll($sql);
+}
