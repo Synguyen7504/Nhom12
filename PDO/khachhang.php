@@ -17,6 +17,19 @@ function doimk($mk, $id)
     $sql = "UPDATE khachhang SET matKhau ='$mk' WHERE maKhachHang  = '$id'";
     return pdo_execute($sql);
 }
+// update
+function updatetk($name, $emal, $sdt, $dc, $gt, $id)
+{
+    $sql = "UPDATE khachhang SET
+tenKhachHang='$name',
+email='$emal',
+soDienThoai='$sdt',	
+diaChi='$dc',
+gioThieu='$gt'
+WHERE maKhachHang = '$id';
+";
+    return pdo_execute($sql);
+}
 function emailKhachHang()
 {
     $sql = "SELECT email,tenKhachHang,matKhau FROM `khachhang`";
@@ -64,18 +77,6 @@ function lienHe($hoTen, $soDienThoai, $email, $noiDung)
 {
     $sql = "INSERT INTO `lienhe`( `hoTen`, `soDienThoai`, `email`, `noiDung`) VALUES ('$hoTen','$soDienThoai','$email','$noiDung')";
     return pdo_thucThi($sql);
-}
-function updatetk($name, $emal, $sdt, $dc, $gt, $id)
-{
-    $sql = "UPDATE khachhang SET
-tenKhachHang='$name',
-email='$emal',
-soDienThoai='$sdt',	
-diaChi='$dc',
-gioThieu='$gt'
-WHERE maKhachHang = '$id';
-";
-    return pdo_execute($sql);
 }
 
 function updateKhachHang($ma)

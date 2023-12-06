@@ -11,6 +11,7 @@ if (isset($_GET['act'])) {
     $get = $_GET['act'];
 }
 if ($get != "login") {
+    extract($_SESSION['tk']);
     include "layout/header.php";
 }
 
