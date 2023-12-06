@@ -35,6 +35,7 @@ if (isset($_POST['dangki'])) {
             $sx->bindParam(":soDienThoai", $sdt);
             $sx->bindParam(":tenDangNhap", $namedk);
             $sx->bindParam(":matKhau", $pas);
+            $loi[]="Đăng kí thành công";
             $sx->execute();
         } catch (PDOException $e) {
             $loi[] = "Lỗi ghi CSDL: " . $e->getMessage();
