@@ -73,11 +73,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Họ Tên</label>
-<<<<<<< HEAD
                                     <input type="text" class="form-control" placeholder="Company" name="hoten" value="<?= $tenKhachHang ?>">
-=======
-                                    <input type="text" class="form-control" placeholder="Company" name="hoten" value="<?=$tenKhachHang?>">
->>>>>>> 9aff8e7b1896c8795b1b0c8bf01eb7b2f1c64c20
                                 </div>
                             </div>
                             <!-- <div class="col-md-6">
@@ -92,11 +88,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Địa chỉ</label>
-<<<<<<< HEAD
                                     <input type="text" class="form-control" name="diachi" placeholder="Hà nội - Việt Nam" value="<?= $diaChi ?>">
-=======
-                                    <input type="text" class="form-control" name="diachi" placeholder="Hà nội - Việt Nam" value="<?=$diaChi?>" >
->>>>>>> 9aff8e7b1896c8795b1b0c8bf01eb7b2f1c64c20
                                 </div>
                             </div>
                         </div>
@@ -105,50 +97,25 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Email</label>
-<<<<<<< HEAD
                                     <input type="text" class="form-control" name="email" placeholder="@gmail.com" value="<?= $email ?>">
-=======
-                                    <input type="text" class="form-control" name="email" placeholder="@gmail.com" value="<?=$email?>">
->>>>>>> 9aff8e7b1896c8795b1b0c8bf01eb7b2f1c64c20
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Số điện thoại</label>
-<<<<<<< HEAD
                                     <input type="text" class="form-control" name="sdt" placeholder="Số điện thoại" value="<?= $soDienThoai ?>">
-=======
                                     <input type="text" class="form-control" name="sdt" placeholder="Số điện thoại" value="<?=$soDienThoai?>">
-                                </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Postal Code</label>
-                                    <input type="number" class="form-control" placeholder="ZIP Code">
->>>>>>> 9aff8e7b1896c8795b1b0c8bf01eb7b2f1c64c20
-                                </div>
-                            </div>
-                        </div>
-
                         <div class="row" data-aos="fade">
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Giới thiệu</label>
-<<<<<<< HEAD
                                     <textarea rows="5" class="form-control" name="gioithieu" placeholder="Here can be your description" value="<?= $gioiThieu ?>"></textarea>
-=======
-                                    <textarea rows="5" class="form-control" name="gioithieu" placeholder="Here can be your description" value="<?=$gioiThieu?>"></textarea>
->>>>>>> 9aff8e7b1896c8795b1b0c8bf01eb7b2f1c64c20
                                 </div>
                             </div>
                         </div>
 
-<<<<<<< HEAD
                         <button type="submit" name="sup" class="btn btn-info btn-fill pull-right" style="background-color: #23272b; border: 0px; border-radius: 7px;" data-aos="fade">Cập nhập tài khoản</button>
-=======
-                        <button type="submit" name="sup" class="btn btn-info btn-fill pull-right" style="background-color: #23272b; border: 0px; border-radius: 7px;" data-aos="fade">Cập nhập tài
-                            khoản</button>
->>>>>>> 9aff8e7b1896c8795b1b0c8bf01eb7b2f1c64c20
                         <div class="clearfix"></div>
                     </form>
                 </div>
