@@ -50,19 +50,14 @@
                                             <td><?php echo $value['ngayNhanPhong'] ?></td>
                                             <td><?php echo $value['ngayTraPhong'] ?></td>
                                             <?php if ($value['trangThai'] == 0) { ?>
-                                                <td>
-                                                    <select name="trangThai" id="">
-                                                        <option value="0" style="color: gold;">Đang chờ sử lý</option>
-                                                        <option value="1" style="color: green;">Đơn hàng thành công</option>
-                                                    </select>
-                                                </td>
+                                                <td style="color: yellow;">Đơn đang chờ sử lý</td>
                                             <?php
                                             } else { ?>
                                                 <td style="color: green;">Đơn hàng thành công</td>
                                             <?php } ?>
 
                                             <td> <?php if ($value['trangThai'] == 0) { ?>
-                                                    <a href="index.php?act=updatedonhang&maDonHang=<?php echo $value['maDonHang'] ?>">Cập nhập</a><?php } ?><a style="margin-left: 15px;" href="index.php?act=deletehonhang&maDonHang=<?php echo $value['maDonHang'] ?>" onclick="return confirm('Bạn chắc chắn muốn xóa')">Xóa</a>
+                                                    <a href="index.php?act=updatedonhang&maDonHang=<?php echo $value['maDonHang'] ?>">Thành công</a><?php } ?><a style="margin-left: 15px;" href="index.php?act=deletehonhang&maDonHang=<?php echo $value['maDonHang'] ?>" onclick="return confirm('Bạn chắc chắn muốn xóa')">Xóa</a>
                                             </td>
                                         </tr>
                                 <?php }
