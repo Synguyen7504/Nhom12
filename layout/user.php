@@ -4,27 +4,27 @@
 
 </div>
 <style>
-    #show{
+    #show {
         position: absolute;
-    margin-top: -41px;
-    background: none;
-    border: none;
-    left: 210px;
-    font-size: 20px;
+        margin-top: -41px;
+        background: none;
+        border: none;
+        left: 210px;
+        font-size: 20px;
 
     }
 </style>
 <script>
-   function togglePasswordVisibility() {
-            var passwordInput = document.getElementById("password");
+    function togglePasswordVisibility() {
+        var passwordInput = document.getElementById("password");
 
-            // Kiểm tra trạng thái của input password
-            if (passwordInput.type === "password") {
-                passwordInput.type = "text";
-            } else {
-                passwordInput.type = "password";
-            }
+        // Kiểm tra trạng thái của input password
+        if (passwordInput.type === "password") {
+            passwordInput.type = "text";
+        } else {
+            passwordInput.type = "password";
         }
+    }
 </script>
 <section style="margin-top: 90px; margin-bottom: 50px;">
 
@@ -51,14 +51,14 @@
                             <div class="col-md-5">
                                 <div class="form-group">
                                     <label>Tên đang nhập:</label>
-                                    <input type="text" class="form-control" disabled placeholder="Company" value="<?=$tenDangNhap?>">
+                                    <input type="text" class="form-control" disabled placeholder="Company" value="<?= $tenDangNhap ?>">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Mật khẩu</label>
-                                    <input type="password" class="form-control" disabled placeholder="Username" value="<?=$matKhau?>" id="password">
-                                        <button id="show" type="button"  onclick="togglePasswordVisibility()"><i class="fa-solid fa-eye"></i></button>
+                                    <input type="password" class="form-control" disabled placeholder="Username" value="<?= $matKhau ?>" id="password">
+                                    <button id="show" type="button" onclick="togglePasswordVisibility()"><i class="fa-solid fa-eye"></i></button>
                                 </div>
                             </div>
                             <div class="col-md-3" style="text-align: center; display: inline-block; margin-top: 38px; margin-left: -35px;">
@@ -73,7 +73,11 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Họ Tên</label>
+<<<<<<< HEAD
+                                    <input type="text" class="form-control" placeholder="Company" name="hoten" value="<?= $tenKhachHang ?>">
+=======
                                     <input type="text" class="form-control" placeholder="Company" name="hoten" value="<?=$tenKhachHang?>">
+>>>>>>> 9aff8e7b1896c8795b1b0c8bf01eb7b2f1c64c20
                                 </div>
                             </div>
                             <!-- <div class="col-md-6">
@@ -88,7 +92,11 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Địa chỉ</label>
+<<<<<<< HEAD
+                                    <input type="text" class="form-control" name="diachi" placeholder="Hà nội - Việt Nam" value="<?= $diaChi ?>">
+=======
                                     <input type="text" class="form-control" name="diachi" placeholder="Hà nội - Việt Nam" value="<?=$diaChi?>" >
+>>>>>>> 9aff8e7b1896c8795b1b0c8bf01eb7b2f1c64c20
                                 </div>
                             </div>
                         </div>
@@ -97,12 +105,19 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Email</label>
+<<<<<<< HEAD
+                                    <input type="text" class="form-control" name="email" placeholder="@gmail.com" value="<?= $email ?>">
+=======
                                     <input type="text" class="form-control" name="email" placeholder="@gmail.com" value="<?=$email?>">
+>>>>>>> 9aff8e7b1896c8795b1b0c8bf01eb7b2f1c64c20
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Số điện thoại</label>
+<<<<<<< HEAD
+                                    <input type="text" class="form-control" name="sdt" placeholder="Số điện thoại" value="<?= $soDienThoai ?>">
+=======
                                     <input type="text" class="form-control" name="sdt" placeholder="Số điện thoại" value="<?=$soDienThoai?>">
                                 </div>
                             </div>
@@ -110,6 +125,7 @@
                                 <div class="form-group">
                                     <label>Postal Code</label>
                                     <input type="number" class="form-control" placeholder="ZIP Code">
+>>>>>>> 9aff8e7b1896c8795b1b0c8bf01eb7b2f1c64c20
                                 </div>
                             </div>
                         </div>
@@ -118,13 +134,25 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Giới thiệu</label>
+<<<<<<< HEAD
                                     <textarea rows="5" class="form-control" name="gioithieu" placeholder="Here can be your description" value=""><?=$gioThieu?></textarea>
+=======
+<<<<<<< HEAD
+                                    <textarea rows="5" class="form-control" name="gioithieu" placeholder="Here can be your description" value="<?= $gioiThieu ?>"></textarea>
+=======
+                                    <textarea rows="5" class="form-control" name="gioithieu" placeholder="Here can be your description" value="<?=$gioiThieu?>"></textarea>
+>>>>>>> 9aff8e7b1896c8795b1b0c8bf01eb7b2f1c64c20
+>>>>>>> 847ee34017b796956affa1988dc207712da41e58
                                 </div>
                             </div>
                         </div>
 
+<<<<<<< HEAD
+                        <button type="submit" name="sup" class="btn btn-info btn-fill pull-right" style="background-color: #23272b; border: 0px; border-radius: 7px;" data-aos="fade">Cập nhập tài khoản</button>
+=======
                         <button type="submit" name="sup" class="btn btn-info btn-fill pull-right" style="background-color: #23272b; border: 0px; border-radius: 7px;" data-aos="fade">Cập nhập tài
                             khoản</button>
+>>>>>>> 9aff8e7b1896c8795b1b0c8bf01eb7b2f1c64c20
                         <div class="clearfix"></div>
                     </form>
                 </div>
