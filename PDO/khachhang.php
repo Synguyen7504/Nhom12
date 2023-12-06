@@ -16,7 +16,6 @@ function doimk($mk, $id)
     $sql = "UPDATE khachhang SET matKhau ='$mk' WHERE maKhachHang  = '$id'";
     return pdo_execute($sql);
 }
-<<<<<<< HEAD
 // update
 function updatetk($name, $emal, $sdt, $dc, $gt,$id){
     $sql="UPDATE khachhang SET
@@ -29,7 +28,6 @@ WHERE maKhachHang = '$id';
 ";
     return pdo_execute($sql);
 }
-=======
 function emailKhachHang()
 {
     $sql = "SELECT email,tenKhachHang,matKhau FROM `khachhang`";
