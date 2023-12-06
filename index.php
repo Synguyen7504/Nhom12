@@ -155,6 +155,8 @@ if (isset($_GET['act'])) {
                $sdt=$_POST['sdt'];
                $gioithieu=$_POST['gioithieu'];
                $hoten=$_POST['hoten'];
+               $_SESSION['dc']=$diachi;
+               $_SESSION['gt']=$gioithieu;
                 updatetk($hoten, $email, $sdt, $diachi, $gioithieu, $maKhachHang);
             }
             include 'layout/user.php';

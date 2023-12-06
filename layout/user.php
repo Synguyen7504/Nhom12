@@ -118,7 +118,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Giới thiệu</label>
-                                    <textarea rows="5" class="form-control" name="gioithieu" placeholder="Here can be your description" value="<?=$gioiThieu?>"></textarea>
+                                    <textarea rows="5" class="form-control" name="gioithieu" placeholder="Here can be your description" value=""><?=$gioThieu?></textarea>
                                 </div>
                             </div>
                         </div>

@@ -71,4 +71,4 @@ function sendEmail($email, $tenKhachHang, $pass)
         echo "Lỗi gửi";
     }
 }
->>>>>>> ff1e6da3b9068b70d5b4c390b1eefa6144556f4f
+
