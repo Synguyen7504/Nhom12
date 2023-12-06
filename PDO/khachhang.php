@@ -73,6 +73,9 @@ function sendEmail($email, $tenKhachHang, $pass)
         echo "Lỗi gửi";
     }
 }
+<<<<<<< HEAD
+
+=======
 function lienHe($hoTen, $soDienThoai, $email, $noiDung)
 {
     $sql = "INSERT INTO `lienhe`( `hoTen`, `soDienThoai`, `email`, `noiDung`) VALUES ('$hoTen','$soDienThoai','$email','$noiDung')";
@@ -84,3 +87,4 @@ function updateKhachHang($ma)
     $sql = "SELECT * FROM `khachhang` WHERE maKhachHang = $ma";
     return pdo_truyVanAll($sql);
 }
+>>>>>>> 847ee34017b796956affa1988dc207712da41e58
