@@ -10,7 +10,7 @@ function truyVanKhachSan_1($id)
 {
     $sql = "SELECT *
     FROM khachsan 
-    WHERE maKhachSan = $id;";
+    WHERE maKhachSan = $id";
     return pdo_truyVan1($sql);
 }
 function addkhachsan($tenKhachSan, $diaDiem, $tinhThanh, $khoangGia, $danhGia, $anh1, $anh2, $anh3, $anh4, $nhaHang, $hoBoi, $phongGym, $wifi, $mayLanh, $hutThuoc)

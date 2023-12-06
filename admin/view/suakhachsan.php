@@ -34,8 +34,8 @@
                     </div>
 <div class="login-box">
  <?php
- foreach($rows as $valu){
-    extract($valu);
+//  foreach($rows as $value){
+    extract($rows);
  ?>
   <form method="post" enctype="multipart/form-data">
     <div class="user-box">
@@ -82,7 +82,7 @@
         </div>
     </div>
     <?php
- }
+//  }
     ?>
     <center>
     <button type="submit">
