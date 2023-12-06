@@ -11,6 +11,7 @@ function khachhang($tk, $mk)
     return pdo_query_one($sql);
 }
 // foi mk
+
 function doimk($mk, $id)
 {
     $sql = "UPDATE khachhang SET matKhau ='$mk' WHERE maKhachHang  = '$id'";
@@ -58,4 +59,21 @@ function sendEmail($email, $tenKhachHang, $pass)
     } catch (Exception $e) {
         echo "Lỗi gửi";
     }
+}
+function lienHe($hoTen, $soDienThoai, $email, $noiDung)
+{
+    $sql = "INSERT INTO `lienhe`( `hoTen`, `soDienThoai`, `email`, `noiDung`) VALUES ('$hoTen','$soDienThoai','$email','$noiDung')";
+    return pdo_thucThi($sql);
+}
+function updatetk($name, $emal, $sdt, $dc, $gt, $id)
+{
+    $sql = "UPDATE khachhang SET
+tenKhachHang='$name',
+email='$emal',
+soDienThoai='$sdt',	
+diaChi='$dc',
+gioThieu='$gt'
+WHERE maKhachHang = '$id';
+";
+    return pdo_execute($sql);
 }

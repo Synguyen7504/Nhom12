@@ -111,7 +111,7 @@
                   <div class="col-md-6 mx-auto">
                     <ul class="list-unstyled menu">
                       <li class="active"><a href="index.php">Trang chủ</a></li>
-                      <li><a href="index.php?act=rooms">Phòng</a></li>
+                      <li><a href="index.php?act=rooms">Khách sạn</a></li>
                       <!-- <li><a href="#">Về chúng tôi</a></li> -->
                       <!-- <li><a href="#">Tin tức</a></li> -->
                       <li><a href="index.php?act=concat">Liên Hệ</a></li>
@@ -119,7 +119,7 @@
                       <?php
                       if (!empty($_SESSION['login'])) {
                       ?>
-                        <li><a href="index.php?act=user">Quản lý tài khoản</a></li>
+                        <li><a href="index.php?act=user&id=<?= $maKhachHang ?>">Quản lý tài khoản</a></li>
                         <li><a href="./layout/dx.php">Thoát</a></li>
                       <?php
                       } else {

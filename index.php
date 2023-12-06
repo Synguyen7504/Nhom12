@@ -42,6 +42,11 @@ if (isset($_GET['act'])) {
             include 'layout/rooms.php';
             break;
         case 'concat':
+            $thongBao = false;
+            if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+                lienHe($_POST['name'], $_POST['phone'], $_POST['email'], $_POST['message']);
+                $thongBao = true;
+            }
             include 'layout/concat.php';
             break;
         case 'history':
@@ -148,6 +153,14 @@ if (isset($_GET['act'])) {
             // quản lý tài khoản
         case 'user':
             extract($_SESSION['tk']);
+            if (isset($_POST['sup'])) {
+                $diachi = $_POST['diachi'];
+                $email = $_POST['email'];
+                $sdt = $_POST['sdt'];
+                $gioithieu = $_POST['gioithieu'];
+                $hoten = $_POST['hoten'];
+                updatetk($hoten, $email, $sdt, $diachi, $gioithieu, $maKhachHang);
+            }
             include 'layout/user.php';
 
             break;
