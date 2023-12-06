@@ -175,9 +175,6 @@ if (isset($_GET['act'])) {
 
             include 'layout/donhang.php';
             break;
-        case 'changepass':
-            include 'layout/change.php';
-            break;
         case 'donhang':
             include 'layout/donhang.php';
             break;
@@ -215,6 +212,9 @@ if (isset($_GET['act'])) {
                 thoi:
             }
             include 'layout/change.php';
+            break;
+        case 'quenmk':
+            include 'layout/quenmk.php';
             break;
         default:
             include "layout/home.php";

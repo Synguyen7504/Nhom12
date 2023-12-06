@@ -61,7 +61,7 @@
                   </tr>
                 </tbody>
               </table>
-              <h4>Các ngày đã đặt</h4>
+              <!-- <h4>Các ngày đã đặt</h4> -->
             </div>
             <input type="submit" value="Đặt phòng" class="btn btn-dark px-4 rounded-pill" style="margin-left: 85%; margin-top: 60px">
           </form>

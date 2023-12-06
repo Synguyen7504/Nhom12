@@ -58,12 +58,12 @@ if ($_SESSION['login'] != "admin" && $_SESSION['login'] != 'staff') {
             </div>
 
             <ul class="nav">
-                <li>
+                <!-- <li>
                     <a href="index.php?act=thongke">
                         <i class="pe-7s-graph"></i>
                         <p>Thống kê</p>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="index.php?act=user">
                         <i class="pe-7s-user"></i>
@@ -72,7 +72,7 @@ if ($_SESSION['login'] != "admin" && $_SESSION['login'] != 'staff') {
                 </li>
                 <li>
                     <a href="index.php?act=donhang">
-                        <i class="pe-7s-note"></i>
+                        <i class="pe-7s-note2"></i>
                         <p>Đơn hàng</p>
                     </a>
                 </li>
@@ -92,6 +92,12 @@ if ($_SESSION['login'] != "admin" && $_SESSION['login'] != 'staff') {
                     <a href="index.php?act=phong">
                         <i class="pe-7s-note2"></i>
                         <p>Phòng</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="index.php?act=binhluan">
+                        <i class="pe-7s-note"></i>
+                        <p>Bình luận</p>
                     </a>
                 </li>
                 <li>

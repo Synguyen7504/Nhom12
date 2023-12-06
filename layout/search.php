@@ -11,7 +11,7 @@
               <div class="field-icon-wrap">
                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                 <select name="location" id="location" class="form-control">
-                  <option value="" selected disabled>Địa điểm</option>
+                  <option value="" selected disabled>Tất cả địa điểm</option>
                   <?php
                   $tinhThanh = truyVanDiaDiem();
                   foreach ($tinhThanh as $key => $value) {
@@ -28,7 +28,7 @@
               <div class="field-icon-wrap">
                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                 <select name="price" id="price" class="form-control">
-                  <option value="" selected disabled>Giá</option>
+                  <option value="" selected disabled>Tất cả giá</option>
                   <?php
                   $gia = truyVanGia();
                   foreach ($gia as $key => $value) {
@@ -45,7 +45,7 @@
               <div class="field-icon-wrap">
                 <div class="icon"><span class="ion-ios-arrow-down"></span></div>
                 <select name="stars" id="stars" class="form-control" value="">
-                  <option value="" selected disabled>Số sao</option>
+                  <option value="" selected disabled>Tất cả sao</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
                   <option value="3">3</option>

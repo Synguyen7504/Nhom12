@@ -24,7 +24,7 @@ if (isset($_POST['dangnhap'])) {
             //  print_r($_SESSION['tk']) ;
             // unset($_SESSION['layMa']);
             header("Location: ../admin/index.php");
-            
+
             //}  elseif ($tk == "admin" && $mk == "121212") {
             //     $_SESSION['login'] = "admin";
             //     $_SESSION['login']['quyen'] = "admin";
@@ -74,7 +74,7 @@ if (isset($_POST['dangnhap'])) {
                     <i class="fa-solid fa-lock"></i>
                 </div>
                 <div class="forget">
-                    <label><input type="checkbox"> Nhớ mật khẩu</label>
+                    <label style="color: black;" onmouseover="this.style.color='#ee9820'" onmouseout="this.style.color='black'"><a href="quenmk.php">Quên mật khẩu</a></label>
                 </div>
                 <div class="btn">
                     <button type="submit" name="dangnhap">Đăng Nhập</button>
