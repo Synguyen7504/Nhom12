@@ -33,3 +33,8 @@ function addDotToNumber($number)
 
     return $formatted_number;
 }
+function locTheoTrangThai()
+{
+    $sql = "SELECT COUNT(*) as soLuong,trangThai FROM `donhang` GROUP BY trangThai ORDER BY trangThai";
+    return pdo_truyVanAll($sql);
+}

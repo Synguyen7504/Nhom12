@@ -80,7 +80,7 @@
             <div class="col-md-6">
                 <div class="card ">
                     <div class="header">
-                        <h4 class="title">Thu nhập</h4>
+                        <h4 class="title">Tỷ lệ lập đầy của phòng</h4>
                         <p class="category">Thu nhập theo từng tháng trong năm</p>
                     </div>
                     <div class="content">
@@ -94,7 +94,7 @@
                             <hr>
                             <div class="stats">
                                 <!-- <i class="fa fa-check"></i> -->
-                                <h5 style="color: black;">Tổng doanh thu của năm:</h5>
+                                <h5 style="color: black;">Tổng phòng: <?php echo $tongPhong ?></h5>
                             </div>
                         </div>
                     </div>
@@ -103,114 +103,29 @@
             <div class="col-md-6">
                 <div class="card ">
                     <div class="header">
-                        <h4 class="title">Tasks</h4>
-                        <p class="category">Backend development</p>
+                        <h4 class="title">Đơn hàng</h4>
+                        <p class="category">Thống kê số đơn hàng</p>
                     </div>
                     <div class="content">
                         <div class="table-full-width">
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox1" type="checkbox">
-                                                <label for="checkbox1"></label>
-                                            </div>
-                                        </td>
-                                        <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                        <td><i class="fa fa-circle text-success"></i> Đã hoàn thành: <?php echo $hoanThanh ?> </td>
+                                        <td></td>
                                         <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox2" type="checkbox" checked>
-                                                <label for="checkbox2"></label>
-                                            </div>
-                                        </td>
-                                        <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                                        <td><i class="fa fa-circle text-warning"></i> Đang sử lý: <?php echo $dangSuLy ?></td>
+                                        <td></td>
                                         <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox3" type="checkbox">
-                                                <label for="checkbox3"></label>
-                                            </div>
-                                        </td>
-                                        <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
-                                        </td>
+                                        <td><i class="fa fa-circle text-danger"></i> Đã hủy: 0</td>
+                                        <td></td>
                                         <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox4" type="checkbox" checked>
-                                                <label for="checkbox4"></label>
-                                            </div>
-                                        </td>
-                                        <td>Create 4 Invisible User Experiences you Never Knew About</td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox5" type="checkbox">
-                                                <label for="checkbox5"></label>
-                                            </div>
-                                        </td>
-                                        <td>Read "Following makes Medium better"</td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <div class="checkbox">
-                                                <input id="checkbox6" type="checkbox" checked>
-                                                <label for="checkbox6"></label>
-                                            </div>
-                                        </td>
-                                        <td>Unfollow 5 enemies from twitter</td>
-                                        <td class="td-actions text-right">
-                                            <button type="button" rel="tooltip" title="Edit Task" class="btn btn-info btn-simple btn-xs">
-                                                <i class="fa fa-edit"></i>
-                                            </button>
-                                            <button type="button" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                                <i class="fa fa-times"></i>
-                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -220,7 +135,7 @@
                         <div class="footer">
                             <hr>
                             <div class="stats">
-                                <i class="fa fa-history"></i> Updated 3 minutes ago
+                                <h5 style="color: black;">Tổng đơn hàng: <?php echo $tongDon ?></h5>
                             </div>
                         </div>
                     </div>

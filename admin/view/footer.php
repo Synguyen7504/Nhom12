@@ -27,6 +27,14 @@
 ?>
     <script>
         // type = ['', 'info', 'success', 'warning', 'danger'];
+        var cacPhong = <?php echo $cacPhong ?>;
+        var tongPhong = <?php echo $tongPhong ?>;
+        console.log(cacPhong)
+        for (let index = 1; index <= 12; index++) {
+            cacPhong[index] = (cacPhong[index] / tongPhong) * 100;
+            cacPhong[index] = cacPhong[index].toFixed(1);
+        }
+
         var rowsThuNhap = <?php echo $json ?>;
         var cacMua = <?php echo $theoMua ?>;
         var tong = cacMua['xuan'] + cacMua['ha'] + cacMua['thu'] + cacMua['dong'];
@@ -91,8 +99,8 @@
                 var data2 = {
                     labels: ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7', 'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'],
                     series: [
-                        [11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11, 11],
-                        [10, 10, 10, 10, 10, 10, 10, 10, 10, 3, 3, 3]
+                        [100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100, 100],
+                        [cacPhong[1], cacPhong[2], cacPhong[3], cacPhong[4], cacPhong[5], cacPhong[6], cacPhong[7], cacPhong[8], cacPhong[9], cacPhong[10], cacPhong[11], cacPhong[12]]
                     ]
                 };
 

@@ -30,3 +30,13 @@ function updatePhong($maKhachSan, $maLoaiPhong, $giaPhong, $giuong, $dienTich, $
     $sql = "UPDATE `phong` SET `maKhachSan`='$maKhachSan',`maLoaiPhong`='$maLoaiPhong',`giaPhong`='$giaPhong',`giuong`='$giuong',`dienTich`='$dienTich',`trangThai`='[value-9]' WHERE maPhong = $maPhong";
     pdo_thucThi($sql);
 }
+function laySoPhong()
+{
+    $sql = "SELECT COUNT(*) as soPhong FROM `phong`";
+    return pdo_truyVan1($sql);
+}
+function layMaPhong()
+{
+    $sql = "SELECT * FROM `donhang` INNER JOIN donhangchitiet ON donhang.maDonHang = donhangchitiet.maDonHang GROUP BY MONTH(ngayDat),maPhong";
+    return pdo_truyVanAll($sql);
+}

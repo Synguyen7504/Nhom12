@@ -417,7 +417,32 @@ if (isset($_GET['act'])) {
                 $max = "Mùa Đông";
             }
             $theoMua = json_encode($cacMua);
-
+            // THỐNG KÊ TỈ LỆ LẤP ĐẦY
+            $tongPhong = laySoPhong();
+            $tongPhong = $tongPhong['soPhong'];
+            $cacThangPhong  = [];
+            for ($i = 1; $i <= 12; $i++) {
+                $cacThangPhong[$i] = 0;
+            }
+            $phong = layMaPhong();
+            // $phong = $phong['soPhong'];
+            foreach ($phong as $key => $value) {
+                // echo $value['ngayDat'];
+                $time = strtotime($value['ngayDat']);
+                $layThang = date('m', $time);
+                $layThang = intval($layThang);
+                foreach ($cacThangPhong as $index => $vl) {
+                    if ($index == $layThang) {
+                        $cacThangPhong[$index] += 1;
+                    }
+                }
+            }
+            $cacPhong = json_encode($cacThangPhong);
+            // THỐNG KÊ ĐƠN
+            $don = locTheoTrangThai();
+            $dangSuLy =  $don[0]['soLuong'];
+            $hoanThanh =  $don[1]['soLuong'];
+            $tongDon = $dangSuLy + $hoanThanh;
             include 'view/thongke.php';
             break;
         default:

@@ -42,12 +42,16 @@ if ($_SESSION['login'] != "admin" && $_SESSION['login'] != 'staff') {
                     sogo hotel</a>
             </div>
             <ul class="nav">
-                <li>
-                    <a href="index.php?act=thongke">
-                        <i class="pe-7s-graph"></i>
-                        <p>Thống kê</p>
-                    </a>
-                </li>
+                <?php if ($_SESSION['tk']['quyen'] != 'staff') {  ?>
+                    <li>
+                        <a href="index.php?act=thongke">
+                            <i class="pe-7s-graph"></i>
+                            <p>Thống kê</p>
+                        </a>
+                    </li>
+                <?php
+                }
+                ?>
                 <li>
                     <a href="index.php?act=user">
                         <i class="pe-7s-user"></i>
