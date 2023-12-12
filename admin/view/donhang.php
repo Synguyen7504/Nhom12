@@ -57,7 +57,7 @@
                                             <?php } ?>
 
                                             <td> <?php if ($value['trangThai'] == 0) { ?>
-                                                    <a href="index.php?act=updatedonhang&maDonHang=<?php echo $value['maDonHang'] ?>">Thành công</a><?php } ?><a style="margin-left: 15px;" href="index.php?act=deletehonhang&maDonHang=<?php echo $value['maDonHang'] ?>" onclick="return confirm('Bạn chắc chắn muốn xóa')">Xóa</a>
+                                                    <a href="index.php?act=updatedonhang&maDonHang=<?php echo $value['maDonHang'] ?>">Thành công</a><?php } ?><a style="margin-left: 15px;" href="index.php?act=deletedonhang&maDonHang=<?php echo $value['maDonHang'] ?>" onclick="return confirm('Bạn chắc chắn muốn xóa')">Xóa</a>
                                             </td>
                                         </tr>
                                 <?php }

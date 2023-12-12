@@ -2607,6 +2607,7 @@ fieldset[disabled] .btn-neutral.active {
     stroke-width: 60px;
 }
 
+
 .ct-series-a .ct-point, .ct-series-a .ct-line, .ct-series-a .ct-bar, .ct-series-a .ct-slice-donut {
     stroke: #1DC7EA;
 }
@@ -2660,7 +2661,7 @@ fieldset[disabled] .btn-neutral.active {
 }
 
 .ct-series-g .ct-slice-pie, .ct-series-g .ct-area {
-    fill: #5e5e5e;
+    fill: #5e5e5e; 
 }
 
 .ct-series-h .ct-point, .ct-series-h .ct-line, .ct-series-h .ct-bar, .ct-series-h .ct-slice-donut {

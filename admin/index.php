@@ -1,4 +1,5 @@
 <?php
+ob_start();
 include '../PDO/pdo.php';
 include 'model/user.php';
 include 'model/phong.php';
@@ -51,9 +52,11 @@ if (isset($_GET['act'])) {
                     $dir = '../../img/' . rand(1, 1000) . $_FILES['file']['name'];
                     move_uploaded_file($_FILES['file']['tmp_name'], $dir);
                     updateUserImage($_POST['name'], $_POST['email'], $_POST['phone'], $_POST['username'], $_POST['pass'], $_POST['quyen'], $dir, $maKhachHang);
+                    $row = truyVan1User($maKhachHang);
                     header('location: index.php?act=user');
                 } else {
                     updateUser($_POST['name'], $_POST['email'], $_POST['phone'], $_POST['username'], $_POST['pass'], $_POST['quyen'], $maKhachHang);
+                    $row = truyVan1User($maKhachHang);
                     header('location: index.php?act=user');
                 }
             }
@@ -98,7 +101,7 @@ if (isset($_GET['act'])) {
             break;
         case 'deletephong':
             deletePhong($_GET['maPhong']);
-            header('location: index.php?act=user');
+            header('location: index.php?act=phong');
             break;
         case 'updatephong':
             $maPhong = $_GET['maPhong'];
@@ -194,14 +197,14 @@ if (isset($_GET['act'])) {
                     for ($i = 0; $i < count($_FILES['img']['name']); $i++) {
                         $ten_tep = $_FILES['img']['name'][$i];
                         $duong_dan_tam_thoi = $_FILES['img']['tmp_name'][$i];
-                        $thu_muc = __DIR__ . "/anhadmin/";
+                        $thu_muc = "../../img/" . rand(1, 1000);
                         // Tạo đường dẫn đầy đủ cho tệp tin
                         $duong_dan_cuoi_cung = $thu_muc . $ten_tep;
 
                         // Kiểm tra và di chuyển tệp tin
                         if (move_uploaded_file($duong_dan_tam_thoi, $duong_dan_cuoi_cung)) {
                             // Xử lý thành công, ví dụ: tạo đường link đầy đủ
-                            $link_anh[$i] = "http://localhost/Nhom%2012/admin/anhadmin/" . $ten_tep;
+                            $link_anh[$i] = $thu_muc . $ten_tep;
                         } else {
                             // Ghi lại lỗi vào mảng $loi
                             $loi[] = 'Lỗi di chuyển ảnh ' . $ten_tep . ': ' . error_get_last()['message'];
@@ -209,6 +212,7 @@ if (isset($_GET['act'])) {
                     }
                 }
                 addkhachsan($name, $diadiem, $tinh, $gia, $sao, $link_anh[0], $link_anh[1], $link_anh[2], $link_anh[3], $nhah, $beboi, $gym, $wifi, $maylanh, $thuoc);
+                header("location: index.php?act=khachsan");
             }
             loi:
 
@@ -273,8 +277,10 @@ if (isset($_GET['act'])) {
                 if (empty($loi)) {
                     if ($link_anh != '') {
                         anhks($name, $diadiem, $tinh, $gia, $sao, $link_anh, $nhah, $beboi, $gym, $wifi, $maylanh, $thuoc, $id);
+                        header("location: index.php?act=khachsan");
                     } else {
                         noanhks($name, $diadiem, $tinh, $gia, $sao, $nhah, $beboi, $gym, $wifi, $maylanh, $thuoc, $id);
+                        header("location: index.php?act=khachsan");
                     }
                 }
             }
@@ -353,6 +359,67 @@ if (isset($_GET['act'])) {
             $rows = truyVanTienNghi();
             include 'view/tiennghi.php';
             break;
+        case 'thongke':
+            $rows = truyVanDonHang();
+            // THỐNG KÊ THEO THÁNG
+            $cacThang  = [];
+            $tong = 0;
+            for ($i = 1; $i <= 12; $i++) {
+                $cacThang[$i] = 0;
+            }
+            foreach ($rows as $key => $value) {
+                // echo $value['ngayDat'];
+                $time = strtotime($value['ngayDat']);
+                $layThang = date('m', $time);
+                $layThang = intval($layThang);
+                foreach ($cacThang as $index => $vl) {
+                    if ($index == $layThang) {
+                        $tong += $value['tongDonHang'];
+                        $cacThang[$index] = $cacThang[$index] + $value['tongDonHang'];
+                    }
+                }
+            }
+            $json = json_encode($cacThang);
+            // THỐNG KÊ THEO MÙA
+            $cacMua = [
+                'xuan' => 0,
+                'ha' => 0,
+                'thu' => 0,
+                'dong' => 0
+            ];
+            foreach ($rows as $key => $value) {
+                $time = strtotime($value['ngayDat']);
+                $layNgay = date('m-d', $time);
+                if ($layNgay >= '03-21' && $layNgay <= '06-21') {
+                    $cacMua['xuan'] += $value['tongDonHang'];
+                } else if ($layNgay > '06-22' && $layNgay < '09-22') {
+                    $cacMua['ha'] += $value['tongDonHang'];
+                } elseif ($layNgay > '09-23' && $layNgay < '12-23') {
+                    $cacMua['thu'] += $value['tongDonHang'];
+                } else {
+                    $cacMua['dong'] += $value['tongDonHang'];
+                }
+            }
+            $max = max($cacMua);
+            foreach ($cacMua as $key => $value) {
+                if ($value == $max) {
+                    $max = $key;
+                    break;
+                }
+            }
+            if ($max == 'xuan') {
+                $max = "Mùa Xuân";
+            } elseif ($max == 'ha') {
+                $max = "Mùa Hạ";
+            } elseif ($max == 'thu') {
+                $max = "Mùa Thu";
+            } elseif ($max == 'dong') {
+                $max = "Mùa Đông";
+            }
+            $theoMua = json_encode($cacMua);
+
+            include 'view/thongke.php';
+            break;
         default:
             $rows = truyVanKhachSan();
             include 'view/khachsan.php';
@@ -363,3 +430,4 @@ if (isset($_GET['act'])) {
     include 'view/khachsan.php';
 }
 include 'view/footer.php';
+ob_end_flush();

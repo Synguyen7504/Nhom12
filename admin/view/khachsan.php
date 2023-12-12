@@ -12,7 +12,7 @@
                     <div class="header">
                         <h4 class="title">Tất cả khách sạn</h4>
                         <p class="category">Có thể thêm sửa xóa </p>
-                        <button type="button"><a href="./index.php?act=themks">Thêm khách sạn</a></button>
+                        <button type="button" style="border: 0px solid black; margin-top: 20px; padding: 9px; border-radius: 3px; background-color: #ffaa34; " onmouseover="this.style.backgroundColor='#ee9820'" onmouseout="this.style.backgroundColor='#ffaa34'"><a style=" color: white; font-weight: 550;" href="./index.php?act=themks">Thêm khách sạn</a></button>
                     </div>
                     <div class="content table-responsive table-full-width">
                         <table class="table table-hover table-striped">

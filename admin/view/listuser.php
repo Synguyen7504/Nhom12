@@ -1,6 +1,6 @@
 <div class="content">
     <h2 style="margin-left: 20px; margin-bottom: 30px; margin-top: -10px;">Quản lý người dùng</h2>
-    <form action="index.php?act=loaiphong" method="post" style="margin-left: 15px; margin-bottom: 20px;">
+    <form action="index.php?act=user" method="post" style="margin-left: 15px; margin-bottom: 20px;">
         <label for="" style="font-weight: 600;">Tìm kiếm theo mã:</label> <br>
         <input type="text" name="loc" style="height: 30px; border: 0.5px solid gray; border-radius: 3px;" placeholder="search" required>
         <input type="submit" value="Tìm kiếm" style=" height: 30px; background-color: #ffaa34; border: 0px solid black; border-radius: 3px; " onmouseover="this.style.backgroundColor='#ee9820'" onmouseout="this.style.backgroundColor='#ffaa34'">
