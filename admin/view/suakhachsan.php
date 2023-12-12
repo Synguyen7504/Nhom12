@@ -35,9 +35,10 @@
   <button type="button" style="border: 0px solid black; margin-top: 20px; padding: 9px; border-radius: 3px; background-color: #ffaa34; " onmouseover="this.style.backgroundColor='#ee9820'" onmouseout="this.style.backgroundColor='#ffaa34'"><a style=" color: white; font-weight: 550;" href="./index.php?act=khachsan">Quay lại</a></button>
 </div>
 <div class="login-box">
-  <?php
-  extract($rows);
-  ?>
+ <?php
+//  foreach($rows as $value){
+    extract($rows);
+ ?>
   <form method="post" enctype="multipart/form-data">
     <div class="user-box">
       <input type="text" name="name" value="<?= $tenKhachSan ?>">
@@ -82,6 +83,9 @@
         <input type="checkbox" name="thuoc">Phòng hút thuốc
       </div>
     </div>
+    <?php
+//  }
+    ?>
     <center>
       <button type="submit">
         Gửi đi

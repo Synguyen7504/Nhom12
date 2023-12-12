@@ -155,13 +155,13 @@ if (isset($_GET['act'])) {
         case 'user':
             extract($_SESSION['tk']);
             if (isset($_POST['sup'])) {
-                $diachi = $_POST['diachi'];
-                $email = $_POST['email'];
-                $sdt = $_POST['sdt'];
-                $gioithieu = $_POST['gioithieu'];
-                $hoten = $_POST['hoten'];
-                $_SESSION['dc'] = $diachi;
-                $_SESSION['gt'] = $gioithieu;
+               $diachi=$_POST['diachi'];
+               $email=$_POST['email'];
+               $sdt=$_POST['sdt'];
+               $gioithieu=$_POST['gioithieu'];
+               $hoten=$_POST['hoten'];
+               $_SESSION['dc']=$diachi;
+               $_SESSION['gt']=$gioithieu;
                 updatetk($hoten, $email, $sdt, $diachi, $gioithieu, $maKhachHang);
             }
 

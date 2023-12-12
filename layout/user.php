@@ -88,7 +88,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Địa chỉ</label>
-                                    <input type="text" class="form-control" name="diachi" placeholder="Home Address" value="Hà nội - Việt Nam">
+                                    <input type="text" class="form-control" name="diachi" placeholder="Hà nội - Việt Nam" value="<?= $diaChi ?>">
                                 </div>
                             </div>
                         </div>
@@ -103,6 +103,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Số điện thoại</label>
+<<<<<<< HEAD
                                     <input type="text" class="form-control" name="sdt" placeholder="Country" value="<?= $soDienThoai ?>">
                                 </div>
                             </div>
@@ -110,6 +111,9 @@
                                 <div class="form-group">
                                     <label>Postal Code</label>
                                     <input type="number" class="form-control" placeholder="ZIP Code">
+=======
+                                    <input type="text" class="form-control" name="sdt" placeholder="Số điện thoại" value="<?= $soDienThoai ?>">
+>>>>>>> 4bcc15420d97017afc90a49198611fcbe3b13a68
                                 </div>
                             </div>
                         </div>
@@ -118,13 +122,25 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Giới thiệu</label>
+<<<<<<< HEAD
                                     <textarea rows="5" class="form-control" name="gioithieu" placeholder="Here can be your description" value="<?= $gioiThieu ?>"></textarea>
+=======
+
+                                    <textarea rows="5" class="form-control" name="gioithieu" placeholder="Here can be your description" value=""><?=$gioThieu?></textarea>
+
+>>>>>>> 4bcc15420d97017afc90a49198611fcbe3b13a68
                                 </div>
                             </div>
                         </div>
 
+<<<<<<< HEAD
                         <button type="submit" name="sup" class="btn btn-info btn-fill pull-right" style="background-color: #23272b; border: 0px; border-radius: 7px;" data-aos="fade">Cập nhập tài
                             khoản</button>
+=======
+
+                        <button type="submit" name="sup" class="btn btn-info btn-fill pull-right" style="background-color: #23272b; border: 0px; border-radius: 7px;" data-aos="fade">Cập nhập tài khoản</button>
+
+>>>>>>> 4bcc15420d97017afc90a49198611fcbe3b13a68
                         <div class="clearfix"></div>
                     </form>
                 </div>
