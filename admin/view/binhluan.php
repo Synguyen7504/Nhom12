@@ -25,7 +25,7 @@
                             </thead>
                             <tbody>
                                 <?php
-                                if ($rows[0] != null) {
+                                if (!empty($rows) && $rows[0] != null) {
                                     foreach ($rows as $key => $value) {
                                 ?>
                                         <tr>
