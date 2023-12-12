@@ -37,7 +37,9 @@
                                             <td><a style="margin-left: 0px; font-size: larger;" href="index.php?act=deletebinhluan&maBinhLuan=<?php echo $value['ma_bl'] ?>" onclick="return confirm('Bạn chắc chắn muốn xóa')">Xóa</a></td>
                                         </tr>
                                 <?php }
-                                } ?>
+                                }else{
+                                    echo "<h4>Chưa có bình luận nào</h4>";
+                                }?>
                             </tbody>
                         </table>
 

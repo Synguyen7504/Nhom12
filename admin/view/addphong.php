@@ -26,7 +26,7 @@
 </style>
 <div class="header" style="margin-left: 50px;">
 
-    <h4 class="title">Thêm Phòng/h4>
+    <h4 class="title">Thêm Phòng</h4>
         <p class="category"> </p>
         <button type="button" style="border: 0px solid black; padding: 9px; border-radius: 3px; background-color: #ffaa34; " onmouseover="this.style.backgroundColor='#ee9820'" onmouseout="this.style.backgroundColor='#ffaa34'"><a style=" color: white; font-weight: 550;" href="./index.php?act=user">Quay lại</a></button>
 </div>

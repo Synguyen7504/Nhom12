@@ -1,5 +1,5 @@
 <div class="content" style="margin-bottom: 155px;">
-    <h2 style="margin-left: 20px; margin-bottom: 30px; margin-top: -10px;">Quản lý phòng</h2>
+    <h2 style="margin-left: 20px; margin-bottom: 30px; margin-top: -10px;">Quản đơn hàng</h2>
     <form action="index.php?act=donhang" method="post" style="margin-left: 15px; margin-bottom: 20px;">
         <label for="" style="font-weight: 600;">Tìm kiếm theo mã:</label> <br>
         <input type="text" name="loc" style="height: 30px; border: 0.5px solid gray; border-radius: 3px;" placeholder="search" required>
